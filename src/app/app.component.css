@@ -57,6 +57,7 @@
   float: right;
   position: relative;
 
+
 }
 
 .userMenu:hover > .dropDownMenu {
@@ -122,14 +123,14 @@
 .logo {
   display: inline-block;
   float: left;
-  width: 150px;
+  width: 120px;
   height: 70px;
 
 }
 
 .menu-main {
+  margin-left: 50px;
   list-style: none;
-  margin: 0;
   padding: 0;
 
 }
@@ -199,10 +200,6 @@
   }
 }
 
-/*.btn-default {*/
-  /*width: 200px;*/
-  /*margin: 5px;*/
-/*}*/
 
 .menu2 a:hover {
   color: rgba(158, 161, 164, 0.91);
@@ -219,53 +216,22 @@
   background: red;
 }
 
-.back {
-  display: block;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 200px;
-  border-radius: 60%;
-  background: rgba(150, 150, 150, 0.48);
-
-}
-
-.back:hover {
-  background: rgba(0, 180, 165, 0.56);
-}
-
-.next {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  left: 95%;
-  top: 200px;
-  border-radius: 60%;
-  background: rgba(150, 150, 150, 0.48);
-}
-
-.next:hover {
-  background: rgba(0, 180, 165, 0.56);
-}
 
 .content1 {
   width: 35%;
-  height: 500px;
   background: #555555;
-  display: inline-block;
-  border: 1px solid black;
+  border: 1px solid whitesmoke;
+  border-top-left-radius: 20px;
 }
 
 .content2 {
-  display: inline-block;
+  border-top-right-radius: 20px;
   width: 65%;
-  height: 500px;
-  background: #555555;
-  border: 1px solid black;
+  background: rgba(37,40,37,0.91);
+  border: 1px solid whitesmoke;
 }
 
 .content__a {
-  height: 250px;
   width: 40%;
   background: #EEEEEE;
   margin: 50px 5px;
@@ -273,7 +239,7 @@
 
 .menu2  a {
   font-style: italic;
-  margin: 3px;
+  margin: 5px;
   border: 1px solid #333;
   color: black;
   height: 30px;
@@ -290,12 +256,16 @@
   color: whitesmoke;
 }
 
-.films__rec{
+.films__rec1{
   background: rgba(148,148,148,0.91);
   width: 50%;
   height: 250px;
   padding: 0;
-  margin: 30px 5px;
+  margin: 15px 5px;
+}
+
+.films__rec2{
+  margin-top: 20px;
 }
 
 .films__rec:hover{
