@@ -199,10 +199,10 @@
   }
 }
 
-.btn-default {
-  width: 200px;
-  margin: 5px;
-}
+/*.btn-default {*/
+  /*width: 200px;*/
+  /*margin: 5px;*/
+/*}*/
 
 .menu2 a:hover {
   color: rgba(158, 161, 164, 0.91);
@@ -248,18 +248,62 @@
   background: rgba(0, 180, 165, 0.56);
 }
 
-.content1{
+.content1 {
   width: 35%;
   height: 500px;
   background: #555555;
   display: inline-block;
   border: 1px solid black;
 }
-.content2{
+
+.content2 {
   display: inline-block;
   width: 65%;
   height: 500px;
   background: #555555;
   border: 1px solid black;
+}
+
+.content__a {
+  height: 250px;
+  width: 40%;
+  background: #EEEEEE;
+  margin: 50px 5px;
+}
+
+.menu2  a {
+  font-style: italic;
+  margin: 3px;
+  border: 1px solid #333;
+  color: black;
+  height: 30px;
+  width: 33.3%;
+  background: rgba(148,148,148,0.91);
+  list-style-type: none;
+  text-align: center;
+  text-decoration: none;
+  opacity: 0.9;
+}
+.menu2 > a:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  background: rgba(210,210,210,0.91);
+  color: whitesmoke;
+}
+
+.films__rec{
+  background: rgba(148,148,148,0.91);
+  width: 50%;
+  height: 250px;
+  padding: 0;
+  margin: 30px 5px;
+}
+
+.films__rec:hover{
+  background: rgba(210,210,210,0.91);
+}
+
+.content1 span{
+  text-decoration: none;
+  color: black;
 }
 
