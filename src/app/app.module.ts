@@ -6,17 +6,20 @@ import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import { UserpageComponent } from './userpage/userpage.component';
+import {FilmComponent} from './film/film.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'userpage', component: UserpageComponent}
-];
+  {path: 'userpage', component: UserpageComponent},
+  {path: 'film', component: FilmComponent}
+  ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    UserpageComponent
+    UserpageComponent,
+    FilmComponent
   ],
   imports: [
     BrowserModule,
