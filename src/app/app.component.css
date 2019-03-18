@@ -129,7 +129,7 @@
 }
 
 .logo:hover{
-  opacity: 0.9;
+  opacity: 0.8;
   transition: 0.5s;
 }
 
@@ -300,5 +300,14 @@
 .sorted__a:hover{
   background: rgba(173,177,173,0.91);
   text-decoration: none;
+}
+
+.film__label{
+  color: white;
+}
+
+.film__label:hover{
+  text-decoration: none;
+  color: brown;
 }
 
