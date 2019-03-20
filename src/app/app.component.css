@@ -295,6 +295,7 @@
   background: rgba(62,66,62,0.91);
   color: white;
   border-radius: 20px;
+  position: relative;
 }
 
 .sorted__a:hover{

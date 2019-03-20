@@ -11,6 +11,7 @@ import { NewsComponent } from './news/news.component';
 import { AboutComponent } from './about/about.component';
 import { SupportComponent } from './support/support.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AddfilmComponent } from './addfilm/addfilm.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'news', component: NewsComponent},
   {path: 'about', component: AboutComponent},
   {path: 'support', component: SupportComponent},
-  {path: 'contacts', component: ContactsComponent}
+  {path: 'contacts', component: ContactsComponent},
+  {path: 'addfilm', component: AddfilmComponent}
   ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const routes: Routes = [
     NewsComponent,
     AboutComponent,
     SupportComponent,
-    ContactsComponent
+    ContactsComponent,
+    AddfilmComponent
   ],
   imports: [
     BrowserModule,
