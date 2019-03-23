@@ -1,3 +1,40 @@
+<!--<form (ngSubmit)="sendForm()">-->
+  <!--<input type="text" name="name"-->
+  <!--[(ngModel)]="film.name">-->
+  <!--<input type="text" name="aboutFilm"-->
+  <!--[(ngModel)]="film.aboutFilm">-->
+  <!--<input type="text" name="year"-->
+  <!--[(ngModel)]="film.year">-->
+  <!--<input type="text" name="country"-->
+  <!--[(ngModel)]="film.country">-->
+  <!--<input type="text" name="quality"-->
+  <!--[(ngModel)]="film.quality">-->
+  <!--<input type="file" name="picture"-->
+  <!--[(ngModel)]="film.picture">-->
+  <!--<button>Send</button>-->
+<!--</form>-->
+
+<form #form="ngForm" (ngSubmit)="sendForm(form)">
+  <label>
+    <input type="text" ngModel name="name">
+  </label>
+  <label>
+    <input type="text" ngModel name="aboutFilm">
+  </label>
+  <label>
+    <input type="text" ngModel name="year">
+  </label>
+  <label>
+    <input type="text" ngModel name="country">
+  </label>
+  <label>
+    <input type="text" ngModel name="quality">
+  </label>
+  <!--<input type="file" ngModel="" name="picture">-->
+  <input type="submit">
+</form>
+
+
 <section>
   <div class="container" style="box-shadow: 3px 0 7px rgba(0, 0, 0, .3);">
     <div class="row">
@@ -34,27 +71,21 @@
               переглядів</a>
           </div>
         </div>
-        <div class="container" style="border-bottom: 1px solid #404040; ">
+        <div *ngFor="let f of films" class="container" style="border-bottom: 1px solid #404040; ">
           <div class="row">
             <div class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
-              <a class="film__label" routerLink="film"><h4 style="margin-top: 15px"></h4></a>
-              <a class="films__rec2" href="#"><img style="width: 100%; height: 400px;" src="assets/films2_rec.jpg"
+              <a class="film__label" routerLink="film"><h4 style="margin-top: 15px">{{f.name}}</h4></a>
+              <a class="films__rec2" href="#"><img style="width: 100%; height: 400px;" src="{{f.picture}}"
                                                    alt=""></a>
-              <div style="text-align: left"> <a style="margin: 30px auto 30px 0; width: 100px" class="btn btn-secondary" href="">Дивитись</a>
+              <div style="text-align: left"><a style="margin: 30px auto 30px 0; width: 100px" class="btn btn-secondary"
+                                               href="">Дивитись</a>
                 <a style="margin: 30px auto 30px 5px; width: 100px" class="btn btn-secondary" href="">Трейлер</a></div>
             </div>
             <div class="col-lg-6" style="color: rgba(147,151,147,0.91); margin-top: 55px;"><p>
-              <span style="font-weight: 900">Год выпуска:</span> 2011 <br>
-              Страна: США <br>
-              Качество: HD 720p <br>
-              Перевод: Дублированный <br>
-              Продолжительность: 02:04 <br>
-              Премьера (Украина): <span style="color: brown">28 июля 2011</span> <br>
-              Жанр: фантастика, боевик, приключения <br><br><br>
-              События фильма «Первый мститель» разворачиваются во время Второй мировой войны. Стивен Роджерс — настоящий
-              патриот, который рвётся на фронт. Молодой человек уже предпринял несколько попыток, но каждый раз получал
-              отказ из-за очень слабого здоровья. Тем не менее герой не сдаётся. Узнав о том, что его лучший друг Баки
-              Барнс на днях отбывает в самое пекло, Стив предпринял очередную попытку и обманул медицинскую комиссию.
+              <span style="font-weight: 900">Год выпуска:</span>{{f.year}}<br>
+              Страна: {{f.country}} <br>
+              Качество: {{f.quality}} <br>
+              {{f.aboutFilm}}<br>
             </p></div>
           </div>
         </div>

@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { SupportComponent } from './support/support.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,7 +41,8 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
