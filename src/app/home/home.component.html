@@ -63,7 +63,7 @@
               переглядів</a>
           </div>
         </div>
-        <div *ngFor="let f of films" class="container" style="border-bottom: 1px solid #404040; ">
+        <div *ngFor="let f of partFilms" class="container" style="border-bottom: 1px solid #404040; ">
           <div class="row">
             <div class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
               <a class="film__label" routerLink="film"><h4 style="margin-top: 15px">{{f.name}}</h4></a>
@@ -82,6 +82,7 @@
           </div>
         </div>
       </div>
+      <ngb-pagination  style="margin: 0 auto" class="justify-content-center" [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [pageSize]="maxSize" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange($event)"></ngb-pagination>
     </div>
   </div>
-</section>
+  </section>

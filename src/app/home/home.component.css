@@ -310,4 +310,13 @@
   text-decoration: none;
   color: brown;
 }
+/*!!!!!!!!!!!pagination!!!!!!!!!!!*/
+ngb-pagination ::ng-deep ul > li:not(.active) > a {
+  background-color: #474945 !important;
+  color: white;
+}
 
+ngb-pagination ::ng-deep ul > li.active > a {
+  background-color: #000000 !important;
+
+}

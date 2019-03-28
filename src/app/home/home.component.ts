@@ -10,12 +10,15 @@ import {NgForm} from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   films: Films [] = [];
-
+  partFilms: Films[] = [];
+  public page = 1;
+  public collectionSize: number;
+  public maxSize = 2;
   title = 'slider';
-  el = document.getElementsByClassName('slid')
+  el = document.getElementsByClassName('slid');
 
   count = 0;
-  images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg']
+  images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
 
   constructor(private filmsS: FilmService) {
@@ -41,7 +44,18 @@ export class HomeComponent implements OnInit {
     setInterval(() => this.next(), 5000);
     this.filmsS.getFilms().subscribe((res) => {
       this.films = res;
+      this.collectionSize = this.films.length;
+      this.partFilms = this.films.slice(0, this.maxSize);
     });
+  }
+  onPageChange(p: number) {
+    if ( p === 1) {
+      this.partFilms = this.films.slice(0, this.maxSize);
+    } else {
+      const first = Number(this.maxSize) * Number(p) - Number(this.maxSize);
+      const last = Number(this.maxSize) * Number(p);
+      this.partFilms = this.films.slice(first, last );
+    }
   }
 
 }
