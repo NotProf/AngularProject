@@ -11,12 +11,12 @@
 .imgFilm{
   width: 25%;
   height: 350px;
-  background: blue;
+
   display: inline-block;
   margin-right: 5px;
   float: left;
   margin-left: 2%;
-  border: 1px solid blue ;
+
 }
 .descFilm{
 
@@ -50,7 +50,7 @@
   width: 22%;
   height: 100px;
   display: inline-block;
-  border: 1px solid blue;
+
   margin-left: 2%;
 }
 
@@ -66,12 +66,19 @@
   width: 25%;
   height: 100px;
   display: inline-block;
-  border: 1px solid blue;
-  background: yellow;
+
+}
+
+.sound{
+  width: 100%;
+}
+.btnSound{
+  margin: 0 auto;
+  margin-left: 42%;
 }
 .play{
   width: 95%;
-  height: 250px;
-  border: 1px solid blue;
+  height: 350px;
+  border: 1px solid red;
   margin: 0 auto;
 }
