@@ -16,7 +16,11 @@ export class FilmService {
   getFilms(): Observable<Films[]> {
     return this.http.get<Films[]>(this.url);
   }
-  addFilm(film: Films): Observable<Films>{
+  addFilm(film: Films): Observable<Films> {
     return this.http.post<Films>('http://localhost:8080/addfilm', film);
   }
+  delFilm(film: number): Observable<Films[]> {
+    return this.http.post<Films[]>('http://localhost:8080/delfilm', film);
+  }
+
 }
