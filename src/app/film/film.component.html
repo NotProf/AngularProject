@@ -15,7 +15,7 @@
       <div class="shortinf"><b>Duration:</b> <p ></p></div>
     </div>
   </div>
-  <a href="/" class="btnt">Trailer</a>
+  <a href="/"  style="margin-left: 10%; width: 100px" class="btn btn-secondary">Trailer</a>
   <div class="roles">
     <div class="rol"><div class="rolImg"><img src="assets\a1.jpg" alt="" width="100%" height="90%"></div>Christian Bale</div>
     <div class="rol"><div class="rolImg"><img src="assets\a2.jpg" alt="" width="100%" height="90%"></div>Heath Ledger</div>
@@ -31,12 +31,16 @@
   <div class="play">
     <video src="">Video</video></div>
 
-  <div class="Sound">
-    <h2 style="margin-left: 40%">Soundtracks</h2>
-    <hr>
-  </div>
 
+
+
+<div class="Sound">
+  <h2 style="margin-left: 40%">Soundtracks</h2>
+  <a routerLink="sound" class="btn btn-secondary btnSound">Soundtracks ▼</a>
+  <hr>
+  <router-outlet></router-outlet>
 </div>
 
+</div>
 
 
