@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
       const last = Number(this.maxSize) * Number(p);
       this.partFilms = this.films.slice(first, last );
     }
+
   }
 
 }

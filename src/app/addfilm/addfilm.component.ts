@@ -12,7 +12,7 @@ import {HttpClient} from '@angular/common/http';
 export class AddfilmComponent implements OnInit {
   films: Films [] = [];
   selectedFile: File = null;
-  imageUrl: string [] = [];
+  userHome = 'E:\\OKTENPROJ\\src\\assets\\';
   counter = 1;
 
   constructor(private filmsS: FilmService) {
@@ -23,12 +23,23 @@ export class AddfilmComponent implements OnInit {
       this.films = res;
       this.counter = this.films[this.films.length - 1].id + 1 ;
       console.log(this.counter);
-      });
+    });
+  }
+  handleFileInput(file: FileList) {
+    this.selectedFile = file.item(0);
+
   }
 
   sendForm(form: NgForm) {
     const film: Films = form.value;
-    this.filmsS.addFilm(film).subscribe((newFilm) => {
+    const fd: FormData = new FormData();
+    fd.append('picture', this.selectedFile);
+    fd.append('name', film.name);
+    fd.append('aboutFilm', film.aboutFilm);
+    fd.append('country', film.country);
+    fd.append('quality', film.quality);
+    fd.append('year', film.year);
+    this.filmsS.addFilm(fd).subscribe((newFilm) => {
       this.films.push(newFilm);
       });
   }
@@ -39,13 +50,6 @@ export class AddfilmComponent implements OnInit {
     });
   }
 
-  handleFileInput(file: FileList) {
-    this.selectedFile = file.item(0);
-    const reader = new FileReader();
-    reader.onload = (event: any) => {
-      this.imageUrl[this.counter] = event.target.result;
-      this.counter++;
-    };
-    reader.readAsDataURL(this.selectedFile);
-  }
+  
 }
+
