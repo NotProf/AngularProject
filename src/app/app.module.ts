@@ -13,6 +13,7 @@ import { SupportComponent } from './support/support.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'support', component: SupportComponent},
   {path: 'contacts', component: ContactsComponent},
-  {path: 'addfilm', component: AddfilmComponent}
+  {path: 'addfilm', component: AddfilmComponent},
+  {path: 'login', component: LoginComponent}
   ];
 
 @NgModule({
@@ -35,7 +37,8 @@ const routes: Routes = [
     AboutComponent,
     SupportComponent,
     ContactsComponent,
-    AddfilmComponent
+    AddfilmComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
