@@ -10,7 +10,6 @@ import {User} from '../../models/User';
 })
 export class LoginComponent implements OnInit {
 
-  headers = new HttpHeaders({'Acces-Control-Allow-Origin': ':'});
 
   constructor(private http: HttpClient) {
   }
@@ -18,19 +17,26 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  // login(form: NgForm) {
-  //   const user: User = form.value;
-  //   this.http.post('http://localhost:8080/login', JSON.stringify({
-  //     username: user.username,
-  //     password: user.password
-  //   }), {observe: 'response'}).subscribe(value => console.log(value));
-  //   console.log(form.value);
-  // }
 
   login(form: NgForm) {
     console.log(form.value);
     this.http.post('http://localhost:8080/login', form.value,
       {observe: 'response'})
-      .subscribe(value => console.log(value));
+      .subscribe(value => {
+        const token = value.headers.get('Authorization');
+        localStorage.setItem('_token', token);
+        console.log(value);
+      });
+  }
+
+  getInfo() {
+    const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
+    // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
+    this.http.get('http://localhost:8080/get', {headers: headersOption, responseType: 'text'}).subscribe(value => console.log(value));
+  }
+
+
+  logout() {
+    localStorage.removeItem('_token');
   }
 }

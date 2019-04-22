@@ -14,6 +14,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { RegComponent } from './reg/reg.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'support', component: SupportComponent},
   {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'reg', component: RegComponent}
   ];
 
 @NgModule({
@@ -38,7 +40,8 @@ const routes: Routes = [
     SupportComponent,
     ContactsComponent,
     AddfilmComponent,
-    LoginComponent
+    LoginComponent,
+    RegComponent
   ],
   imports: [
     BrowserModule,
