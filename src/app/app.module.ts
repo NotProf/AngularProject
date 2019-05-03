@@ -15,6 +15,8 @@ import { AddfilmComponent } from './addfilm/addfilm.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegComponent } from './reg/reg.component';
+import { UserAuthDirective } from './user-auth.directive';
+import { NoAuthUserDirective } from './no-auth-user.directive';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -41,7 +43,9 @@ const routes: Routes = [
     ContactsComponent,
     AddfilmComponent,
     LoginComponent,
-    RegComponent
+    RegComponent,
+    UserAuthDirective,
+    NoAuthUserDirective
   ],
   imports: [
     BrowserModule,

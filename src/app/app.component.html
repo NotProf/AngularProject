@@ -4,16 +4,17 @@
       <a routerLink="">
         <div class="logo"><img src="assets/logo.png" alt="" width="100%" height="100%" style="border-radius: 50%"></div>
       </a>
-      <div class="userMenu">
+      <div appUserAuth class="userMenu">
         <img src="assets/user .png" alt="" class="imgUser">
         <ul class="dropDownMenu">
           <li class="liMenu"><a routerLink="userpage">My Page</a></li>
           <li class="liMenu"><a href="#">Friends</a></li>
           <li class="liMenu"><a href="#">Playlist</a></li>
           <li class="liMenu"><a href="#">Settings</a></li>
-          <li class="liMenu"><a href="#">Log Out</a></li>
+          <li class="liMenu"><a href="/" (click)="logout()">Log Out</a></li>
         </ul>
       </div>
+      <div appNoAuthUser  class="userMenu"><a class="login" routerLink="login">Login</a></div>
       <form action="" method="get" class="search">
         <input type="search" name="" placeholder="Search" class="input"/>
         <input type="submit" name="" value="" class="submit"/>
@@ -25,7 +26,6 @@
 
         <li><a routerLink="contacts">Contact</a></li>
         <li><a routerLink="addfilm">Add Film</a></li>
-        <li><a routerLink="login">Login</a></li>
         <li><a routerLink="reg">Registration</a></li>
       </ul>
     </nav>

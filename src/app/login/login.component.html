@@ -1,7 +1,7 @@
 <form #form = "ngForm">
   <input ngModel name="username" type="text">
   <input ngModel name="password" type="text">
-  <button (click)="login(form)">login</button>
+  <a style="color: white" href="/login" (click)="login(form)">Login</a>
   <button (click)="getInfo()">Get</button>
   <button (click)="logout()">Logout</button>
 </form>
