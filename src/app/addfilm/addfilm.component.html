@@ -74,7 +74,7 @@
           <div class="row">
             <div  class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
               <a class="film__label" routerLink="film"><h4 style="margin-top: 15px">{{f.name}}</h4></a>
-              <a  class="films__rec2" href="#"><img src="E:\OKTENPROJ\src\assets\a1.jpg"  style="width: 100%; height: 400px;"></a>
+              <a  class="films__rec2" href="#"><img [src]="f.picture" style="width: 100%; height: 400px;"></a>
               <div style="text-align: left"><a style="margin: 30px auto 30px 0; width: 100px" class="btn btn-secondary"
                                                href="">Дивитись</a>
                 <a style="margin: 30px auto 30px 5px; width: 100px" class="btn btn-secondary" href="">Трейлер</a>

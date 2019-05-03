@@ -14,16 +14,26 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { SoundTrackComponent } from './sound-track/sound-track.component';
+import {LoginComponent} from "./login/login.component";
+import {RegComponent} from "./reg/reg.component";
+import { DescriptionOfFComponent } from './description-of-f/description-of-f.component';
+import { ScreenshotsComponent } from './screenshots/screenshots.component';
+import { StarringComponent } from './starring/starring.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'userpage', component: UserpageComponent},
-  {path: 'film', component: FilmComponent, children: [{ path: 'sound', component: SoundTrackComponent}]},
+  {path: 'film/:id', component: FilmComponent, children: [{ path: 'sound', component: SoundTrackComponent},
+      {path: 'description', component: DescriptionOfFComponent},
+      {path: 'screenshots' , component: ScreenshotsComponent},
+      {path: 'starring', component: StarringComponent}]},
   {path: 'news', component: NewsComponent},
   {path: 'about', component: AboutComponent},
   {path: 'support', component: SupportComponent},
   {path: 'contacts', component: ContactsComponent},
-  {path: 'addfilm', component: AddfilmComponent}
+  {path: 'addfilm', component: AddfilmComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'reg', component: RegComponent}
   ];
 
 @NgModule({
@@ -37,7 +47,12 @@ const routes: Routes = [
     SupportComponent,
     ContactsComponent,
     AddfilmComponent,
-    SoundTrackComponent
+    SoundTrackComponent,
+    LoginComponent,
+    RegComponent,
+    DescriptionOfFComponent,
+    ScreenshotsComponent,
+    StarringComponent
   ],
   imports: [
     BrowserModule,

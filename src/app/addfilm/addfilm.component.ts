@@ -49,7 +49,5 @@ export class AddfilmComponent implements OnInit {
       this.films = res;
     });
   }
-
-  
 }
 

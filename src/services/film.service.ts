@@ -22,5 +22,8 @@ export class FilmService {
   delFilm(film: number): Observable<Films[]> {
     return this.http.post<Films[]>('http://localhost:8080/delfilm', film);
   }
+  getFilmById(id: number): Observable<Films> {
+    return this.http.post<Films>('http://localhost:8080/getbyid', id);
+  }
 
 }
