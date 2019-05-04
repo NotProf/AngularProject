@@ -25,5 +25,4 @@ export class FilmService {
   getFilmById(id: number): Observable<Films> {
     return this.http.post<Films>('http://localhost:8080/getbyid', id);
   }
-
 }

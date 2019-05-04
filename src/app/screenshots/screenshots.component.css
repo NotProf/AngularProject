@@ -1,0 +1,11 @@
+.frames{
+  width: 100%;
+  height: 100px;
+  margin-bottom: 2%;
+}
+.frimg{
+  width: 25%;
+  height: 100px;
+  display: inline-block;
+
+}

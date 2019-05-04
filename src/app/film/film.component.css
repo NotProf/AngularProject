@@ -61,6 +61,7 @@ ul {
 li {
   display: inline;
   float: left;
+  width: 25%;
 }
 
 li a {

@@ -12,19 +12,22 @@ import {Films} from "../../models/Films";
 export class FilmComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
  currentF = 0;
- film: Films;
- constructor(private actevateRoute: ActivatedRoute, private filmService: FilmService) {}
+  public film: Films = new Films();
+ constructor(private actevateRoute: ActivatedRoute, private filmService: FilmService ) {}
   ngOnInit() {
-   this.actevateRoute.params.subscribe((param) => {
-     this.currentF = Number(param.id);
-     console.log(this.currentF);
-   });
-   this.filmService.getFilmById(this.currentF).subscribe(value => {
-     this.film = value;
-     console.log(this.film);
-   });
+    this.actevateRoute.params.subscribe((param) => {
+      this.currentF = Number(param.id);
+      console.log(this.currentF);
+    });
+    this.filmService.getFilmById(this.currentF).subscribe(res => {
+      console.log(res);
+      this.film = res;
+    });
   }
   toggleVideo() {
     this.videoplayer.nativeElement.play();
+  }
+  getThisMovie(): Films {
+   return this.film;
   }
 }
