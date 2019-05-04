@@ -3,12 +3,12 @@
 
   <div class="play">
     <video controls (click)="toggleVideo()" #videoPlayer width="100%" height="100%">
-      <source src="assets\GT.mp4" type="video/mp4" />
+      <source [src]="film.movie" type="video/mp4" />
       Browser not supported
     </video>
   </div>
 
-
+ <b>{{film.movie}}</b>
 
   <div class="Sound">
     <!--<h2 style="margin-left: 40%">Soundtracks</h2>-->

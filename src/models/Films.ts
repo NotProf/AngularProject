@@ -8,6 +8,7 @@ export class Films {
     public country: string = ' ',
     public quality: string = ' ',
     public  picture: string = ' ',
+    public  movie: string = ' ',
   ) {
   }
 

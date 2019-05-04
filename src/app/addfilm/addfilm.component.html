@@ -30,6 +30,7 @@
     <input type="text" ngModel name="quality">
   </label>
   <input  type="file"  name="picture" (change)="handleFileInput($event.target.files)">
+  <input  type="file"  name="picture" (change)="handleVideoInput($event.target.files)">
   <input type="submit">
 </form>
 

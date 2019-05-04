@@ -12,6 +12,7 @@ import {HttpClient} from '@angular/common/http';
 export class AddfilmComponent implements OnInit {
   films: Films [] = [];
   selectedFile: File = null;
+  selectedVideo: File = null;
   userHome = 'E:\\OKTENPROJ\\src\\assets\\';
   counter = 1;
 
@@ -27,13 +28,17 @@ export class AddfilmComponent implements OnInit {
   }
   handleFileInput(file: FileList) {
     this.selectedFile = file.item(0);
-
+  }
+  handleVideoInput(file: FileList) {
+    this.selectedVideo = file.item(0);
+    console.log(this.selectedVideo);
   }
 
   sendForm(form: NgForm) {
     const film: Films = form.value;
     const fd: FormData = new FormData();
     fd.append('picture', this.selectedFile);
+    fd.append('movie', this.selectedVideo);
     fd.append('name', film.name);
     fd.append('aboutFilm', film.aboutFilm);
     fd.append('country', film.country);
