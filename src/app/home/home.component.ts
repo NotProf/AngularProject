@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
+import {nativeInsertBefore} from "@angular/core/src/render3/node_manipulation";
 
 @Component({
   selector: 'app-home',
@@ -33,11 +34,15 @@ export class HomeComponent implements OnInit {
     this.filmsS.getFilms().subscribe((res) => {
       this.films = res;
       this.collectionSize = this.films.length;
-      this.partFilms = this.films.slice(0, this.maxSize);
+      this.films = this.films.reverse();
+      this.partFilms = this.films.slice(0, this.maxSize).reverse();
     });
 
   }
   onPageChange(p: number) {
+    const url = location.href;
+    location.href = '#up';
+    history.replaceState(null, null, url);
     if ( p === 1) {
       this.partFilms = this.films.slice(0, this.maxSize);
     } else {

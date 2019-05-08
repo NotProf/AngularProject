@@ -47,6 +47,7 @@ export class AddfilmComponent implements OnInit {
     this.filmsS.addFilm(fd).subscribe((newFilm) => {
       this.films.push(newFilm);
       });
+    form.onReset();
   }
 
   deleteOne(id: number) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FilmComponent} from '../film/film.component';
-import {Films} from "../../models/Films";
+import {Films} from '../../models/Films';
+import {FilmService} from '../../services/film.service';
 
 @Component({
   selector: 'app-description-of-f',
@@ -8,10 +9,16 @@ import {Films} from "../../models/Films";
   styleUrls: ['./description-of-f.component.css']
 })
 export class DescriptionOfFComponent implements OnInit {
-currentFilm: Films = null;
-  constructor(private filmComponent: FilmComponent ) { }
+currentFilm: Films = new Films();
+page = 0;
+  constructor(private filmService: FilmService, private filmComponent: FilmComponent) { }
 
   ngOnInit() {
-    this.currentFilm = this.filmComponent.getThisMovie();
+    this.page = this.filmComponent.getThisPage();
+    console.log(this.page);
+    this.filmService.getFilmById(this.filmComponent.getThisPage()).subscribe(res => {
+      console.log(res);
+      this.currentFilm = res;
+    });
   }
 }
