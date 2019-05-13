@@ -3,6 +3,7 @@ import {FilmService} from '../../services/film.service';
 import {Films} from '../../models/Films';
 import {NgForm} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {log} from "util";
 
 @Component({
   selector: 'app-addfilm',
@@ -15,7 +16,6 @@ export class AddfilmComponent implements OnInit {
   selectedVideo: File = null;
   userHome = 'E:\\OKTENPROJ\\src\\assets\\';
   counter = 1;
-
   constructor(private filmsS: FilmService) {
     }
 
@@ -28,6 +28,7 @@ export class AddfilmComponent implements OnInit {
   }
   handleFileInput(file: FileList) {
     this.selectedFile = file.item(0);
+    console.log('!');
   }
   handleVideoInput(file: FileList) {
     this.selectedVideo = file.item(0);
@@ -44,6 +45,7 @@ export class AddfilmComponent implements OnInit {
     fd.append('country', film.country);
     fd.append('quality', film.quality);
     fd.append('year', film.year);
+    fd.append('genre', film.genre.toString());
     this.filmsS.addFilm(fd).subscribe((newFilm) => {
       this.films.push(newFilm);
       });
@@ -55,5 +57,11 @@ export class AddfilmComponent implements OnInit {
       this.films = res;
     });
   }
+
+  Test(forms: NgForm) {
+    console.log(forms.value);
+
+  }
+
 }
 

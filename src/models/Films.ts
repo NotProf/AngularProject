@@ -9,6 +9,7 @@ export class Films {
     public quality: string = ' ',
     public  picture: string = ' ',
     public  movie: string = ' ',
+    public  genre: string [] = []
   ) {
   }
 

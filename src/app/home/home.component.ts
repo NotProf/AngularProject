@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
-import {nativeInsertBefore} from "@angular/core/src/render3/node_manipulation";
+
 
 @Component({
   selector: 'app-home',
@@ -53,4 +53,28 @@ export class HomeComponent implements OnInit {
 
   }
 
+  SearchBy(genre: string) {
+    console.log(genre);
+    this.filmsS.findByGenre(genre).subscribe((res) => {
+      this.films = res;
+      this.page = 1;
+      this.onPageChange(1);
+    });
+  }
+
+  sortByYeaer() {
+    this.page = 1;
+    this.films.sort(this.compare);
+    this.onPageChange(this.page);
+  }
+
+ compare(first, second) {
+  if (first.year < second.year) {
+    return -1;
+  }
+  if (first.year > second.year) {
+    return 1;
+  }
+  return 0;
+}
 }

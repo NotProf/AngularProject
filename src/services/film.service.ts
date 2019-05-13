@@ -25,4 +25,7 @@ export class FilmService {
   getFilmById(id: number): Observable<Films> {
     return this.http.post<Films>('http://localhost:8080/getbyid', id);
   }
+  findByGenre(genre: string): Observable<Films[]> {
+    return this.http.post<Films[]>('http://localhost:8080/findByGenre', genre);
+  }
 }
