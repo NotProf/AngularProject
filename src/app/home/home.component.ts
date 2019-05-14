@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
       this.films = res;
       this.collectionSize = this.films.length;
       this.films = this.films.reverse();
-      this.partFilms = this.films.slice(0, this.maxSize).reverse();
+      this.onPageChange(1);
     });
 
   }
@@ -70,10 +70,10 @@ export class HomeComponent implements OnInit {
 
  compare(first, second) {
   if (first.year < second.year) {
-    return -1;
+    return 1;
   }
   if (first.year > second.year) {
-    return 1;
+    return -1;
   }
   return 0;
 }
