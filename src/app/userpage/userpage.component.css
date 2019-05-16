@@ -1,0 +1,14 @@
+.underAvatar {
+  position: relative;
+}
+
+.dropUnderAvatar {
+  display: none;
+  background: rgba(248, 248, 248, 0.92);
+  position: absolute;
+  width: 300px;
+}
+
+.underAvatar:hover>.dropUnderAvatar{
+  display: block;
+}
