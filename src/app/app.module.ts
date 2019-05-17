@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { RegComponent } from './reg/reg.component';
 import { UserAuthDirective } from './user-auth.directive';
 import { NoAuthUserDirective } from './no-auth-user.directive';
+import { UserfilmsComponent } from './userfilms/userfilms.component';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +30,8 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'reg', component: RegComponent}
+  {path: 'reg', component: RegComponent},
+  {path: 'userfilms', component: UserfilmsComponent}
   ];
 
 @NgModule({
@@ -45,7 +48,8 @@ const routes: Routes = [
     LoginComponent,
     RegComponent,
     UserAuthDirective,
-    NoAuthUserDirective
+    NoAuthUserDirective,
+    UserfilmsComponent
   ],
   imports: [
     BrowserModule,
