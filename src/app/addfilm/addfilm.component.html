@@ -13,6 +13,7 @@
   <!--[(ngModel)]="film.picture">-->
   <!--<button>Send</button>-->
 <!--</form>-->
+<div style="text-align: center">
 <form #form="ngForm" (ngSubmit)="sendForm(form)">
   <label>
     <input type="text" ngModel name="name">
@@ -32,8 +33,7 @@
   <input  type="file" accept="image/*" ngModel="" name="picture" (change)="handleFileInput($event.target.files)">
   <input type="submit">
 </form>
-
-
+</div>
 <section>
   <div class="container" style="box-shadow: 3px 0 7px rgba(0, 0, 0, .3);">
     <div class="row">

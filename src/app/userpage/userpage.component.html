@@ -13,9 +13,11 @@
       <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
       <ul class="dropUnderAvatar">
         <li><a routerLink="">My friends</a></li>
-        <li><a routerLink="/userfilms">My films</a></li>
+        <li><a routerLink="">My films</a></li>
       </ul>
     </div>
-    <div style="background: white; height: 500px; width: 75%; margin-left: 25%; margin-top: 0"></div>
+    <div style="background: white; height: 500px; width: 75%; margin-left: 25%; margin-top: 0">
+      <app-userfilms [allFilms]='films'></app-userfilms>
+    </div>
 
 
