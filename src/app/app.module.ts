@@ -13,17 +13,18 @@ import { SupportComponent } from './support/support.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { SoundTrackComponent } from './sound-track/sound-track.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'userpage', component: UserpageComponent},
-  {path: 'film', component: FilmComponent, children: [{ path: 'sound', component: SoundTrackComponent}]},
+  {path: 'film', component: FilmComponent},
   {path: 'news', component: NewsComponent},
   {path: 'about', component: AboutComponent},
   {path: 'support', component: SupportComponent},
   {path: 'contacts', component: ContactsComponent},
-  {path: 'addfilm', component: AddfilmComponent}
+  {path: 'addfilm', component: AddfilmComponent},
+  {path: 'login', component: LoginComponent}
   ];
 
 @NgModule({
@@ -37,7 +38,7 @@ const routes: Routes = [
     SupportComponent,
     ContactsComponent,
     AddfilmComponent,
-    SoundTrackComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
