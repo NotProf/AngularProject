@@ -1,73 +1,30 @@
+
 .Filmpage{
   width: 80%;
-  background: #a19c9c;
+  background: rgba(128, 132, 128, 0.92);
   display: inline-block;
   margin-left: 10%;
-}
-.FilmPart{
-  display: block;
-  margin-bottom: 2%;
-}
-.imgFilm{
-  width: 25%;
-  height: 350px;
-
-  display: inline-block;
-  margin-right: 5px;
-  float: left;
-  margin-left: 2%;
-
-}
-.descFilm{
-
-  width: 65%;
-  display: inline-block;
-
-}
-.roles{
-  width: 100%;
-  height: 100px;
-
-  margin-bottom: 2%;
+  margin-top: 3%;
+  border: 1px solid white;
+  border-radius: 5%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.frames{
-  width: 100%;
-  height: 100px;
 
-  margin-bottom: 2%;
-}
+
+
 .nameFilm{
-  margin-left: 40%;
+  margin-left:37%;
+  text-shadow: -1px -1px #000,
+  0 1px 0 #444;
+  color: #e4e4e4;
 }
 
-.shortinf{
 
-  width: 50%;
-}
 
-.rol{
-  width: 22%;
-  height: 100px;
-  display: inline-block;
 
-  margin-left: 2%;
-}
 
-.rolImg{
-  width: 35%;
-  height: 90%;
-  margin-top: 5%;
-  display: inline-block;
-  padding-right: 4%;
-}
 
-.frimg{
-  width: 25%;
-  height: 100px;
-  display: inline-block;
-
-}
 
 .sound{
   width: 100%;
@@ -77,8 +34,49 @@
   margin-left: 42%;
 }
 .play{
-  width: 95%;
-  height: 350px;
+  width: 90%;
+  height: 450px;
   border: 1px solid red;
   margin: 0 auto;
+}
+
+
+a {
+  display: block;
+  padding: 8px;
+  background-color: #545454;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /*background-color: #333;*/
+  display: inline-block;
+  width: 50%;
+  margin-top: 2%;
+  margin-left: 30%;
+}
+
+li {
+  display: inline;
+  float: left;
+  width: 25%;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 5%;
+
+}
+
+li a:hover {
+  background-color: #111;
+}
+.active {
+  background-color: #4CAF50;
 }

@@ -1,8 +1,20 @@
-<form #form = "ngForm">
-  <input ngModel name="username" type="text">
-  <input ngModel name="password" type="text">
-  <button (click)="login(form)">login</button>
-</form>
+<!--<form #form = "ngForm">-->
+  <!--<input ngModel name="username" type="text">-->
+  <!--<input ngModel name="password" type="text">-->
+  <!--<a style="color: white" href="/" (click)="login(form)">Login</a>-->
+  <!--<button (click)="getInfo()">Get</button>-->
+<!--</form>-->
 
-
+<div class="container" style="text-align: center">
+  <form #form ="ngForm"
+        style="color: rgba(2,0,1,0.57); height: 400px; width: 28%; margin: 100px auto 20px">
+    <div style="margin-top: 30px">
+      <h4 style="color: white">Логин:</h4><input maxlength="10" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 20px 0; border-radius: 20px" type="text"
+                                                 ngModel name="username"/>
+      <h4 style="color: white">Пароль:</h4><input maxlength="12" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 30px 0; border-radius: 20px" type="password"
+                                                  ngModel name="password"/>
+      <a href="/"(click)="login(form)" class="btn-secondary" style="width: 100px;padding: 5px 50px; height: 30px; border-radius: 20px">Sighn in</a>
+    </div>
+  </form>
+</div>
 

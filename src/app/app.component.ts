@@ -7,12 +7,13 @@ import {element} from 'protractor';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+  userAuth = false;
   title = 'slider';
-  el = document.getElementsByClassName('slid')
+  el = document.getElementsByClassName('slid');
 
   count = 0;
-  images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg']
+  images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
 
   next() {
@@ -34,6 +35,10 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     setInterval(() => this.next(), 5000);
 
+  }
+
+  logout() {
+    localStorage.removeItem('_token');
   }
 
 

@@ -1,3 +1,24 @@
-<p>
-  userpage works!
-</p>
+<div class="container-fluid">
+<div class="row">
+  <div style="text-align: center; border-radius: 50%; background: yellow; height: 200px" class="col-lg-3">Some avatar
+    <input type="file">
+  </div>
+  <div style="background: green; height: 200px; position: static" class="col-lg-9">Name, Surname, Age, Status
+  <button>Change data</button>
+  </div>
+</div>
+</div>
+
+    <div  style=" width: 1.5%" class="underAvatar">
+      <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
+      <ul class="dropUnderAvatar">
+        <li><a routerLink="usersfriends">My friends</a></li>
+        <li><a routerLink="userfilms">My films</a></li>
+        <li><a>Change avatar</a></li>
+      </ul>
+    </div>
+    <div style="background: white; height: 500px; width: 75%; margin-left: 25%; margin-top: 0">
+      <router-outlet></router-outlet>
+    </div>
+
+

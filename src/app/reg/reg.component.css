@@ -1,0 +1,9 @@
+
+input,
+textarea {
+  outline:none;
+}
+
+.inp:hover{
+  border: 2px solid #4e555b;
+}

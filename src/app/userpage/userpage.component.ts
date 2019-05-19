@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-userpage',
@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./userpage.component.css']
 })
 export class UserpageComponent implements OnInit {
-
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
   }

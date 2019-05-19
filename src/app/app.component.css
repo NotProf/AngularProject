@@ -162,6 +162,12 @@
   transition: .3s linear;
 }
 
+.login {
+  color: white;
+  text-decoration: none;
+  float: left;
+}
+
 .menu-main a:before {
   content: "";
   width: 9px;
