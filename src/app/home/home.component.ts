@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
+import {AppComponent} from '../app.component';
 
 
 @Component({
@@ -57,11 +58,11 @@ export class HomeComponent implements OnInit {
     console.log(genre);
     this.filmsS.findByGenre(genre).subscribe((res) => {
       this.films = res;
+      this.collectionSize = this.films.length;
       this.page = 1;
       this.onPageChange(1);
     });
   }
-
   sortByYeaer() {
     this.page = 1;
     this.films.sort(this.compare);
