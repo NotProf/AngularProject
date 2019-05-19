@@ -15,7 +15,7 @@ export class AddfilmComponent implements OnInit {
   imageUrl: string [] = [];
   counter = 1;
 
-  constructor(private filmsS: FilmService) {
+  constructor(private filmsS: FilmService, private http: HttpClient) {
     }
 
   ngOnInit(): void {
@@ -48,4 +48,5 @@ export class AddfilmComponent implements OnInit {
     };
     reader.readAsDataURL(this.selectedFile);
   }
+
 }
