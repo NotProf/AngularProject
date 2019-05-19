@@ -1,33 +1,14 @@
-body{
-  color: white;
+.underAvatar {
+  position: relative;
 }
 
-.img{
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  display: inline;
+.dropUnderAvatar {
+  display: none;
+  background: rgba(248, 248, 248, 0.92);
+  position: absolute;
+  width: 300px;
 }
-.nickName{
-  display: inline;
-  color: red;
-}
-.dispInLine {
-  display: inline;
-  color: blue;
-}
-.content{
-  display: inline-block;
-  height: 500px;
-  background: orangered;
 
-
-}
-.w-20{
-  width: 20%;
-}
-.information{
-  display: inline-block;
-  width: 20%;
-  background:red;
+.underAvatar:hover>.dropUnderAvatar{
+  display: block;
 }
