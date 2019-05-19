@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FilmService} from '../../services/film.service';
 import {Films} from '../../models/Films';
 import {NgForm} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
-import {log} from "util";
 
 @Component({
   selector: 'app-addfilm',
@@ -57,11 +55,5 @@ export class AddfilmComponent implements OnInit {
       this.films = res;
     });
   }
-
-  Test(forms: NgForm) {
-    console.log(forms.value);
-
-  }
-
 }
 

@@ -6,8 +6,6 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./userpage.component.css']
 })
 export class UserpageComponent implements OnInit {
-  public films = 'all users films';
-
   constructor() {
   }
 
