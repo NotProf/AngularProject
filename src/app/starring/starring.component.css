@@ -1,0 +1,21 @@
+.rol{
+  width: 22%;
+  height: 100px;
+  display: inline-block;
+
+  margin-left: 2%;
+}
+
+.rolImg{
+  width: 35%;
+  height: 90%;
+  margin-top: 5%;
+  display: inline-block;
+  padding-right: 4%;
+}
+.roles{
+  width: 100%;
+  height: 100px;
+
+  margin-bottom: 2%;
+}

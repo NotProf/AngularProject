@@ -1,42 +1,36 @@
 <div class="Filmpage">
-  <h2 class="nameFilm">The Dark Knight</h2>
-  <div class="FilmPart">
-    <div class="imgFilm"><img src="assets\dark.jpg" height="100%" width="100%" alt=""></div>
-    <div class="descFilm">The Dark Knight is a 2008 superhero film directed, co-produced, and co-written
-      by Christopher Nolan. Based on the DC Comics character Batman, the film is the second installment of Nolan's
-      to dismantle organized crime in Gotham City, but are menaced by an anarchist mastermind known as the Joker (Ledger), who
-      seeks to undermine Batman's influence and turn the city to chaos
-      <div class="shortinf"><b>Year of release :</b> <p></p></div>
-      <div class="shortinf"><b>Country:</b> <p></p></div>
-      <div class="shortinf"><b>Genre:</b> <p></p></div>
-      <div class="shortinf"><b>Quality:</b> <p></p></div>
-
-      <div class="shortinf"><b>Translation:</b> <p></p></div>
-      <div class="shortinf"><b>Duration:</b> <p ></p></div>
-    </div>
-  </div>
-  <a href="/" class="btnt">Trailer</a>
-  <div class="roles">
-    <div class="rol"><div class="rolImg"><img src="assets\a1.jpg" alt="" width="100%" height="90%"></div>Christian Bale</div>
-    <div class="rol"><div class="rolImg"><img src="assets\a2.jpg" alt="" width="100%" height="90%"></div>Heath Ledger</div>
-    <div class="rol"><div class="rolImg"><img src="assets\a3.jpg" alt="" width="100%" height="90%"></div>Gary Oldman</div>
-    <div class="rol"><div class="rolImg"><img src="assets\a4.jpg" alt="" width="100%" height="90%"></div>Michael Caine</div></div>
-  <div class="frames">
-    <div class="frimg"><img src="assets\b1.jpg" alt="" width="100%" height="100%"></div>
-    <div class="frimg"><img src="assets\b2.jpg" alt="" width="100%" height="100%"></div>
-    <div class="frimg"><img src="assets\b3.jpg" alt="" width="100%" height="100%"></div>
-    <div class="frimg"><img src="assets\b4.jpg" alt="" width="100%" height="100%"></div>
-  </div>
+  <h2 class="nameFilm">{{film.name}}</h2>
 
   <div class="play">
-    <video src="">Video</video></div>
+    <video id="player"controls (click)="toggleVideo()" [src]="film.movie" #videoPlayer width="100%" height="100%" >
+      <!--<source id ="source" [src]="film.movie" type="video/mp4" />-->
+      Browser not supported
+    </video>
+  </div>
+  <b>{{film.movie}}</b>
 
   <div class="Sound">
-    <h2 style="margin-left: 40%">Soundtracks</h2>
-    <hr>
+    <!--<h2 style="margin-left: 40%">Soundtracks</h2>-->
+    <!--<a routerLink="sound" class="btn btn-secondary btnSound">About Film ▼</a>-->
+    <!--<a routerLink="sound" class="btn btn-secondary btnSound">Soundtracks ▼</a>-->
+    <!--<hr>-->
+    <ul>
+      <li><a routerLink="description">About Film</a></li>
+      <li><a routerLink="sound" class="active">Soundtrack</a></li>
+      <li><a routerLink="screenshots">ScreenShots</a></li>
+      <li><a routerLink="starring">Starring</a></li>
+    </ul>
+
+    <router-outlet></router-outlet>
   </div>
 
+
+  <a href="/"  style="margin-left: 10%; width: 100px" class="btn btn-secondary">Trailer</a>
+
+
+
+
+
+
 </div>
-
-
 

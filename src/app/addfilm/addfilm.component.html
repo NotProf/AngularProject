@@ -1,25 +1,46 @@
-
-<div style="text-align: center">
+<!--<form (ngSubmit)="sendForm()">-->
+  <!--<input type="text" name="name"-->
+  <!--[(ngModel)]="film.name">-->
+  <!--<input type="text" name="aboutFilm"-->
+  <!--[(ngModel)]="film.aboutFilm">-->
+  <!--<input type="text" name="year"-->
+  <!--[(ngModel)]="film.year">-->
+  <!--<input type="text" name="country"-->
+  <!--[(ngModel)]="film.country">-->
+  <!--<input type="text" name="quality"-->
+  <!--[(ngModel)]="film.quality">-->
+  <!--<input type="file" name="picture"-->
+  <!--[(ngModel)]="film.picture">-->
+  <!--<button>Send</button>-->
+<!--</form>-->
 <form #form="ngForm" (ngSubmit)="sendForm(form)">
-  <label>
-    <input type="text" ngModel name="name">
-  </label>
-  <label>
-    <input type="text" ngModel name="aboutFilm">
-  </label>
-  <label>
-    <input type="text" ngModel name="year">
-  </label>
-  <label>
-    <input type="text" ngModel name="country">
-  </label>
-  <label>
-    <input type="text" ngModel name="quality">
-  </label>
-  <input  type="file" accept="image/*" ngModel="" name="picture" (change)="handleFileInput($event.target.files)">
+
+    <input type="text" ngModel name="name" placeholder="name">
+    <textarea ngModel name="aboutFilm" placeholder="aboutFilm"></textarea>
+     <input type="text" ngModel name="year" placeholder="year">
+      <input type="text" ngModel name="country" placeholder="Country">
+    <input type="text" ngModel name="quality" placeholder="quality">
+
+  <select ngModel name="genre" multiple >
+    <option value="Comedy">Comedy</option>
+    <option value="Fantasy">Fantasy</option>
+    <option value="Horror">Horror</option>
+    <option value="Drama">Drama</option>
+    <option value="Historical">Historical</option>
+    <option value="Adventure">Adventure</option>
+    <option value="Biography">Biography</option>
+    <option value="Sport">Sport</option>
+    <option value="Cartoons">Cartoons</option>
+    <option value="Serials">Serials</option>
+  </select>
+
+  <input  type="file"  name="picture" (change)="handleFileInput($event.target.files)" placeholder="Image">
+  <input  type="file"  name="picture" (change)="handleVideoInput($event.target.files)" placeholder="Video">
   <input type="submit">
 </form>
-</div>
+
+
+
 <section>
   <div class="container" style="box-shadow: 3px 0 7px rgba(0, 0, 0, .3);">
     <div class="row">
@@ -56,13 +77,13 @@
               переглядів</a>
           </div>
         </div>
-        <div *ngFor="let f of films" class="container" style="border-bottom: 1px solid #404040; ">
+        <div *ngFor="let f of films.reverse()" class="container" style="border-bottom: 1px solid #404040; ">
           <div class="row">
             <div  class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
               <a class="film__label" routerLink="film"><h4 style="margin-top: 15px">{{f.name}}</h4></a>
-              <a  class="films__rec2" href="#"><img [src]="imageUrl[f.id]"  style="width: 100%; height: 400px;"></a>
+              <a  class="films__rec2" href="#"><img [src]="f.picture" style="width: 100%; height: 400px;"></a>
               <div style="text-align: left"><a style="margin: 30px auto 30px 0; width: 100px" class="btn btn-secondary"
-                                               href="">Дивитись{{f.id}}</a>
+                                               href="">Дивитись</a>
                 <a style="margin: 30px auto 30px 5px; width: 100px" class="btn btn-secondary" href="">Трейлер</a>
                 <a style="margin: 30px auto 30px 5px; width: 100px" class="btn btn-secondary" (click)="deleteOne(f.id)" routerLink="addfilm">Видалити</a></div>
             </div>
