@@ -23,6 +23,7 @@ import {UserfilmsComponent} from './userfilms/userfilms.component';
 import {NoAuthUserDirective} from './no-auth-user.directive';
 import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
+import { AddButtonDirective } from './add-button.directive';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -69,7 +70,8 @@ const routes: Routes = [
     UserfilmsComponent,
     NoAuthUserDirective,
     UserAuthDirective,
-    UsersfriendsComponent
+    UsersfriendsComponent,
+    AddButtonDirective
   ],
   imports: [
     BrowserModule,

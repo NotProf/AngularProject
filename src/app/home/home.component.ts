@@ -1,7 +1,7 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
-import {User} from "../../models/User";
+import {AppComponent} from '../app.component';
 
 
 @Component({
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
       this.films = res;
       this.collectionSize = this.films.length;
       this.films = this.films.reverse();
-      this.partFilms = this.films.slice(0, this.maxSize).reverse();
+      this.onPageChange(1);
     });
 
   }
@@ -58,12 +58,12 @@ export class HomeComponent implements OnInit {
     console.log(genre);
     this.filmsS.findByGenre(genre).subscribe((res) => {
       this.films = res;
+      this.collectionSize = this.films.length;
       this.page = 1;
       this.onPageChange(1);
     });
   }
-
-  sortByYear() {
+  sortByYeaer() {
     this.page = 1;
     this.films.sort(this.compare);
     this.onPageChange(this.page);
@@ -71,13 +71,11 @@ export class HomeComponent implements OnInit {
 
  compare(first, second) {
   if (first.year < second.year) {
-    return -1;
+    return 1;
   }
   if (first.year > second.year) {
-    return 1;
+    return -1;
   }
   return 0;
 }
-
-
 }
