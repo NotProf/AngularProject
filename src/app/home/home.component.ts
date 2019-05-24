@@ -1,6 +1,7 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
+import {User} from "../../models/User";
 
 
 @Component({
@@ -62,7 +63,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  sortByYeaer() {
+  sortByYear() {
     this.page = 1;
     this.films.sort(this.compare);
     this.onPageChange(this.page);
@@ -77,4 +78,6 @@ export class HomeComponent implements OnInit {
   }
   return 0;
 }
+
+
 }
