@@ -56,7 +56,6 @@ export class AppComponent implements OnInit {
     // }
     // );
     this.http.get('http://localhost:8080/get', { headers: headersOption, responseType: 'text'}).subscribe((res) => {
-      console.log(res.toLocaleString());
       this.mes = 'Hello, ' + res;
     });
   }
