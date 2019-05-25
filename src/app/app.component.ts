@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
       .set('Authorization', localStorage.getItem('_token'))
       .set('CurrentUser', localStorage.getItem('_currentUser'));
     this.http.get<boolean>('http://localhost:8080/get', {
-      headers: headersOption,
+      headers: headersOption
     }).subscribe(value => {
         this.userAuth = value;
         if (!this.userAuth) {
@@ -55,8 +55,7 @@ export class AppComponent implements OnInit {
       }
     );
   }
-// dfedfd
-//   wefgsrf
+
   getUsername() {
     return JSON.parse(localStorage.getItem('_currentUser'));
   }
