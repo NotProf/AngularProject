@@ -59,11 +59,9 @@ export class AppComponent implements OnInit {
       this.mes = 'Hello, ' + res;
     });
   }
-// dfedfd
-//   wefgsrf
-  getUsername() {
-    return JSON.parse(localStorage.getItem('_currentUser'));
-  }
+  // getUsername() {
+  //   return JSON.parse(localStorage.getItem('_currentUser'));
+  // }
 
   logout() {
     localStorage.removeItem('_token');
