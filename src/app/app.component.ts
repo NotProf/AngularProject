@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
 
 
   userAuth = false;
+  userAu = ' ';
   mes = '';
   title = 'slider';
   el = document.getElementsByClassName('slid');
@@ -43,19 +44,23 @@ export class AppComponent implements OnInit {
     const headersOption = new HttpHeaders()
       .set('Authorization', localStorage.getItem('_token'))
       .set('CurrentUser', localStorage.getItem('_currentUser'));
-    this.http.get<boolean>('http://localhost:8080/get', {
-      headers: headersOption
-    }).subscribe(value => {
-        this.userAuth = value;
-        if (!this.userAuth) {
-          this.mes = '';
-        } else {
-          this.mes = 'Hello, ' + this.getUsername();
-        }
-      }
-    );
+    // this.http.get<boolean>('http://localhost:8080/get', {
+    //   headers: headersOption, responseType: 'text'
+    // }).subscribe(value => {
+    //     this.userAuth = value;
+    //     if (!this.userAuth) {
+    //       this.mes = '';
+    //     } else {
+    //       this.mes = 'Hello, ' + this.getUsername();
+    //     }
+    // }
+    // );
+    this.http.get('http://localhost:8080/get', { headers: headersOption, responseType: 'text'}).subscribe((res) => {
+      this.mes = 'Hello, ' + res;
+    });
   }
-
+// dfedfd
+//   wefgsrf
   getUsername() {
     return JSON.parse(localStorage.getItem('_currentUser'));
   }
