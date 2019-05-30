@@ -1,7 +1,7 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
-import {AppComponent} from '../app.component';
+import {UserService} from '../../services/UserService';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
 
-  constructor(private filmsS: FilmService) {
+  constructor(private filmsS: FilmService, private userS: UserService) {
   }
 
   next() {
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
       this.films = res;
       this.collectionSize = this.films.length;
       this.films = this.films.reverse();
-      this.onPageChange(1);
+      this.partFilms = this.films.slice(0, this.maxSize).reverse();
     });
 
   }
@@ -58,12 +58,12 @@ export class HomeComponent implements OnInit {
     console.log(genre);
     this.filmsS.findByGenre(genre).subscribe((res) => {
       this.films = res;
-      this.collectionSize = this.films.length;
       this.page = 1;
       this.onPageChange(1);
     });
   }
-  sortByYeaer() {
+
+  sortByYear() {
     this.page = 1;
     this.films.sort(this.compare);
     this.onPageChange(this.page);
@@ -71,11 +71,19 @@ export class HomeComponent implements OnInit {
 
  compare(first, second) {
   if (first.year < second.year) {
-    return 1;
+    return -1;
   }
   if (first.year > second.year) {
-    return -1;
+    return 1;
   }
   return 0;
 }
+
+
+  addUserFilm(idFilm: number) {
+    console.log('!!!!!!!!!!!!!!!');
+    this.userS.addUserFilm(idFilm).subscribe(value => {
+      console.log(value.toString());
+    });
+  }
 }

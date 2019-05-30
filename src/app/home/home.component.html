@@ -8,21 +8,21 @@
   <div class="container" style="margin-top: 50px; height: 100px">
     <div class="row " style=" text-align: center; height: 30px;">
       <div class="menu2 d-flex col-lg-12" style="padding: 0; margin-top: 10px">
-        <a  (click)="SearchBy('Fantasy')"  >Фентезі</a>
-        <a (click)="SearchBy('Horror')" >Жахи</a>
-        <a (click)="SearchBy('Drama')" >Драми</a>
-        <a (click)="SearchBy('Historical')" >Історичні</a>
-        <a (click)="SearchBy('Comedy')" >Комедії</a>
+        <a (click)="SearchBy('Fantasy')">Фентезі</a>
+        <a (click)="SearchBy('Horror')">Жахи</a>
+        <a (click)="SearchBy('Drama')">Драми</a>
+        <a (click)="SearchBy('Historical')">Історичні</a>
+        <a (click)="SearchBy('Comedy')">Комедії</a>
       </div>
     </div>
 
     <div class="row" style=" text-align: center;">
       <div class="menu2 d-flex col-lg-12" style="padding: 0; margin-top: 20px">
-        <a (click)="SearchBy('Adventure')" >Пригоди</a>
+        <a (click)="SearchBy('Adventure')">Пригоди</a>
         <a (click)="SearchBy('Biography')">Біографія</a>
         <a (click)="SearchBy('Sport')">Спорт</a>
         <a (click)="SearchBy('Cartoons')">Мультфільми</a>
-        <a (click)="SearchBy('Serials')" >Серіали</a>
+        <a (click)="SearchBy('Serials')">Серіали</a>
       </div>
     </div>
   </div>
@@ -57,7 +57,8 @@
           <div class="row justify-content-center" style="margin: 0">
             <a style="margin: 15px 5px 4px 5px; width: 150px; height: 30px" class="col-lg-3 sorted__a" href="">Дата
               додавання</a>
-            <a style="margin: 15px 5px 4px 5px; width: 100px; height: 30px" class="col-lg-3 sorted__a" (click)="sortByYeaer()">Рік
+            <a style="margin: 15px 5px 4px 5px; width: 100px; height: 30px" class="col-lg-3 sorted__a"
+               (click)="sortByYear()">Рік
               випуску</a>
             <a style="margin: 15px 5px 4px 5px; width: 100px; height: 30px" class="col-lg-3 sorted__a" href="">Топ
               переглядів</a>
@@ -71,9 +72,13 @@
                                                    alt="" [src]="f.picture"></a>
               <div style="text-align: left"><a style="margin: 30px auto 30px 0; width: 100px" class="btn btn-secondary"
                                                href="">Дивитись</a>
-                <a style="margin: 30px auto 30px 5px; width: 100px" class="btn btn-secondary" href="">Трейлер</a></div>
+                <a style="margin: 30px auto 30px 5px; width: 100px" class="btn btn-secondary" href="">Трейлер</a>
+                <a style="margin: 30px auto 30px 5px; width: 100px"
+                   class="btn btn-secondary"  (click)="addUserFilm(f.id)">ADD</a>
+              </div>
             </div>
-            <div class="col-lg-6" style="color: rgba(147,151,147,0.91); margin-top: 55px;"><p>
+            </div>
+            <div class="col-lg-6" style=" color: rgba(147,151,147,0.91); margin-top: 55px;"><p>
               <span style="font-weight: 900">Год выпуска:</span>{{f.year}}<br>
               Страна: {{f.country}} <br>
               >Качество: {{f.quality}} <br>
@@ -82,8 +87,9 @@
           </div>
         </div>
       </div>
-       <ngb-pagination style="margin: 0 auto" class="justify-content-center" [collectionSize]="collectionSize" [(page)]="page" [maxSize]="5" [pageSize]="maxSize" [rotate]="true" [directionLinks]="true" (pageChange)="onPageChange($event)">
+      <ngb-pagination style="margin: 0 auto" class="justify-content-center" [collectionSize]="collectionSize"
+                      [(page)]="page" [maxSize]="5" [pageSize]="maxSize" [rotate]="true" [directionLinks]="true"
+                      (pageChange)="onPageChange($event)">
       </ngb-pagination>
     </div>
-  </div>
-  </section>
+</section>

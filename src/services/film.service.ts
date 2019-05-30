@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Films} from '../models/Films';
@@ -9,6 +9,7 @@ import {Films} from '../models/Films';
 export class FilmService {
 
   url = 'http://localhost:8080/';
+
   constructor(private http: HttpClient) {
 
   }
@@ -16,16 +17,24 @@ export class FilmService {
   getFilms(): Observable<Films[]> {
     return this.http.get<Films[]>(this.url);
   }
+
   addFilm(film: FormData): Observable<Films> {
     return this.http.post<Films>('http://localhost:8080/addfilm', film);
   }
+
   delFilm(film: number): Observable<Films[]> {
     return this.http.post<Films[]>('http://localhost:8080/delfilm', film);
   }
+
   getFilmById(id: number): Observable<Films> {
     return this.http.post<Films>('http://localhost:8080/getbyid', id);
   }
+
   findByGenre(genre: string): Observable<Films[]> {
     return this.http.post<Films[]>('http://localhost:8080/findByGenre', genre);
   }
+
+  // addUserFilm(userFilm: Films): Observable<Films[]> {
+  //   return this.http.post<Films[]>('http://localhost:8080/adduserfilm', userFilm);
+  // }
 }

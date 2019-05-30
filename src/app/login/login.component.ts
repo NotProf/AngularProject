@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private http: HttpClient) {
   }
 
+
   ngOnInit() {
   }
 
@@ -24,19 +25,13 @@ export class LoginComponent implements OnInit {
       {observe: 'response'})
       .subscribe(value => {
         const token = value.headers.get('Authorization');
+        const currentUser = value.headers.get('CurrentUser');
+        localStorage.setItem('_currentUser', currentUser);
         localStorage.setItem('_token', token);
-        console.log(value);
+        setTimeout(() => {
+            window.location.href = '/userpage';
+          }, 100
+        );
       });
-  }
-
-  getInfo() {
-    const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
-    // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
-    this.http.get('http://localhost:8080/get', {headers: headersOption, responseType: 'text'}).subscribe(value => console.log(value));
-  }
-
-
-  logout() {
-    localStorage.removeItem('_token');
   }
 }
