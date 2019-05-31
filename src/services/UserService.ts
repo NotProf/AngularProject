@@ -7,11 +7,14 @@ import {Films} from '../models/Films';
   providedIn: 'root'
 })
 export class UserService {
+   headersOption = new HttpHeaders()
+    .set('Authorization', localStorage.getItem('_token'))
+    .set('CurrentUser', localStorage.getItem('_currentUser'));
   constructor(private http: HttpClient) {}
   addUserFilm(idFilm: number ): Observable<Films[]>  {
-    const headersOption = new HttpHeaders()
-      .set('Authorization', localStorage.getItem('_token'))
-      .set('CurrentUser', localStorage.getItem('_currentUser'));
-    return this.http.post<Films[]>('http://localhost:8080/adduserfilm', idFilm, {headers: headersOption});
+    return this.http.post<Films[]>('http://localhost:8080/adduserfilm', idFilm, {headers: this.headersOption});
+  }
+  getUserFilms(): Observable<Films[]> {
+    return this.http.get<Films[]>('http://localhost:8080/userpage-userfilms', {headers: this.headersOption});
   }
 }

@@ -1,3 +1,7 @@
-<p>
-  userfilms works!
-</p>
+<div class="main container-fluid" style="background: #555555">
+  <div *ngFor="let film of uFilms" class="film col-lg-3">
+    <a style="text-decoration: none" [routerLink]="'/film/' + film.id"><img
+      style="width: 90%; height: 80%; margin-top: 7px;" [src]="film.picture" alt=""><span>{{film.name}}</span></a>
+  </div>
+</div>
+
