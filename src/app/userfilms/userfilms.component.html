@@ -1,8 +1,7 @@
- <!--<div  class="row" >-->
-    <!--<div *ngFor="let f of films" class="col-lg-1" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">-->
-      <!--<a class="film__label" [routerLink]="'/film/' + f.id"><h4 style="margin-top: 15px">{{f.name}}</h4></a>-->
-      <!--</div>-->
-    <!--</div>-->
-<p>
-  userfilms!
-</p>
+<div class="main container-fluid" style="background: #555555">
+  <div *ngFor="let film of uFilms" class="film col-lg-3">
+    <a style="text-decoration: none" [routerLink]="'/film/' + film.id"><img
+      style="width: 90%; height: 80%; margin-top: 7px;" [src]="film.picture" alt=""><span>{{film.name}}</span></a>
+  </div>
+</div>
+

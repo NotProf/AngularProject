@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Films} from '../models/Films';
-import {FilmService} from '../services/film.service';
-import {NgForm} from '@angular/forms';
+import {HomeComponent} from "./home/home.component";
 
 @Component({
   selector: 'app-root',
@@ -11,14 +9,11 @@ import {NgForm} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private http: HttpClient, private filmsS: FilmService) {
+  constructor(private http: HttpClient) {
 
   }
 
-  a = '';
-  films: Films [] = [];
-  partFilms: Films[] = [];
-  public page = 1;
+
   userAuth = false;
   userAu = ' ';
   mes = '';
@@ -50,11 +45,21 @@ export class AppComponent implements OnInit {
     const headersOption = new HttpHeaders()
       .set('Authorization', localStorage.getItem('_token'))
       .set('CurrentUser', localStorage.getItem('_currentUser'));
-    this.http.get('http://localhost:8080/get', {headers: headersOption, responseType: 'text'}).subscribe((res) => {
+    // this.http.get<boolean>('http://localhost:8080/get', {
+    //   headers: headersOption, responseType: 'text'
+    // }).subscribe(value => {
+    //     this.userAuth = value;
+    //     if (!this.userAuth) {
+    //       this.mes = '';
+    //     } else {
+    //       this.mes = 'Hello, ' + this.getUsername();
+    //     }
+    // }
+    // );
+    this.http.get('http://localhost:8080/get', { headers: headersOption, responseType: 'text'}).subscribe((res) => {
       this.mes = 'Hello, ' + res;
     });
   }
-
   // getUsername() {
   //   return JSON.parse(localStorage.getItem('_currentUser'));
   // }
@@ -74,17 +79,6 @@ export class AppComponent implements OnInit {
   // }
 
 
-  sendSearchForm(form: NgForm) {
-    // this.filmsS.findSearchingFilm(form.value.search).subscribe(value => {
-    //   console.log(form.value.search);
-    //   console.log(value);
-    //   this.films = value;
-    // });
-    // return this.films;
-
-    this.a = form.value.search;
-    console.log(this.a);
-  }
 }
 
 
