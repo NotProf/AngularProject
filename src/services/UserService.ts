@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
   addUserFilm(idFilm: number ): Observable<Films[]>  {
     return this.http.post<Films[]>('http://localhost:8080/adduserfilm', idFilm, {headers: this.headersOption});
-  }
+  }//as
   getUserFilms(): Observable<Films[]> {
     return this.http.get<Films[]>('http://localhost:8080/userpage-userfilms', {headers: this.headersOption});
   }
