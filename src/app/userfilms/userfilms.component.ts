@@ -16,7 +16,7 @@ export class UserfilmsComponent implements OnInit {
   ngOnInit(): void {
   this.userS.getUserFilms().subscribe((res) => {
     this.uFilms = res;
-    console.log(this.uFilms);
+    console.log(this.uFilms); //gsh
   });
   }
 
