@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HomeComponent} from "./home/home.component";
 
 @Component({
   selector: 'app-root',
