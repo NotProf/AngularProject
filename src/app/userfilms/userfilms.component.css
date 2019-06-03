@@ -1,0 +1,13 @@
+main{
+  background: #000;
+  width: 100%;
+}
+
+.film{
+  background: #d2d5d8;
+  width: 20%;
+  height: 30%;
+  display: inline-block;
+  border: 1px solid #4CAF50;
+  margin-left: 1%;
+}
