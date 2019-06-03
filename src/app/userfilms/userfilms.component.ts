@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
+import {UserService} from '../../services/UserService';
 
 @Component({
   selector: 'app-userfilms',
@@ -8,8 +9,17 @@ import {FilmService} from '../../services/film.service';
   styleUrls: ['./userfilms.component.css']
 })
 export class UserfilmsComponent implements OnInit {
-  constructor() {
+  constructor(private filmsS: FilmService, private userS: UserService) {
   }
+  uFilms: Films[];
+
   ngOnInit(): void {
+  this.userS.getUserFilms().subscribe((res) => {
+    this.uFilms = res;
+    console.log(this.uFilms); //gsh
+  });
   }
+
+
+
 }
