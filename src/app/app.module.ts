@@ -23,6 +23,8 @@ import {UserfilmsComponent} from './userfilms/userfilms.component';
 import {NoAuthUserDirective} from './no-auth-user.directive';
 import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
+import {AddButtonDirective} from './add-button.directive';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -46,7 +48,8 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'reg', component: RegComponent}
+  {path: 'reg', component: RegComponent},
+  {path: 'search', component: SearchComponent}
 ];
 
 @NgModule({
@@ -69,7 +72,9 @@ const routes: Routes = [
     UserfilmsComponent,
     NoAuthUserDirective,
     UserAuthDirective,
-    UsersfriendsComponent
+    UsersfriendsComponent,
+    AddButtonDirective,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

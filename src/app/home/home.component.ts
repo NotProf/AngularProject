@@ -1,7 +1,8 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
-import {User} from "../../models/User";
+import {UserService} from '../../services/UserService';
+import {AppComponent} from '../app.component';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
 
-  constructor(private filmsS: FilmService) {
+  constructor(private filmsS: FilmService, private userS: UserService, private appComp: AppComponent) {
   }
 
   next() {
@@ -55,7 +56,6 @@ export class HomeComponent implements OnInit {
   }
 
   SearchBy(genre: string) {
-    console.log(genre);
     this.filmsS.findByGenre(genre).subscribe((res) => {
       this.films = res;
       this.page = 1;
@@ -80,4 +80,9 @@ export class HomeComponent implements OnInit {
 }
 
 
+  addUserFilm(idFilm: number) {
+    this.userS.addUserFilm(idFilm).subscribe(value => {
+      console.log(value.toString());
+    });
+  }
 }

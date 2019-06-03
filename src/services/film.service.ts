@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Films} from '../models/Films';
+import {NgForm} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class FilmService {
     return this.http.post<Films[]>('http://localhost:8080/findByGenre', genre);
   }
 
-  // addUserFilm(userFilm: Films): Observable<Films[]> {
-  //   return this.http.post<Films[]>('http://localhost:8080/adduserfilm', userFilm);
-  // }
+  findSearchingFilm(filmName: string): Observable<Films[]> {
+    return this.http.post<Films[]>('http://localhost:8080/search', filmName);
+  }
 }

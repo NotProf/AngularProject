@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
 
 
   login(form: NgForm) {
-    console.log(form.value);
     this.http.post('http://localhost:8080/login', form.value,
       {observe: 'response'})
       .subscribe(value => {

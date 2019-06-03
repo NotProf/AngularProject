@@ -51,7 +51,7 @@ export class AddfilmComponent implements OnInit {
   }
 
   deleteOne(id: number) {
-    this.filmsS.delFilm(id).subscribe((res) => {
+    this.filmsS. delFilm(id).subscribe((res) => {
       this.films = res;
     });
   }

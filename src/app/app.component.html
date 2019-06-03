@@ -16,9 +16,9 @@
         </ul>
       </div>
       <div appNoAuthUser  class="userMenu"><a class="login" routerLink="login">Login</a></div>
-      <form action="" method="get" class="search">
-        <input type="search" name="" placeholder="Search" class="input"/>
-        <input type="submit" name="" value="" class="submit"/>
+      <form #form ="ngForm" method="get" class="search">
+        <input type="search" ngModel name="search" placeholder="Search" class="input"/>
+        <input routerLink="search" (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
       </form>
       <ul class="menu-main f-left">
         <li><a routerLink="news">News</a></li>
