@@ -28,7 +28,7 @@ import { AddButtonDirective } from './add-button.directive';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {
-    path: 'userpage',
+    path: 'userpage/:id',
     component: UserpageComponent,
     children: [{path: 'userfilms', component: UserfilmsComponent}, {
       path: 'usersfriends',

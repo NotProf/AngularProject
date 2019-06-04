@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
+import {User} from '../../models/User';
+import {UserService} from '../../services/UserService';
 
 @Component({
   selector: 'app-userpage',
@@ -7,17 +10,19 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   styleUrls: ['./userpage.component.css']
 })
 export class UserpageComponent implements OnInit {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
-
+  currentID = 0;
+  user = new User();
   ngOnInit() {
+    this.activatedRoute.params.subscribe((value) => {
+      this.currentID = Number(value.id);
+      console.log(this.currentID);
+    });
+    this.userService.getUserById(this.currentID).subscribe((res) => {
+        this.user = res;
+        console.log(this.user);
+      });
   }
-
-  getInfo() {
-    const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
-    // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
-    this.http.get('http://localhost:8080/get', {headers: headersOption, responseType: 'text'}).subscribe(value => console.log(value));
-  }
-
 
 }

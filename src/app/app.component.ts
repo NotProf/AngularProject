@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {HomeComponent} from "./home/home.component";
+import {HomeComponent} from './home/home.component';
+import {User} from '../models/User';
+import {UserService} from '../services/UserService';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +11,12 @@ import {HomeComponent} from "./home/home.component";
 })
 export class AppComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
 
   }
 
 
-  userAuth = false;
-  userAu = ' ';
+  currentUser = new User();
   mes = '';
   title = 'slider';
   el = document.getElementsByClassName('slid');
@@ -45,24 +46,13 @@ export class AppComponent implements OnInit {
     const headersOption = new HttpHeaders()
       .set('Authorization', localStorage.getItem('_token'))
       .set('CurrentUser', localStorage.getItem('_currentUser'));
-    // this.http.get<boolean>('http://localhost:8080/get', {
-    //   headers: headersOption, responseType: 'text'
-    // }).subscribe(value => {
-    //     this.userAuth = value;
-    //     if (!this.userAuth) {
-    //       this.mes = '';
-    //     } else {
-    //       this.mes = 'Hello, ' + this.getUsername();
-    //     }
-    // }
-    // );
-    this.http.get('http://localhost:8080/get', { headers: headersOption, responseType: 'text'}).subscribe((res) => {
-      this.mes = 'Hello, ' + res;
+
+    this.userService.getCurrentUser().subscribe((res) => {
+      this.currentUser = res;
+      this.mes = 'Hello, ' + this.currentUser.username;
     });
   }
-  // getUsername() {
-  //   return JSON.parse(localStorage.getItem('_currentUser'));
-  // }
+
 
   logout() {
     localStorage.removeItem('_token');
