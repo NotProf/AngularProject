@@ -79,9 +79,7 @@ export class AppComponent implements OnInit {
 // }
 
 
-  sendSearchForm(form
-                   :
-                   NgForm
+  sendSearchForm(form: NgForm
   ) {
     this.search = form.value.search;
     console.log(this.search);
