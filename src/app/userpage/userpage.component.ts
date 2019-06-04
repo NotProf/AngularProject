@@ -17,12 +17,10 @@ export class UserpageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((value) => {
       this.currentID = Number(value.id);
-      console.log(this.currentID);
     });
     this.userService.getUserById(this.currentID).subscribe((res) => {
         this.user = res;
-        console.log(this.user);
-      });
+    });
   }
 
 }
