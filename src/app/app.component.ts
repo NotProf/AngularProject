@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  a = '';
+  search = '';
   films: Films [] = [];
   partFilms: Films[] = [];
   public page = 1;
@@ -50,40 +50,41 @@ export class AppComponent implements OnInit {
     const headersOption = new HttpHeaders()
       .set('Authorization', localStorage.getItem('_token'))
       .set('CurrentUser', localStorage.getItem('_currentUser'));
-    this.http.get('http://localhost:8080/get', {headers: headersOption, responseType: 'text'}).subscribe((res) => {
-      this.mes = 'Hello, ' + res;
-    });
+    if (localStorage.getItem('_token') == null && localStorage.getItem('_currentUser') == null) {
+      console.log('Please log in');
+    } else {
+      this.http.get('http://localhost:8080/get', {headers: headersOption, responseType: 'text'}).subscribe((res) => {
+        console.log(res);
+        this.mes = res;
+      });
+    }
   }
 
-  // getUsername() {
-  //   return JSON.parse(localStorage.getItem('_currentUser'));
-  // }
+// getUsername() {
+//   return JSON.parse(localStorage.getItem('_currentUser'));
+// }
 
   logout() {
     localStorage.removeItem('_token');
     localStorage.removeItem('_currentUser');
   }
 
-  // getInfo() {
-  //   const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
-  //   // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
-  //   this.http.get('http://localhost:8080/get', {
-  //     headers: headersOption,
-  //     responseType: 'text'
-  //   }).subscribe(value => console.log(value));
-  // }
+// getInfo() {
+//   const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
+//   // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
+//   this.http.get('http://localhost:8080/get', {
+//     headers: headersOption,
+//     responseType: 'text'
+//   }).subscribe(value => console.log(value));
+// }
 
 
-  sendSearchForm(form: NgForm) {
-    // this.filmsS.findSearchingFilm(form.value.search).subscribe(value => {
-    //   console.log(form.value.search);
-    //   console.log(value);
-    //   this.films = value;
-    // });
-    // return this.films;
-
-    this.a = form.value.search;
-    console.log(this.a);
+  sendSearchForm(form
+                   :
+                   NgForm
+  ) {
+    this.search = form.value.search;
+    console.log(this.search);
   }
 }
 
