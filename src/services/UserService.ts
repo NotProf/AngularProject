@@ -25,8 +25,8 @@ export class UserService {
     return this.http.post<Films[]>('http://localhost:8080/adduserfilm', idFilm, {headers: this.headersOption});
   }
 
-  getUserFilms(): Observable<Films[]> {
-    return this.http.get<Films[]>('http://localhost:8080/userpage-userfilms', {headers: this.headersOption});
+  getUserFilms(id: number): Observable<Films[]> {
+    return this.http.post<Films[]>('http://localhost:8080/userpage-userfilms', id, {headers: this.headersOption});
   }
 
   getCurrentUser(): Observable<User> {

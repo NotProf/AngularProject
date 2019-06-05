@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
+import {UserpageComponent} from '../userpage/userpage.component';
 
 @Component({
   selector: 'app-userfilms',
@@ -9,12 +10,14 @@ import {UserService} from '../../services/UserService';
   styleUrls: ['./userfilms.component.css']
 })
 export class UserfilmsComponent implements OnInit {
-  constructor(private filmsS: FilmService, private userS: UserService) {
+  constructor(private filmsS: FilmService, private userS: UserService, private userComponent: UserpageComponent) {
   }
   uFilms: Films[];
+  id: number;
 
   ngOnInit(): void {
-  this.userS.getUserFilms().subscribe((res) => {
+    this.id = this.userComponent.currentID;
+    this.userS.getUserFilms(this.id).subscribe((res) => {
     this.uFilms = res;
     console.log(this.uFilms);
   });
