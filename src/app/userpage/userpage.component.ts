@@ -40,8 +40,7 @@ export class UserpageComponent implements OnInit {
 
   subscribes() {
     this.userService.addSubscribes(this.currentID).subscribe(value => {
-      this.friends = value;
-      console.log(this.friends);
+      console.log(value);
     });
   }
 

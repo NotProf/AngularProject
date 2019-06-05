@@ -16,6 +16,7 @@
         <li><a routerLink="userfilms">My films</a></li>
       </ul>
     </div>
+<button (click)="subscribes()" *ngIf="subButton">Subscribe</button>
     <div style="margin-left: 25%; margin-top: 0">
       <router-outlet></router-outlet>
     </div>
