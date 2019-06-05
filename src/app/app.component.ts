@@ -3,6 +3,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Films} from '../models/Films';
 import {FilmService} from '../services/film.service';
 import {NgForm} from '@angular/forms';
+import {UserService} from '../services/UserService';
+import {User} from '../models/User';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,10 @@ import {NgForm} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private http: HttpClient, private filmsS: FilmService) {
+  constructor(private http: HttpClient, private filmsS: FilmService, private userService: UserService) {
 
   }
-
+  currentUser = new User();
   search = '';
   films: Films [] = [];
   partFilms: Films[] = [];
@@ -53,9 +55,9 @@ export class AppComponent implements OnInit {
     if (localStorage.getItem('_token') == null && localStorage.getItem('_currentUser') == null) {
       console.log('Please log in');
     } else {
-      this.http.get('http://localhost:8080/get', {headers: headersOption, responseType: 'text'}).subscribe((res) => {
-        console.log(res);
-        this.mes = res;
+      this.userService.getCurrentUser().subscribe((res) => {
+        this.currentUser = res;
+        this.mes = 'Hello, ' + this.currentUser.username;
       });
     }
   }
