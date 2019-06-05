@@ -30,7 +30,7 @@ mes = '';
          localStorage.setItem('_currentUser', currentUser);
          localStorage.setItem('_token', token);
          setTimeout(() => {
-             window.location.href = '/userpage';
+             window.location.href = '/';
            }, 100
          );
        });
