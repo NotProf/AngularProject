@@ -8,14 +8,13 @@
   </div>
 </div>
 </div>
-
+<button (click)="subscribes()" *ngIf="subButton">Subscribe</button>
     <div  style=" width: 1.5%" class="underAvatar">
       <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
       <ul class="dropUnderAvatar">
         <li><a routerLink="usersfriends">My friends</a></li>
         <li><a routerLink="userfilms">My films</a></li>
       </ul>
-      <button (click)="subscribes()" *ngIf="subButton">Subscribe</button>
     </div>
     <div style="margin-left: 25%; margin-top: 0">
       <router-outlet></router-outlet>
