@@ -1,8 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {HomeComponent} from './home/home.component';
-import {User} from '../models/User';
+import {Films} from '../models/Films';
+import {FilmService} from '../services/film.service';
+import {NgForm} from '@angular/forms';
 import {UserService} from '../services/UserService';
+import {User} from '../models/User';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +13,16 @@ import {UserService} from '../services/UserService';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private http: HttpClient, private userService: UserService) {
+  constructor(private http: HttpClient, private filmsS: FilmService, private userService: UserService) {
 
   }
-
-
   currentUser = new User();
+  search = '';
+  films: Films [] = [];
+  partFilms: Films[] = [];
+  public page = 1;
+  userAuth = false;
+  userAu = ' ';
   mes = '';
   title = 'slider';
   el = document.getElementsByClassName('slid');
@@ -46,29 +52,40 @@ export class AppComponent implements OnInit {
     const headersOption = new HttpHeaders()
       .set('Authorization', localStorage.getItem('_token'))
       .set('CurrentUser', localStorage.getItem('_currentUser'));
-
-    this.userService.getCurrentUser().subscribe((res) => {
-      this.currentUser = res;
-      this.mes = 'Hello, ' + this.currentUser.username;
-    });
+    if (localStorage.getItem('_token') == null && localStorage.getItem('_currentUser') == null) {
+      console.log('Please log in');
+    } else {
+      this.userService.getCurrentUser().subscribe((res) => {
+        this.currentUser = res;
+        this.mes = 'Hello, ' + this.currentUser.username;
+      });
+    }
   }
 
+// getUsername() {
+//   return JSON.parse(localStorage.getItem('_currentUser'));
+// }
 
   logout() {
     localStorage.removeItem('_token');
     localStorage.removeItem('_currentUser');
   }
 
-  // getInfo() {
-  //   const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
-  //   // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
-  //   this.http.get('http://localhost:8080/get', {
-  //     headers: headersOption,
-  //     responseType: 'text'
-  //   }).subscribe(value => console.log(value));
-  // }
+// getInfo() {
+//   const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
+//   // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
+//   this.http.get('http://localhost:8080/get', {
+//     headers: headersOption,
+//     responseType: 'text'
+//   }).subscribe(value => console.log(value));
+// }
 
 
+  sendSearchForm(form: NgForm
+  ) {
+    this.search = form.value.search;
+    console.log(this.search);
+  }
 }
 
 

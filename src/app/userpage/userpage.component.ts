@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
 
+
 @Component({
   selector: 'app-userpage',
   templateUrl: './userpage.component.html',
@@ -12,17 +13,35 @@ import {UserService} from '../../services/UserService';
 export class UserpageComponent implements OnInit {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
+
+  friends: User[];
   currentID = 0;
+  showUnshow = false;
+  subButton = true;
   user = new User();
+
   ngOnInit() {
     this.activatedRoute.params.subscribe((value) => {
       this.currentID = Number(value.id);
     });
     this.userService.getUserById(this.currentID).subscribe((res) => {
-        this.user = res;
+      this.user = res;
     });
-    this.userService.compareUser(this.currentID).subscribe((velue) => {
-      console.log(velue);
+    this.userService.compareUser(this.currentID).subscribe((res) => {
+      this.showUnshow = res;
+      if (this.showUnshow === false) {
+        this.subButton = true;
+      } else {
+        this.subButton = false;
+      }
+      console.log(res);
+    });
+  }
+
+  subscribes() {
+    this.userService.addSubscribes(this.currentID).subscribe(value => {
+      this.friends = value;
+      console.log(this.friends);
     });
   }
 

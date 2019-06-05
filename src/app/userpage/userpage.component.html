@@ -1,10 +1,10 @@
 <div class="container-fluid">
+
 <div class="row">
   <div style="text-align: center; border-radius: 50%; background: yellow; height: 200px" class="col-lg-3">Some avatar
-    <input type="file">
+    <input *ngIf="showUnshow" type="file">
   </div>
   <div style="background: green; height: 200px; position: static" class="col-lg-9">{{user.username}}
-  <button>Change data</button>
   </div>
 </div>
 </div>
@@ -14,13 +14,12 @@
       <ul class="dropUnderAvatar">
         <li><a routerLink="usersfriends">My friends</a></li>
         <li><a routerLink="userfilms">My films</a></li>
-        <li><a>Change avatar</a></li>
       </ul>
+      <button (click)="subscribes()" *ngIf="subButton">Subscribe</button>
     </div>
-    <div style="background: white; height: 500px; width: 75%; margin-left: 25%; margin-top: 0">
+    <div style="margin-left: 25%; margin-top: 0">
       <router-outlet></router-outlet>
     </div>
 
-<button (click)="getInfo()">Auth</button>
 
 
