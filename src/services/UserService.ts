@@ -29,7 +29,7 @@ export class UserService {
   getUserById(id: number): Observable<User> {
     return this.http.post<User>('http://localhost:8080/getUserById', id);
   }
-  compareUser(): Observable<boolean> {
-    return this.http.get<boolean>('http://localhost:8080/currentPage');
+  compareUser(id: number): Observable<boolean> {
+    return this.http.post<boolean>('http://localhost:8080/currentPage', id);
   }
 }

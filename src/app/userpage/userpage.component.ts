@@ -21,8 +21,8 @@ export class UserpageComponent implements OnInit {
     this.userService.getUserById(this.currentID).subscribe((res) => {
         this.user = res;
     });
-    this.userService.compareUser().subscribe((res) => {
-      console.log(res);
+    this.userService.compareUser(this.currentID).subscribe((velue) => {
+      console.log(velue);
     });
   }
 
