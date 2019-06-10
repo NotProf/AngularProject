@@ -74,14 +74,11 @@ export class UserpageComponent implements OnInit {
     fd.append('avatar', this.fileToUpload);
     this.activatedRoute.params.subscribe((value) => {
       this.currentID = Number(value.id);
-      console.log(this.currentID);
-    });
-    this.userService.getUserById(this.currentID).subscribe((res) => {
-      this.user = res;
       this.userService.setAvatar(fd).subscribe();
     });
     setTimeout(() => {
       window.location.href = '/userpage/' + this.user.id;
     }, 0);
   }
+
 }
