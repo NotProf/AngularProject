@@ -52,8 +52,4 @@ export class UserService {
   setAvatar(ava: FormData): Observable<User> {
     return this.http.post<User>('http://localhost:8080/setAvatar', ava);
   }
-
-  setDefaultAvatar(): Observable<boolean> {
-    return this.http.get<boolean>('http://localhost:8080/defaultAva');
-  }
 }

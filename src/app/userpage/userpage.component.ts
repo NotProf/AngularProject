@@ -20,7 +20,6 @@ export class UserpageComponent implements OnInit {
   subButton = true;
   user = new User();
   image = 'assets/ava.jpg';
-  defaultImage = true;
   fileToUpload: File = null;
 
   ngOnInit() {
@@ -37,18 +36,18 @@ export class UserpageComponent implements OnInit {
     });
     this.userService.getUserById(this.currentID).subscribe((curUser) => {
       this.user = curUser;
+      if (this.user.avatar == null) {
+        this.user.avatar = this.image;
+      }
     });
-    setTimeout(() => {
-      this.userService.setDefaultAvatar().subscribe(defAva => {
-          this.defaultImage = defAva;
-          console.log(this.user);
-          console.log(this.defaultImage);
-          if (this.user.avatar == null) {
-            this.user.avatar = this.image;
-          }
-        }
-      );
-    }, 300);
+    // setTimeout(() => {
+    //   this.userService.setDefaultAvatar().subscribe(() => {
+    //       if (this.user.avatar == null) {
+    //         this.user.avatar = this.image;
+    //       }
+    //     }
+    //   );
+    // }, 300);
   }
 
   subscribes() {
@@ -70,7 +69,7 @@ export class UserpageComponent implements OnInit {
 
   }
 
-  sendFormWithAvatar(form: NgForm) {
+  sendFormWithAvatar() {
     const fd: FormData = new FormData();
     fd.append('avatar', this.fileToUpload);
     this.activatedRoute.params.subscribe((value) => {
@@ -83,7 +82,6 @@ export class UserpageComponent implements OnInit {
     });
     setTimeout(() => {
       window.location.href = '/userpage/' + this.user.id;
-    }, 100);
-    form.onReset();
+    }, 0);
   }
 }
