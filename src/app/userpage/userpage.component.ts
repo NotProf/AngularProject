@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -14,18 +15,17 @@ export class UserpageComponent implements OnInit {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
 
-  friends: User[];
   currentID = 0;
   showUnshow = false;
   subButton = true;
   user = new User();
+  image = 'assets/ava.jpg';
+  defaultImage = true;
+  fileToUpload: File = null;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((value) => {
       this.currentID = Number(value.id);
-    });
-    this.userService.getUserById(this.currentID).subscribe((res) => {
-      this.user = res;
     });
     this.userService.compareUser(this.currentID).subscribe((res) => {
       this.showUnshow = res;
@@ -34,8 +34,21 @@ export class UserpageComponent implements OnInit {
       } else {
         this.subButton = false;
       }
-      console.log(res);
     });
+    this.userService.getUserById(this.currentID).subscribe((curUser) => {
+      this.user = curUser;
+    });
+    setTimeout(() => {
+      this.userService.setDefaultAvatar().subscribe(defAva => {
+          this.defaultImage = defAva;
+          console.log(this.user);
+          console.log(this.defaultImage);
+          if (this.user.avatar == null) {
+            this.user.avatar = this.image;
+          }
+        }
+      );
+    }, 300);
   }
 
   subscribes() {
@@ -44,4 +57,33 @@ export class UserpageComponent implements OnInit {
     });
   }
 
+
+  handleFileInput(event) {
+    this.fileToUpload = event.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(this.fileToUpload);
+    fileReader.onload = () => {
+      // @ts-ignore
+      this.user.avatar = fileReader.result;
+    };
+
+
+  }
+
+  sendFormWithAvatar(form: NgForm) {
+    const fd: FormData = new FormData();
+    fd.append('avatar', this.fileToUpload);
+    this.activatedRoute.params.subscribe((value) => {
+      this.currentID = Number(value.id);
+      console.log(this.currentID);
+    });
+    this.userService.getUserById(this.currentID).subscribe((res) => {
+      this.user = res;
+      this.userService.setAvatar(fd).subscribe();
+    });
+    setTimeout(() => {
+      window.location.href = '/userpage/' + this.user.id;
+    }, 100);
+    form.onReset();
+  }
 }

@@ -1,7 +1,10 @@
-<div class="main container-fluid" style="background: #555555">
-  <div *ngFor="let film of uFilms" class="film col-lg-3">
-    <a style="text-decoration: none" [routerLink]="'/film/' + film.id"><img
-      style="width: 90%; height: 80%; margin-top: 7px;" [src]="film.picture" alt=""><span>{{film.name}}</span></a>
+<div class="main container-fluid" style="background: #333333; border: 1px solid rgba(143,146,143,0.91)"><h3 style="color: white; text-align: center">My FILMS</h3>
+  <div class="row">
+    <div *ngFor="let film of uFilms" class="col-lg-3" style="margin-bottom: 4%">
+      <a class="film" style="text-decoration: none; text-align: center; color: black;" [routerLink]="'/film/' + film.id"><img
+        style="width: 100%; height: 100%; border: 1px solid rgba(143,146,143,0.91)" [src]="film.picture" alt=""><h6>{{film.name}}</h6></a>
+      <button (click)="deleteUserFilm(film.id)">Del</button>
+    </div>
   </div>
 </div>
 

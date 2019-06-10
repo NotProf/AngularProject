@@ -38,4 +38,8 @@ export class FilmService {
   findSearchingFilm(filmName: string): Observable<Films[]> {
     return this.http.post<Films[]>('http://localhost:8080/search', filmName);
   }
+
+  delUserfilms(film: number): Observable<Films[]> {
+    return this.http.post<Films[]>('http://localhost:8080/deluserfilms', film);
+  }
 }

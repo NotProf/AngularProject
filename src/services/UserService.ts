@@ -48,4 +48,12 @@ export class UserService {
   getSubscribes(id: number): Observable<User[]> {
     return this.http.post<User[]>('http://localhost:8080/friends', id);
   }
+
+  setAvatar(ava: FormData): Observable<User> {
+    return this.http.post<User>('http://localhost:8080/setAvatar', ava);
+  }
+
+  setDefaultAvatar(): Observable<boolean> {
+    return this.http.get<boolean>('http://localhost:8080/defaultAva');
+  }
 }

@@ -3,6 +3,7 @@ import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {AppComponent} from '../app.component';
+import set = Reflect.set;
 
 
 @Component({
@@ -41,16 +42,17 @@ export class HomeComponent implements OnInit {
     });
 
   }
+
   onPageChange(p: number) {
     const url = location.href;
     location.href = '#up';
     history.replaceState(null, null, url);
-    if ( p === 1) {
+    if (p === 1) {
       this.partFilms = this.films.slice(0, this.maxSize);
     } else {
       const first = Number(this.maxSize) * Number(p) - Number(this.maxSize);
       const last = Number(this.maxSize) * Number(p);
-      this.partFilms = this.films.slice(first, last );
+      this.partFilms = this.films.slice(first, last);
     }
 
   }
@@ -69,20 +71,23 @@ export class HomeComponent implements OnInit {
     this.onPageChange(this.page);
   }
 
- compare(first, second) {
-  if (first.year < second.year) {
-    return -1;
+  compare(first, second) {
+    if (first.year < second.year) {
+      return -1;
+    }
+    if (first.year > second.year) {
+      return 1;
+    }
+    return 0;
   }
-  if (first.year > second.year) {
-    return 1;
-  }
-  return 0;
-}
 
 
   addUserFilm(idFilm: number) {
     this.userS.addUserFilm(idFilm).subscribe(value => {
-      console.log(value.toString());
+      setTimeout(() => {
+          window.location.href = '/';
+        }, 100
+      );
     });
   }
 }

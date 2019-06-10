@@ -1,3 +1,6 @@
-<ul style="background: gray; color:white;">
-  <li *ngFor="let sub of subscribes">{{sub.username}}</li>
-</ul>
+
+<div class="main container-fluid" style="background: #333333; border: 1px solid rgba(143,146,143,0.91)"><h3 style="color: white; text-align: center">My FRIENDS</h3>
+  <div class="row">
+      <div *ngFor="let sub of subscribes" class="col-lg-3" style="margin-bottom: 4%">{{sub.username}}</div>
+  </div>
+</div>

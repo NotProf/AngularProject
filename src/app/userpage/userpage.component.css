@@ -7,8 +7,31 @@
   background: rgba(248, 248, 248, 0.92);
   position: absolute;
   width: 300px;
+  list-style-type: none;
+  border: 1px solid #545454;
+  border-radius: 20px;
+}
+
+.dropUnderAvatar>li>a{
+  color: #111111;
+  text-decoration: none;
+}
+.dropUnderAvatar>li>a:hover{
+  color: #545454;
 }
 
 .underAvatar:hover>.dropUnderAvatar{
   display: block;
+}
+
+.avatar{
+  display: none;
+}
+
+.avatar_input{
+  cursor: pointer;
+  margin: 0;
+}
+.avatar_input:hover{
+  color: #545454;
 }
