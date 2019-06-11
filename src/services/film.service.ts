@@ -38,4 +38,11 @@ export class FilmService {
   findSearchingFilm(filmName: string): Observable<Films[]> {
     return this.http.post<Films[]>('http://localhost:8080/search', filmName);
   }
+
+  rating(rating, id): Observable<any> {
+    const fd: FormData = new FormData();
+    fd.append('idFilm', id);
+    fd.append('rating', rating);
+    return this.http.post<any>('http://localhost:8080/rating', fd);
+  }
 }

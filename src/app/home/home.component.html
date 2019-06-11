@@ -68,6 +68,7 @@
           <div class="row">
             <div class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
               <a class="film__label" [routerLink]="'/film/' + f.id"><h4 style="margin-top: 15px">{{f.name}}</h4></a>
+              <h2 class="nameFilm">{{f.name}}</h2>
               <a class="films__rec2" href="#"><img style="width: 100%; height: 400px;"
                                                    alt="" [src]="f.picture"></a>
               <div style="text-align: left"><a style="margin: 30px auto 30px 0; width: 100px" class="btn btn-secondary"
@@ -84,9 +85,11 @@
               >Качество: {{f.quality}} <br>
               {{f.aboutFilm}}<br>
             </p></div>
+
           </div>
         </div>
-      </div>
+
+    </div>
       <ngb-pagination style="margin: 0 auto" class="justify-content-center" [collectionSize]="collectionSize"
                       [(page)]="page" [maxSize]="5" [pageSize]="maxSize" [rotate]="true" [directionLinks]="true"
                       (pageChange)="onPageChange($event)">
