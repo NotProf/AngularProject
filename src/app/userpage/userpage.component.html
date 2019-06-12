@@ -10,7 +10,7 @@
                                       [src]="user.avatar"></label>
         </div>
         <div style="height: 200px; " class="col-lg-5">
-          <h4 style="color: white">Зараз Ви дивитесь - "Some Film"</h4>
+          <h4 style="color: white">{{status}}</h4>
         </div>
       </div>
     </div>
@@ -18,10 +18,10 @@
     <div class="container col-lg-4"
          style="background: #333333; color: white; position: static; border: 1px solid rgba(143,146,143,0.91); border-top-right-radius: 20px;">
       <h3 style="text-align: center; margin-bottom: 20px">Statistic</h3>
-      <h5>Your name is: <span style="color: red;">{{user.username}}</span> </h5>
-      <h5>Your email is: <span style="color: red;">{{user.email}}</span> </h5>
-      <h5>Your id is: <span style="color: red;">{{user.id}}</span> </h5>
-      <h5>You have <a routerLink="userfilms" style="color: red;">{{filmsLength}}</a> films in your library</h5>
+      <h5>{{changingUsersStat}} name is: <span style="color: red;">{{user.username}}</span> </h5>
+      <h5>{{changingUsersStat}} email is: <span style="color: red;">{{user.email}}</span> </h5>
+      <h5>{{changingUsersStat}} id is: <span style="color: red;">{{user.id}}</span> </h5>
+      <h5><a routerLink="userfilms" style="color: red;">{{filmsLength}}</a> films in {{changingUsersStat}} library</h5>
     </div>
   </div>
 </div>

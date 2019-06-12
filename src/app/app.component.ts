@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient, private filmsS: FilmService, private userService: UserService) {
 
   }
+
   currentUser = new User();
   search = '';
   films: Films [] = [];

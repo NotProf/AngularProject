@@ -25,6 +25,7 @@ import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
 import { SearchComponent } from './search/search.component';
+import {NetworkStatusAngularModule} from 'network-status-angular';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -81,7 +82,7 @@ const routes: Routes = [
     FormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -56,4 +56,5 @@ export class UserService {
   getSize(id: number): Observable<number> {
     return this.http.post<number>('http://localhost:8080/getUserfilmsLength', id);
   }
+
 }
