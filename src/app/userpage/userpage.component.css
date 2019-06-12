@@ -7,8 +7,47 @@
   background: rgba(248, 248, 248, 0.92);
   position: absolute;
   width: 300px;
+  list-style-type: none;
+  border: 1px solid #545454;
+  border-radius: 20px;
+}
+
+.dropUnderAvatar>li>a{
+  color: #111111;
+  text-decoration: none;
+}
+.dropUnderAvatar>li>a:hover{
+  color: #545454;
 }
 
 .underAvatar:hover>.dropUnderAvatar{
   display: block;
+}
+
+.avatar{
+  display: none;
+}
+
+.avatar_input{
+  cursor: pointer;
+  margin: 0;
+}
+.avatar_input:hover{
+  color: #545454;
+}
+
+.films__rec1{
+  text-decoration: none;
+  color: #333333;
+  background: rgba(148,148,148,0.91);
+  width: 50%;
+  height: 250px;
+  padding: 0;
+  margin: 15px 5px;
+  -webkit-transition: 0.5s;
+}
+
+.films__rec1:hover{
+  background: rgba(195,198,195,0.91);
+  transition: 0.5s;
 }

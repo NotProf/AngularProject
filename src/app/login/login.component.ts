@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Form, NgForm} from '@angular/forms';
 import {User} from '../../models/User';
+import {catchError} from 'rxjs/operators';
+import {throwError} from 'rxjs';
+import {UserService} from '../../services/UserService';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +12,9 @@ import {User} from '../../models/User';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+mes = '';
 
-
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userServ: UserService) {
   }
 
 
@@ -20,17 +23,16 @@ export class LoginComponent implements OnInit {
 
 
   login(form: NgForm) {
-    this.http.post('http://localhost:8080/login', form.value,
-      {observe: 'response'})
-      .subscribe(value => {
-        const token = value.headers.get('Authorization');
-        const currentUser = value.headers.get('CurrentUser');
-        localStorage.setItem('_currentUser', currentUser);
-        localStorage.setItem('_token', token);
-        setTimeout(() => {
-            window.location.href = '/userpage';
-          }, 100
-        );
-      });
+    console.log(form.value);
+    this.userServ.Login(form.value).subscribe(value => {
+         const token = value.headers.get('Authorization');
+         const currentUser = value.headers.get('CurrentUser');
+         localStorage.setItem('_currentUser', currentUser);
+         localStorage.setItem('_token', token);
+         setTimeout(() => {
+             window.location.href = '/';
+           }, 100
+         );
+       });
   }
 }

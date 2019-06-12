@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../services/UserService';
+import {UserpageComponent} from '../userpage/userpage.component';
+import {User} from '../../models/User';
 
 @Component({
   selector: 'app-usersfriends',
@@ -6,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usersfriends.component.css']
 })
 export class UsersfriendsComponent implements OnInit {
+  id: number;
+  subscribes: User[];
 
-  constructor() { }
+  constructor(private userService: UserService, private userComponent: UserpageComponent) {
+  }
 
   ngOnInit() {
+    this.id = this.userComponent.currentID;
+    this.userService.getSubscribes(this.id).subscribe((res) => {
+      this.subscribes = res
+      console.log(this.subscribes);
+    });
   }
 
 }

@@ -8,8 +8,8 @@
         <img src="assets/user .png" class="imgUser">
         <p style="color: coral; text-align: center">{{mes}}</p>
         <ul class="dropDownMenu">
-          <li class="liMenu"><a routerLink="userpage">My Page</a></li>
-          <li class="liMenu"><a href="#">Friends</a></li>
+          <li class="liMenu"><a  [href]="'/userpage/' + currentUser.id">My Page</a></li>
+          <li class="liMenu"><a routerLink="/">Main page</a></li>
           <li class="liMenu"><a href="#">Playlist</a></li>
           <li class="liMenu"><a href="#">Settings</a></li>
           <li class="liMenu"><a href="/" (click)="logout()">Log Out</a></li>
@@ -37,7 +37,7 @@
 <router-outlet></router-outlet>
 
 
-<footer>
+<footer style="margin-top: 200px">
   <div class="container-fluid" style="height: 100px; background: black; margin-top: 75px">
     <div class="row" style="text-align: center; height: 100%">
       <div class="col-lg-4 logo" style="bottom: 20px"><a href=""><img src="assets/logo.png" alt="" width="40%" height="100%" style="border-radius: 50%"></a>

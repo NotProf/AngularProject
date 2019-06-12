@@ -1,5 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
+import {User} from '../../models/User';
+import {UserService} from '../../services/UserService';
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-userpage',
@@ -7,17 +12,68 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
   styleUrls: ['./userpage.component.css']
 })
 export class UserpageComponent implements OnInit {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
+  filmsLength = null;
+  currentID = 0;
+  showUnshow = false;
+  subButton = true;
+  user = new User();
+  image = 'assets/ava.jpg';
+  fileToUpload: File = null;
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((value) => {
+      this.currentID = Number(value.id);
+    });
+    this.userService.compareUser(this.currentID).subscribe((res) => {
+      this.showUnshow = res;
+      if (this.showUnshow === false) {
+        this.subButton = true;
+      } else {
+        this.subButton = false;
+      }
+    });
+    this.userService.getUserById(this.currentID).subscribe((curUser) => {
+      this.user = curUser;
+      if (this.user.avatar == null) {
+        this.user.avatar = this.image;
+      }
+    });
+    this.userService.getSize(this.currentID).subscribe(value => {
+      this.filmsLength = value;
+    });
   }
 
-  getInfo() {
-    const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
-    // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
-    this.http.get('http://localhost:8080/get', {headers: headersOption, responseType: 'text'}).subscribe(value => console.log(value));
+  subscribes() {
+    this.userService.addSubscribes(this.currentID).subscribe();
   }
+
+
+  handleFileInput(event) {
+    this.fileToUpload = event.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(this.fileToUpload);
+    fileReader.onload = () => {
+      // @ts-ignore
+      this.user.avatar = fileReader.result;
+    };
+
+
+  }
+
+  sendFormWithAvatar() {
+    const fd: FormData = new FormData();
+    fd.append('avatar', this.fileToUpload);
+    this.activatedRoute.params.subscribe((value) => {
+      this.currentID = Number(value.id);
+      this.userService.setAvatar(fd).subscribe();
+    });
+    setTimeout(() => {
+      window.location.href = '/userpage/' + this.user.id;
+    }, 0);
+  }
+
 
 
 }

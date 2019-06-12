@@ -20,9 +20,9 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.appComp.a + '1111111111111111');
+    console.log(this.appComp.search + '1111111111111111');
 
-    this.filmsS.findSearchingFilm(this.appComp.a).subscribe(value => {
+    this.filmsS.findSearchingFilm(this.appComp.search).subscribe(value => {
       console.log(value);
       this.partFilms = value;
     });

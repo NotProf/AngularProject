@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {FilmService} from "../../services/film.service";
-import {Films} from "../../models/Films";
+import {ActivatedRoute} from '@angular/router';
+import {FilmService} from '../../services/film.service';
+import {Films} from '../../models/Films';
 
 
 @Component({

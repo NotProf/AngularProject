@@ -1,25 +1,70 @@
 <div class="container-fluid">
-<div class="row">
-  <div style="text-align: center; border-radius: 50%; background: yellow; height: 200px" class="col-lg-3">Some avatar
-    <input type="file">
-  </div>
-  <div style="background: green; height: 200px; position: static" class="col-lg-9">Name, Surname, Age, Status
-  <button>Change data</button>
-  </div>
-</div>
-</div>
+  <div class="row">
 
-    <div  style=" width: 1.5%" class="underAvatar">
-      <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
-      <ul class="dropUnderAvatar">
-        <li><a routerLink="usersfriends">My friends</a></li>
-        <li><a routerLink="userfilms">My films</a></li>
-        <li><a>Change avatar</a></li>
-      </ul>
+    <div class="container col-lg-8"
+         style="background: #333333; margin-left: 0; border: 1px solid rgba(143,146,143,0.91); border-top-left-radius: 20px;">
+
+      <div class="row">
+        <div style="text-align: center; border-radius: 50%;" class="col-lg-3">
+          <label for="fileInput"><img style="width: 250px; height: 250px; border-radius: 50%; border: 2px solid black"
+                                      [src]="user.avatar"></label>
+        </div>
+        <div style="height: 200px; " class="col-lg-5">
+          <h4 style="color: white">Зараз Ви дивитесь - "Some Film"</h4>
+        </div>
+      </div>
     </div>
-    <div style="background: white; height: 500px; width: 75%; margin-left: 25%; margin-top: 0">
+
+    <div class="container col-lg-4"
+         style="background: #333333; color: white; position: static; border: 1px solid rgba(143,146,143,0.91); border-top-right-radius: 20px;">
+      <h3 style="text-align: center; margin-bottom: 20px">Statistic</h3>
+      <h5>Your name is: <span style="color: red;">{{user.username}}</span> </h5>
+      <h5>Your email is: <span style="color: red;">{{user.email}}</span> </h5>
+      <h5>Your id is: <span style="color: red;">{{user.id}}</span> </h5>
+      <h5>You have <a routerLink="userfilms" style="color: red;">{{filmsLength}}</a> films in your library</h5>
+    </div>
+  </div>
+</div>
+<button (click)="subscribes()" *ngIf="subButton">Subscribe</button>
+<form #form="ngForm" (ngSubmit)="sendFormWithAvatar(form)">
+  <div class="underAvatar" style="width: 3%">
+    <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
+    <ul class="dropUnderAvatar">
+      <li><a style="text-decoration: none" routerLink="usersfriends">My friends</a></li>
+      <li><a routerLink="userfilms">My films</a></li>
+      <li><label class="avatar_input"><input class="avatar" id="fileInput" type="file" ngModel name="avatar"
+                                             placeholder="Image" (change)="handleFileInput($event)">Change
+        Avatar</label></li>
+      <li><label class="avatar_input"><input class="avatar" type="submit">Save changes</label></li>
+    </ul>
+  </div>
+</form>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 justify-content-center row"
+         style="margin-top: 150px; color: white; text-align: center; border: 2px solid rgba(143,146,143,0.91)"><h3
+      class="col-lg-12">New Films</h3>
+      <a style="text-decoration: none" href="#" class="col-lg-4 films__rec1"><img
+        style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
+      <a style="text-decoration: none" href="#" class="col-lg-4 films__rec1"><img
+        style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
+      <a style="text-decoration: none" href="#" class="col-lg-4 films__rec1"><img
+        style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
+      <a style="text-decoration: none" href="#" class="col-lg-4 films__rec1"><img
+        style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
+      <a style="text-decoration: none" href="#" class="col-lg-4 films__rec1"><img
+        style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
+      <a style="text-decoration: none" href="#" class="col-lg-4 films__rec1"><img
+        style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
+      <a style="text-decoration: none" href="#" class="col-lg-4 films__rec1"><img
+        style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
+      <a style="text-decoration: none" href="#" class="col-lg-4 films__rec1"><img
+        style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
+
+    </div>
+    <div class="col-lg-8">
       <router-outlet></router-outlet>
     </div>
-
-
+  </div>
+</div>
 
