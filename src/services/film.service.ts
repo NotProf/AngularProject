@@ -42,4 +42,10 @@ export class FilmService {
   delUserfilms(film: number): Observable<Films[]> {
     return this.http.post<Films[]>('http://localhost:8080/deluserfilms', film);
   }
+  rating(rating, id): Observable<any> {
+    const fd: FormData = new FormData();
+    fd.append('idFilm', id);
+    fd.append('rating', rating);
+    return this.http.post<any>('http://localhost:8080/rating', fd);
+  }
 }
