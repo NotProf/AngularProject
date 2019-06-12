@@ -35,3 +35,19 @@
 .avatar_input:hover{
   color: #545454;
 }
+
+.films__rec1{
+  text-decoration: none;
+  color: #333333;
+  background: rgba(148,148,148,0.91);
+  width: 50%;
+  height: 250px;
+  padding: 0;
+  margin: 15px 5px;
+  -webkit-transition: 0.5s;
+}
+
+.films__rec1:hover{
+  background: rgba(195,198,195,0.91);
+  transition: 0.5s;
+}

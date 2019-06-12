@@ -14,7 +14,7 @@ import {NgForm} from '@angular/forms';
 export class UserpageComponent implements OnInit {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
-
+  filmsLength = null;
   currentID = 0;
   showUnshow = false;
   subButton = true;
@@ -40,20 +40,13 @@ export class UserpageComponent implements OnInit {
         this.user.avatar = this.image;
       }
     });
-    // setTimeout(() => {
-    //   this.userService.setDefaultAvatar().subscribe(() => {
-    //       if (this.user.avatar == null) {
-    //         this.user.avatar = this.image;
-    //       }
-    //     }
-    //   );
-    // }, 300);
+    this.userService.getSize(this.currentID).subscribe(value => {
+      this.filmsLength = value;
+    });
   }
 
   subscribes() {
-    this.userService.addSubscribes(this.currentID).subscribe(value => {
-      console.log(value);
-    });
+    this.userService.addSubscribes(this.currentID).subscribe();
   }
 
 
@@ -80,5 +73,7 @@ export class UserpageComponent implements OnInit {
       window.location.href = '/userpage/' + this.user.id;
     }, 0);
   }
+
+
 
 }

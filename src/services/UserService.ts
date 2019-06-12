@@ -52,4 +52,8 @@ export class UserService {
   setAvatar(ava: FormData): Observable<User> {
     return this.http.post<User>('http://localhost:8080/setAvatar', ava);
   }
+
+  getSize(id: number): Observable<number> {
+    return this.http.post<number>('http://localhost:8080/getUserfilmsLength', id);
+  }
 }

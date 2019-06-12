@@ -1,3 +1,5 @@
+import {Films} from './Films';
+
 export class User {
 
   constructor(
@@ -5,7 +7,8 @@ export class User {
     public username: string = '',
     public password: string = '',
     public email: string = '',
-    public avatar: string = ''
+    public avatar: string = '',
+    public films: Films[] = []
   ) {
   }
 }

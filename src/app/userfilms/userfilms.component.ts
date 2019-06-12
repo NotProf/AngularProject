@@ -25,7 +25,6 @@ export class UserfilmsComponent implements OnInit {
 
   deleteUserFilm(id: number) {
     this.filmsS. delUserfilms(id).subscribe((res) => {
-      console.log(id);
       this.uFilms = res;
     });
   }
