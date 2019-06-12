@@ -8,7 +8,8 @@ export class User {
     public password: string = '',
     public email: string = '',
     public avatar: string = '',
-    public films: Films[] = []
+    public films: Films[] = [],
+    public status: string = ''
   ) {
   }
 }

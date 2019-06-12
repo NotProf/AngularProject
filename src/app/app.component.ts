@@ -60,6 +60,14 @@ export class AppComponent implements OnInit {
         this.mes = 'Hello, ' + this.currentUser.username;
       });
     }
+    window.onoffline = () => {
+      console.log('offlineee');
+      this.http.get('http://localhost:8080/close').subscribe();
+      this.currentUser.status = 'offline';
+    };
+    window.onunload =  () => {
+      this.http.get('http://localhost:8080/close').subscribe();
+    };
   }
 
 // getUsername() {
