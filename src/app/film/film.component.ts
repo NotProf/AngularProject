@@ -12,20 +12,24 @@ import {Films} from '../../models/Films';
 export class FilmComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
  currentF = 0;
-
+rating = 0;
   public film: Films = new Films();
  constructor(private actevateRoute: ActivatedRoute, private filmService: FilmService ) {}
   ngOnInit() {
     this.actevateRoute.params.subscribe((param) => {
       this.currentF = Number(param.id);
-      console.log(this.currentF);
     });
     this.filmService.getFilmById(this.currentF).subscribe(res => {
-      console.log(res);
       this.film = res;
-      console.log(this.film.movie);
+      const score = Math.trunc(this.film.score);
+      console.log(score + 'score');
+      try {
+        document.getElementById(`star-${score - 1}`).setAttribute('checked', 'checked');
+      } catch (e) {
+        console.log('rating mising');
+      }
     });
- }
+  }
   toggleVideo() {
     this.videoplayer.nativeElement.play();
   }
@@ -35,5 +39,31 @@ export class FilmComponent implements OnInit {
 
   getThisFilm(): Films {
     return this.film;
+  }
+filmRating(value, id) {
+  this.filmService.rating(value, id).subscribe((res) => {
+    this.rating = res;
+    console.log(this.rating);
+  });
+}
+  star5(id) {
+    const value = 5;
+    this.filmRating(value, id);
+  }
+  star4(id) {
+    const value = 4;
+    this.filmRating(value, id);
+ }
+  star3(id) {
+    const value = 3;
+    this.filmRating(value, id);
+  }
+  star2(id) {
+    const value = 2;
+    this.filmRating(value, id);
+  }
+  star1(id) {
+    const value = 1;
+    this.filmRating(value, id);
   }
 }

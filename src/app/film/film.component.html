@@ -1,5 +1,24 @@
 <div class="Filmpage">
   <h2 class="nameFilm">{{film.name}}</h2>
+  <div class="minStar">
+    <div id="reviewStars-input">
+      <input  (click)="star5(film.id)" id="star-4" type="radio" name="reviewStars"/>
+      <label title="gorgeous" for="star-4"></label>
+
+      <input (click)="star4(film.id)" id="star-3" type="radio" name="reviewStars"/>
+      <label title="good" for="star-3"></label>
+
+      <input  (click)="star3(film.id)"id="star-2" type="radio" name="reviewStars"/>
+      <label title="regular" for="star-2"></label>
+
+      <input (click)="star2(film.id)" id="star-1" type="radio" name="reviewStars"/>
+      <label title="poor" for="star-1"></label>
+
+      <input  (click)="star1(film.id)"id="star-0" type="radio" name="reviewStars"/>
+      <label title="bad" for="star-0"></label>
+      <h2>Rating: {{film.score}}</h2>
+    </div>
+  </div>
 
   <div class="play">
     <video id="player"controls (click)="toggleVideo()" [src]="film.movie" #videoPlayer width="100%" height="100%" >
