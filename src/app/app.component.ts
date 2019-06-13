@@ -61,9 +61,10 @@ export class AppComponent implements OnInit {
       });
     }
     window.onoffline = () => {
-      console.log('offlineee');
+
       this.http.get('http://localhost:8080/close').subscribe();
       this.currentUser.status = 'offline';
+      console.log('offlineee');
     };
     window.onunload =  () => {
       this.http.get('http://localhost:8080/close').subscribe();
@@ -77,6 +78,14 @@ export class AppComponent implements OnInit {
   logout() {
     localStorage.removeItem('_token');
     localStorage.removeItem('_currentUser');
+    window.onoffline = () => {
+      console.log('offlineee');
+      this.http.get('http://localhost:8080/close').subscribe();
+      this.currentUser.status = 'offline';
+    };
+
+    this.http.get('http://localhost:8080/close').subscribe();
+
   }
 
 // getInfo() {
