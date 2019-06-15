@@ -8,7 +8,7 @@
         <img src="assets/user .png" class="imgUser">
         <p style="color: coral; text-align: center">{{mes}}</p>
         <ul class="dropDownMenu">
-          <li class="liMenu"><a  [href]="'/userpage/' + currentUser.id">My Page</a></li>
+          <li class="liMenu"><a  [routerLink]="'/userpage/' + currentUser.id">My Page</a></li>
           <li class="liMenu"><a routerLink="/">Main page</a></li>
           <li class="liMenu"><a href="#">Playlist</a></li>
           <li class="liMenu"><a href="#">Settings</a></li>
@@ -16,11 +16,7 @@
         </ul>
       </div>
       <div appNoAuthUser  class="userMenu"><a class="login" routerLink="login">Login</a></div>
-      <form #form ="ngForm" method="get" class="search">
-        <input type="search" ngModel name="search" placeholder="Search" class="input"/>
-        <input routerLink="search" (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
-        <!--kugjy-->
-      </form>
+
       <ul class="menu-main f-left">
         <li><a routerLink="news">News</a></li>
         <li><a routerLink="about">About</a></li>

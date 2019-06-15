@@ -4,6 +4,7 @@ import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {AppComponent} from '../app.component';
 import set = Reflect.set;
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -12,6 +13,7 @@ import set = Reflect.set;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  search = '';
   films: Films [] = [];
   partFilms: Films[] = [];
   public page = 1;
@@ -89,5 +91,10 @@ export class HomeComponent implements OnInit {
         }, 100
       );
     });
+  }
+  sendSearchForm(form: NgForm
+  ) {
+    this.search = form.value.search;
+    console.log(this.search);
   }
 }

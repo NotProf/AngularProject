@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Films} from '../models/Films';
 import {FilmService} from '../services/film.service';
-import {NgForm} from '@angular/forms';
 import {UserService} from '../services/UserService';
 import {User} from '../models/User';
 
@@ -17,7 +16,6 @@ export class AppComponent implements OnInit {
 
   }
   currentUser = new User();
-  search = '';
   films: Films [] = [];
   partFilms: Films[] = [];
   public page = 1;
@@ -96,13 +94,6 @@ export class AppComponent implements OnInit {
 //     responseType: 'text'
 //   }).subscribe(value => console.log(value));
 // }
-
-
-  sendSearchForm(form: NgForm
-  ) {
-    this.search = form.value.search;
-    console.log(this.search);
-  }
 }
 
 
