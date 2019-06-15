@@ -4,6 +4,12 @@
   </div>
 </div>
 
+
+<form #form ="ngForm" method="get" class="search">
+  <input type="search" ngModel name="search" placeholder="Search" class="input"/>
+  <input routerLink="search" (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
+</form>
+
 <section>
   <div class="container" style="margin-top: 50px; height: 100px">
     <div class="row " style=" text-align: center; height: 30px;">

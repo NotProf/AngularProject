@@ -24,8 +24,6 @@ import {NoAuthUserDirective} from './no-auth-user.directive';
 import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
-import { SearchComponent } from './search/search.component';
-import {NetworkStatusAngularModule} from 'network-status-angular';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -49,8 +47,8 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'reg', component: RegComponent},
-  {path: 'search', component: SearchComponent}
+  {path: 'reg', component: RegComponent}
+  // {path: 'search', component: SearchComponent}
 ];
 
 @NgModule({
@@ -75,14 +73,14 @@ const routes: Routes = [
     UserAuthDirective,
     UsersfriendsComponent,
     AddButtonDirective,
-    SearchComponent
+    // SearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

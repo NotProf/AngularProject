@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Films} from '../models/Films';
 import {FilmService} from '../services/film.service';
-import {NgForm} from '@angular/forms';
 import {UserService} from '../services/UserService';
 import {User} from '../models/User';
 
@@ -18,7 +17,6 @@ export class AppComponent implements OnInit {
   }
 
   currentUser = new User();
-  search = '';
   films: Films [] = [];
   partFilms: Films[] = [];
   public page = 1;
@@ -61,6 +59,15 @@ export class AppComponent implements OnInit {
         this.mes = 'Hello, ' + this.currentUser.username;
       });
     }
+    window.onoffline = () => {
+
+      this.http.get('http://localhost:8080/close').subscribe();
+      this.currentUser.status = 'offline';
+      console.log('offlineee');
+    };
+    window.onunload =  () => {
+      this.http.get('http://localhost:8080/close').subscribe();
+    };
   }
 
 // getUsername() {
@@ -70,6 +77,14 @@ export class AppComponent implements OnInit {
   logout() {
     localStorage.removeItem('_token');
     localStorage.removeItem('_currentUser');
+    window.onoffline = () => {
+      console.log('offlineee');
+      this.http.get('http://localhost:8080/close').subscribe();
+      this.currentUser.status = 'offline';
+    };
+
+    this.http.get('http://localhost:8080/close').subscribe();
+
   }
 
 // getInfo() {
@@ -80,13 +95,6 @@ export class AppComponent implements OnInit {
 //     responseType: 'text'
 //   }).subscribe(value => console.log(value));
 // }
-
-
-  sendSearchForm(form: NgForm
-  ) {
-    this.search = form.value.search;
-    console.log(this.search);
-  }
 }
 
 
