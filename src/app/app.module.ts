@@ -48,7 +48,6 @@ const routes: Routes = [
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
   {path: 'reg', component: RegComponent}
-  // {path: 'search', component: SearchComponent}
 ];
 
 @NgModule({
@@ -72,8 +71,7 @@ const routes: Routes = [
     NoAuthUserDirective,
     UserAuthDirective,
     UsersfriendsComponent,
-    AddButtonDirective,
-    // SearchComponent
+    AddButtonDirective
   ],
   imports: [
     BrowserModule,

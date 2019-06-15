@@ -1,7 +1,6 @@
 .search {
-  float: right;
-  width: 20%;
-  margin: 1%;
+  width: 25%;
+  margin: 1% auto;
   position: relative;
   top: 0;
 }

@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
 
-  constructor(private filmsS: FilmService, private userS: UserService, private appComp: AppComponent) {
+  constructor(private filmsS: FilmService, private userS: UserService) {
   }
 
   next() {
@@ -92,9 +92,11 @@ export class HomeComponent implements OnInit {
       );
     });
   }
-  sendSearchForm(form: NgForm
-  ) {
-    this.search = form.value.search;
-    console.log(this.search);
+  sendSearchForm(form: NgForm) {
+    this.filmsS.findSearchingFilm(form.value.search).subscribe(value => {
+      this.films = value;
+      this.page = 1;
+      this.onPageChange(1);
+    });
   }
 }
