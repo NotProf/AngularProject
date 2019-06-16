@@ -4,6 +4,7 @@ import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {AppComponent} from '../app.component';
 import set = Reflect.set;
+import {NgForm} from '@angular/forms';
 
 
 @Component({
@@ -12,6 +13,7 @@ import set = Reflect.set;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  search = '';
   films: Films [] = [];
   partFilms: Films[] = [];
   public page = 1;
@@ -21,7 +23,7 @@ export class HomeComponent implements OnInit {
   images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
 
-  constructor(private filmsS: FilmService, private userS: UserService, private appComp: AppComponent) {
+  constructor(private filmsS: FilmService, private userS: UserService) {
   }
 
   next() {
@@ -88,6 +90,13 @@ export class HomeComponent implements OnInit {
           window.location.href = '/';
         }, 100
       );
+    });
+  }
+  sendSearchForm(form: NgForm) {
+    this.filmsS.findSearchingFilm(form.value.search).subscribe(value => {
+      this.films = value;
+      this.page = 1;
+      this.onPageChange(1);
     });
   }
 }

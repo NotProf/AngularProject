@@ -10,11 +10,7 @@
                                       [src]="user.avatar"></label>
         </div>
         <div style="height: 200px; " class="col-lg-5">
-          <h4 style="color: white">{{user.username}}</h4>
-          <h5 *ngIf="user.status.toLowerCase() == 'online'; else offline" style="color: green; margin-left: 1%;">{{user.status}}</h5>
-          <ng-template #offline>
-            <h5 style="color: red; margin-left: 1%;">{{user.status}}</h5>
-          </ng-template>
+          <h4 style="color: white">{{user.status}}</h4>
         </div>
       </div>
     </div>
@@ -36,9 +32,8 @@
   <div class="underAvatar" style="width: 3%">
     <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
     <ul class="dropUnderAvatar">
-      <li><a style="text-decoration: none" routerLink="folowing">Folowing</a></li>
-      <li><a style="text-decoration: none" routerLink="usersfriends">Folowers</a></li>
-      <li><a routerLink="userfilms"> films</a></li>
+      <li><a style="text-decoration: none" routerLink="usersfriends">My friends</a></li>
+      <li><a routerLink="userfilms">My films</a></li>
       <li><label class="avatar_input"><input class="avatar" id="fileInput" type="file" ngModel name="avatar"
                                              placeholder="Image" (change)="handleFileInput($event)">Change
         Avatar</label></li>

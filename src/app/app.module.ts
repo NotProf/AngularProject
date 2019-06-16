@@ -25,7 +25,6 @@ import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
 import { SearchComponent } from './search/search.component';
-import { FolowingComponent } from './folowing/folowing.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -46,8 +45,7 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'reg', component: RegComponent},
-  {path: 'search', component: SearchComponent}
+  {path: 'reg', component: RegComponent}
 ];
 
 @NgModule({
