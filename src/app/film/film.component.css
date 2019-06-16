@@ -22,7 +22,9 @@
 
 
 
-
+video, textarea{
+  outline: none;
+}
 
 
 
@@ -36,7 +38,6 @@
 .play{
   width: 90%;
   height: 450px;
-  border: 1px solid red;
   margin: 0 auto;
   clear: both;
 }
