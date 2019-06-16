@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
 import {NgForm} from '@angular/forms';
+import {UsersfriendsComponent} from "../usersfriends/usersfriends.component";
 
 
 @Component({

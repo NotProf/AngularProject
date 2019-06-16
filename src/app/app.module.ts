@@ -25,16 +25,14 @@ import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
 import { SearchComponent } from './search/search.component';
+import { FolowingComponent } from './folowing/folowing.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {
-    path: 'userpage/:id',
-    component: UserpageComponent,
-    children: [{path: 'userfilms', component: UserfilmsComponent}, {
-      path: 'usersfriends',
-      component: UsersfriendsComponent
-    }]
+  { path: 'userpage/:id', component: UserpageComponent, children:
+      [{path: 'userfilms', component: UserfilmsComponent},
+        {path: 'usersfriends', component: UsersfriendsComponent},
+        {path: 'folowing', component: FolowingComponent}]
   },
   {
     path: 'film/:id', component: FilmComponent, children: [{path: 'sound', component: SoundTrackComponent},
@@ -74,7 +72,8 @@ const routes: Routes = [
     UserAuthDirective,
     UsersfriendsComponent,
     AddButtonDirective,
-    SearchComponent
+    SearchComponent,
+    FolowingComponent
   ],
   imports: [
     BrowserModule,

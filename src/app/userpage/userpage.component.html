@@ -10,7 +10,11 @@
                                       [src]="user.avatar"></label>
         </div>
         <div style="height: 200px; " class="col-lg-5">
-          <h4 style="color: white">{{user.status}}</h4>
+          <h4 style="color: white">{{user.username}}</h4>
+          <h5 *ngIf="user.status.toLowerCase() == 'online'; else offline" style="color: green; margin-left: 1%;">{{user.status}}</h5>
+          <ng-template #offline>
+            <h5 style="color: red; margin-left: 1%;">{{user.status}}</h5>
+          </ng-template>
         </div>
       </div>
     </div>
@@ -18,10 +22,12 @@
     <div class="container col-lg-4"
          style="background: #333333; color: white; position: static; border: 1px solid rgba(143,146,143,0.91); border-top-right-radius: 20px;">
       <h3 style="text-align: center; margin-bottom: 20px">Statistic</h3>
-      <h5>Your name is: <span style="color: red;">{{user.username}}</span> </h5>
+      <!--<h5>Your name is: <span style="color: red;">{{user.username}}</span> </h5>-->
       <h5>Your email is: <span style="color: red;">{{user.email}}</span> </h5>
       <h5>Your id is: <span style="color: red;">{{user.id}}</span> </h5>
       <h5>You have <a routerLink="userfilms" style="color: red;">{{filmsLength}}</a> films in your library</h5>
+      <h5>Folowing <a routerLink="userfilms" style="color: red;">{{user.folowing.length}}</a></h5>
+      <h5>Folowers <a routerLink="userfilms" style="color: red;">{{user.subscribes.length}}</a></h5>
     </div>
   </div>
 </div>
@@ -30,8 +36,9 @@
   <div class="underAvatar" style="width: 3%">
     <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
     <ul class="dropUnderAvatar">
-      <li><a style="text-decoration: none" routerLink="usersfriends">My friends</a></li>
-      <li><a routerLink="userfilms">My films</a></li>
+      <li><a style="text-decoration: none" routerLink="folowing">Folowing</a></li>
+      <li><a style="text-decoration: none" routerLink="usersfriends">Folowers</a></li>
+      <li><a routerLink="userfilms"> films</a></li>
       <li><label class="avatar_input"><input class="avatar" id="fileInput" type="file" ngModel name="avatar"
                                              placeholder="Image" (change)="handleFileInput($event)">Change
         Avatar</label></li>

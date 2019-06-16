@@ -22,11 +22,15 @@ export class UserService {
   }
 
   addUserFilm(idFilm: number): Observable<Films[]> {
-    return this.http.post<Films[]>('http://localhost:8080/adduserfilm', idFilm, {headers: this.headersOption});
+    return this.http.post<Films[]>
+    ('http://localhost:8080/adduserfilm', idFilm,
+      {headers: this.headersOption});
   }
 
   getUserFilms(id: number): Observable<Films[]> {
-    return this.http.post<Films[]>('http://localhost:8080/userpage-userfilms', id, {headers: this.headersOption});
+    return this.http.post<Films[]>
+    ('http://localhost:8080/userpage-userfilms', id,
+      {headers: this.headersOption});
   }
 
   getCurrentUser(): Observable<User> {
@@ -46,7 +50,7 @@ export class UserService {
   }
 
   getSubscribes(id: number): Observable<User[]> {
-    return this.http.post<User[]>('http://localhost:8080/friends', id);
+    return this.http.post<User[]>('http://localhost:8080/getSubscribers', id);
   }
 
   setAvatar(ava: FormData): Observable<User> {
@@ -55,5 +59,9 @@ export class UserService {
 
   getSize(id: number): Observable<number> {
     return this.http.post<number>('http://localhost:8080/getUserfilmsLength', id);
+  }
+
+  getFolowing(id: number): Observable<User[]> {
+    return this.http.post<User[]>('http://localhost:8080/getFolowing', id);
   }
 }

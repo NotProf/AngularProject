@@ -9,7 +9,9 @@ export class User {
     public email: string = '',
     public avatar: string = '',
     public films: Films[] = [],
-    public status: string = ''
+    public status: string = '',
+    public subscribes: string[] = [],
+    public folowing: string[] = [],
   ) {
   }
 }

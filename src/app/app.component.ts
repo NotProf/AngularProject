@@ -62,11 +62,11 @@ export class AppComponent implements OnInit {
     }
     window.onoffline = () => {
       console.log('offlineee');
-      this.http.get('http://localhost:8080/close').subscribe();
+      this.http.get('http://ec2-3-16-162-114.us-east-2.compute.amazonaws.com:8080/close').subscribe();
       this.currentUser.status = 'offline';
     };
     window.onunload =  () => {
-      this.http.get('http://localhost:8080/close').subscribe();
+      this.http.get('http://ec2-3-16-162-114.us-east-2.compute.amazonaws.com:8080/close').subscribe();
     };
   }
 
