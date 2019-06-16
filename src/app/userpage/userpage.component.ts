@@ -22,6 +22,7 @@ export class UserpageComponent implements OnInit {
   user = new User();
   image = 'assets/ava.jpg';
   fileToUpload: File = null;
+  exist: boolean;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((value) => {
@@ -41,13 +42,20 @@ export class UserpageComponent implements OnInit {
         this.user.avatar = this.image;
       }
     });
+    this.userService.existIntFriends(this.currentID).subscribe((res) => {
+      this.exist = res;
+    });
     this.userService.getSize(this.currentID).subscribe(value => {
       this.filmsLength = value;
     });
   }
 
   subscribes() {
-    this.userService.addSubscribes(this.currentID).subscribe();
+    this.userService.addSubscribes(this.currentID).subscribe(() => this.ngOnInit());
+  }
+  unSubscribes() {
+    this.userService.unSubscribes(this.currentID).subscribe(() => this.ngOnInit());
+    this.ngOnInit();
   }
 
 

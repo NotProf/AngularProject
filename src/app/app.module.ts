@@ -24,7 +24,8 @@ import {NoAuthUserDirective} from './no-auth-user.directive';
 import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
-import { SearchComponent } from './search/search.component';
+import {FolowingComponent} from './folowing/folowing.component';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -70,7 +71,6 @@ const routes: Routes = [
     UserAuthDirective,
     UsersfriendsComponent,
     AddButtonDirective,
-    SearchComponent,
     FolowingComponent
   ],
   imports: [

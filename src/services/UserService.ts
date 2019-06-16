@@ -45,10 +45,15 @@ export class UserService {
     return this.http.post<boolean>('http://localhost:8080/currentPage', id);
   }
 
-  addSubscribes(id: number): Observable<number> {
-    return this.http.post<number>('http://localhost:8080/subscribe', id);
+  addSubscribes(id: number) {
+    return this.http.post('http://localhost:8080/subscribe', id);
   }
-
+  unSubscribes(id: number) {
+    return this.http.post('http://localhost:8080/unSubscribe', id);
+  }
+  existIntFriends(id: number): Observable<boolean> {
+    return this.http.post<boolean>('http://localhost:8080/exist', id);
+  }
   getSubscribes(id: number): Observable<User[]> {
     return this.http.post<User[]>('http://localhost:8080/getSubscribers', id);
   }
