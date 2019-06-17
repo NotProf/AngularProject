@@ -3,12 +3,9 @@
   <div class="next">
   </div>
 </div>
-<form #form ="ngForm" method="get" class="search">
-  <input type="search" ngModel name="search" placeholder="Search" class="input"/>
-  <input (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
-</form>
+
 <section>
-  <div class="container" style="margin-top: 50px; height: 100px">
+  <div class="container" style="margin-top: 20px; height: 100px">
     <div class="row " style=" text-align: center; height: 30px;">
       <div class="menu2 d-flex col-lg-12" style="padding: 0; margin-top: 10px">
         <a (click)="SearchBy('Fantasy')">Фентезі</a>
@@ -31,6 +28,7 @@
   </div>
 </section>
 <section>
+
   <div class="container" style="box-shadow: 3px 0 7px rgba(0, 0, 0, .3);">
     <div class="row">
       <div class="content1">
@@ -55,16 +53,18 @@
         </div>
       </div>
       <div class="content2">
+        <form #form ="ngForm" method="get" class="search" id="search">
+          <input (keydown)="sendSearchForm(form)" type="search" ngModel name="search" placeholder="Search" class="input"/>
+          <input (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
+        </form>
         <div style="width: 100%; border-bottom: 1px solid #404040; margin: 0"
-             class="text-center container"><p style="color: white; margin: 0; font-size: 30px" id="up">Сортувати по:</p>
+             class="text-center container">
+          <p style="color: white; margin: 0; font-size: 30px" id="up">Sort By:</p>
           <div class="row justify-content-center" style="margin: 0">
-            <a style="margin: 15px 5px 4px 5px; width: 150px; height: 30px" class="col-lg-3 sorted__a" href="">Дата
-              додавання</a>
-            <a style="margin: 15px 5px 4px 5px; width: 100px; height: 30px" class="col-lg-3 sorted__a"
-               (click)="sortByYear()">Рік
-              випуску</a>
-            <a style="margin: 15px 5px 4px 5px; width: 100px; height: 30px" class="col-lg-3 sorted__a" href="">Топ
-              переглядів</a>
+            <a style=" color:white; margin: 15px 5px 4px 5px; width: 150px; height: 30px" class="col-lg-3 sorted__a"  (click)="sortByRating()">Rating</a>
+            <a style="margin: 15px 5px 4px 5px; width: 100px; color: white;height: 30px" class="col-lg-3 sorted__a"
+               (click)="sortByYear()">Year</a>
+
           </div>
         </div>
         <div *ngFor="let f of partFilms" class="container" style="border-bottom: 1px solid #404040; ">

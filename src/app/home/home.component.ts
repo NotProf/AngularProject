@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
     this.filmsS.getFilms().subscribe((res) => {
       this.films = res;
       this.collectionSize = this.films.length;
-      this.films = this.films.reverse();
       this.partFilms = this.films.slice(0, this.maxSize).reverse();
     });
 
@@ -49,16 +48,17 @@ export class HomeComponent implements OnInit {
     const url = location.href;
     location.href = '#up';
     history.replaceState(null, null, url);
-    if (p === 1) {
-      this.partFilms = this.films.slice(0, this.maxSize);
-    } else {
-      const first = Number(this.maxSize) * Number(p) - Number(this.maxSize);
-      const last = Number(this.maxSize) * Number(p);
-      this.partFilms = this.films.slice(first, last);
-    }
-
+    this.reloadArray(p);
   }
-
+   reloadArray(p: number) {
+     if (p === 1) {
+       this.partFilms = this.films.slice(0, this.maxSize);
+     } else {
+       const first = Number(this.maxSize) * Number(p) - Number(this.maxSize);
+       const last = Number(this.maxSize) * Number(p);
+       this.partFilms = this.films.slice(first, last);
+     }
+   }
   SearchBy(genre: string) {
     this.filmsS.findByGenre(genre).subscribe((res) => {
       this.films = res;
@@ -75,10 +75,10 @@ export class HomeComponent implements OnInit {
 
   compare(first, second) {
     if (first.year < second.year) {
-      return -1;
+      return 1;
     }
     if (first.year > second.year) {
-      return 1;
+      return -1;
     }
     return 0;
   }
@@ -93,10 +93,34 @@ export class HomeComponent implements OnInit {
     });
   }
   sendSearchForm(form: NgForm) {
-    this.filmsS.findSearchingFilm(form.value.search).subscribe(value => {
-      this.films = value;
-      this.page = 1;
-      this.onPageChange(1);
-    });
+    if (form.value.search !== '') {
+      this.filmsS.findSearchingFilm(form.value.search).subscribe(value => {
+        this.films = value;
+        this.page = 1;
+        this.reloadArray(1);
+      });
+    } else {
+      this.filmsS.getFilms().subscribe((res) => {
+        this.films = res;
+        this.page = 1;
+        this.reloadArray(1);
+      });
+    }
+  }
+
+  sortByRating() {
+    this.page = 1;
+    this.films.sort(this.compareByR);
+    this.onPageChange(this.page);
+  }
+
+  compareByR(first, second) {
+    if (first.score < second.score) {
+      return 1;
+    }
+    if (first.score > second.score) {
+      return -1;
+    }
+    return 0;
   }
 }

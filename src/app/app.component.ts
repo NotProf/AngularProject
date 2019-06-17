@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Films} from '../models/Films';
 import {FilmService} from '../services/film.service';
+import {NgForm} from '@angular/forms';
 import {UserService} from '../services/UserService';
 import {User} from '../models/User';
 
@@ -15,8 +16,8 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient, private filmsS: FilmService, private userService: UserService) {
 
   }
-
   currentUser = new User();
+  search = '';
   films: Films [] = [];
   partFilms: Films[] = [];
   public page = 1;
@@ -60,14 +61,14 @@ export class AppComponent implements OnInit {
       });
     }
     window.onoffline = () => {
-
+      console.log('offlineee');
       this.http.get('http://localhost:8080/close').subscribe();
       this.currentUser.status = 'offline';
-      console.log('offlineee');
     };
     window.onunload =  () => {
       this.http.get('http://localhost:8080/close').subscribe();
     };
+    //zx
   }
 
 // getUsername() {
@@ -95,6 +96,13 @@ export class AppComponent implements OnInit {
 //     responseType: 'text'
 //   }).subscribe(value => console.log(value));
 // }
+
+
+  sendSearchForm(form: NgForm
+  ) {
+    this.search = form.value.search;
+    console.log(this.search);
+  }
 }
 
 

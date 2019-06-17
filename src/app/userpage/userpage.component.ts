@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
+import {NgForm} from '@angular/forms';
+import {UsersfriendsComponent} from "../usersfriends/usersfriends.component";
 
 
 @Component({
@@ -11,15 +13,8 @@ import {UserService} from '../../services/UserService';
   styleUrls: ['./userpage.component.css']
 })
 export class UserpageComponent implements OnInit {
-
-
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute,
-              private userService: UserService) {
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
-
-  status = '';
-  watchingFilm = '';
-  changingUsersStat = '';
   filmsLength = null;
   currentID = 0;
   showUnshow = false;
@@ -27,22 +22,18 @@ export class UserpageComponent implements OnInit {
   user = new User();
   image = 'assets/ava.jpg';
   fileToUpload: File = null;
+  exist: boolean;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((value) => {
       this.currentID = Number(value.id);
     });
-
     this.userService.compareUser(this.currentID).subscribe((res) => {
       this.showUnshow = res;
       if (this.showUnshow === false) {
         this.subButton = true;
-        this.changingUsersStat = '';
-        this.watchingFilm = 'Watching';
       } else {
         this.subButton = false;
-        this.changingUsersStat = 'Your';
-        this.watchingFilm = 'You are watching';
       }
     });
     this.userService.getUserById(this.currentID).subscribe((curUser) => {
@@ -50,7 +41,9 @@ export class UserpageComponent implements OnInit {
       if (this.user.avatar == null) {
         this.user.avatar = this.image;
       }
-
+    });
+    this.userService.existIntFriends(this.currentID).subscribe((res) => {
+      this.exist = res;
     });
     this.userService.getSize(this.currentID).subscribe(value => {
       this.filmsLength = value;
@@ -58,7 +51,11 @@ export class UserpageComponent implements OnInit {
   }
 
   subscribes() {
-    this.userService.addSubscribes(this.currentID).subscribe();
+    this.userService.addSubscribes(this.currentID).subscribe(() => this.ngOnInit());
+  }
+  unSubscribes() {
+    this.userService.unSubscribes(this.currentID).subscribe(() => this.ngOnInit());
+    this.ngOnInit();
   }
 
 
@@ -85,6 +82,7 @@ export class UserpageComponent implements OnInit {
       window.location.href = '/userpage/' + this.user.id;
     }, 0);
   }
+
 
 
 }

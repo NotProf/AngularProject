@@ -6,9 +6,11 @@
       </a>
       <div appUserAuth class="userMenu" style="width: 4.5%">
         <img src="assets/user .png" class="imgUser">
+
         <ul class="dropDownMenu">
           <li class="liMenu"><a  [routerLink]="'/userpage/' + currentUser.id">My Page</a></li>
           <li class="liMenu"><a routerLink="/">Main page</a></li>
+          <li class="liMenu"><a [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">Playlist</a></li>
           <li class="liMenu"><a href="/" (click)="logout()">Log Out</a></li>
         </ul>
       </div>
