@@ -23,4 +23,11 @@ export class UsersfriendsComponent implements OnInit {
     });
   }
 
+  Update() {
+    setTimeout(() => {
+      this.ngOnInit();
+      this.userComponent.ngOnInit();
+    }, 100);
+
+  }
 }

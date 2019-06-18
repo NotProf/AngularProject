@@ -5,6 +5,8 @@ import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
 import {NgForm} from '@angular/forms';
 import {UsersfriendsComponent} from "../usersfriends/usersfriends.component";
+import {FilmService} from "../../services/film.service";
+import {Films} from "../../models/Films";
 
 
 @Component({
@@ -13,7 +15,9 @@ import {UsersfriendsComponent} from "../usersfriends/usersfriends.component";
   styleUrls: ['./userpage.component.css']
 })
 export class UserpageComponent implements OnInit {
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private userService: UserService) {
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute,
+              private userService: UserService,
+              private filmService: FilmService) {
   }
   filmsLength = null;
   currentID = 0;
@@ -23,10 +27,12 @@ export class UserpageComponent implements OnInit {
   image = 'assets/ava.jpg';
   fileToUpload: File = null;
   exist: boolean;
+  topTen: Films[] = [];
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((value) => {
       this.currentID = Number(value.id);
+      console.log(this.currentID + 'id' );
     });
     this.userService.compareUser(this.currentID).subscribe((res) => {
       this.showUnshow = res;
@@ -47,6 +53,9 @@ export class UserpageComponent implements OnInit {
     });
     this.userService.getSize(this.currentID).subscribe(value => {
       this.filmsLength = value;
+    });
+    this.filmService.getTopTen().subscribe((res) => {
+      this.topTen = res;
     });
   }
 

@@ -325,80 +325,58 @@ ngb-pagination ::ng-deep ul > li.active > a {
 
 }
 
-
-
-
-/*sprite with stars*/
-#reviewStars-input input:checked ~ label, #reviewStars-input label, #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
-  background: url('http://positivecrash.com/wp-content/uploads/ico-s71a7fdede6.png') no-repeat;
+dialog {
+  border-radius: 20px;
+  background: #474945;
+  width: 60%;
+  height: 70%;
 }
 
-#reviewStars-input {
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
-  /*fix floating problems*/
-  overflow: hidden;
-  *zoom: 1;
-  /*end of fix floating problems*/
-
-  position: relative;
+#closeT
+{
+  display:block;
   float: right;
-}
-
-#reviewStars-input input {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-
-  width: 43px;
-  height: 40px;
-
-  position: absolute;
-  top: 0;
-  z-index: 0;
-}
-
-#reviewStars-input input:checked ~ label {
-  background-position: 0 -40px;
-  height: 40px;
-  width: 43px;
-}
-
-#reviewStars-input label {
-  background-position: 0 0;
-  height: 40px;
-  width: 43px;
-  float: right;
+  box-sizing:border-box;
+  width:20px;
+  height:20px;
+  border-width:3px;
+  border-style: solid;
+  border-color:red;
+  border-radius:100%;
+  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%);
+  background-color:red;
+  margin-top:-30px;
+  margin-right:-30px;
+  box-shadow:0px 0px 5px 2px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
   cursor: pointer;
-  margin-right: 10px;
-
-  position: relative;
-  z-index: 1;
 }
 
-#reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
-  background-position: 0 -40px;
-  height: 40px;
-  width: 43px;
-}
+/*a#closeT{*/
+  /*float:right;*/
+  /*margin-top:-30px;*/
+  /*margin-right:-30px;*/
+  /*cursor:pointer;*/
+  /*color: #fff;*/
+  /*border: 1px solid #AEAEAE;*/
+  /*border-radius: 70px;*/
+  /*background: #605F61;*/
+  /*font-size: 31px;*/
+  /*font-weight: bold;*/
+  /*display: inline-block;*/
+  /*line-height: 0px;*/
+  /*padding: 11px 3px;*/
+/*}*/
 
-#reviewStars-input #star-0 {
-  left: 0px;
-}
-#reviewStars-input #star-1 {
-  left: 53px;
-}
-#reviewStars-input #star-2 {
-  left: 106px;
-}
-#reviewStars-input #star-3 {
-  left: 159px;
-}
-#reviewStars-input #star-4 {
-  left: 212px;
-}
-#reviewStars-input #star-5 {
-  left: 265px;
-}
-.minStar{
-  display: block;
-  position: center;
-}
+/*#closeT:before {*/
+  /*content: "×";*/
+/*}*/
+
+
+
+
+

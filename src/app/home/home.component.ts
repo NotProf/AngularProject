@@ -1,4 +1,4 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, ElementRef, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
@@ -13,15 +13,18 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('videoPlayer') videoplayer: ElementRef;
   search = '';
   films: Films [] = [];
   partFilms: Films[] = [];
+  topTen: Films[] = [];
   public page = 1;
   public collectionSize: number;
   public maxSize = 2;
   count = 0;
   images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
+  currentTrailer;
 
   constructor(private filmsS: FilmService, private userS: UserService) {
   }
@@ -41,6 +44,10 @@ export class HomeComponent implements OnInit {
       this.collectionSize = this.films.length;
       this.partFilms = this.films.slice(0, this.maxSize).reverse();
     });
+    this.filmsS.getTopTen().subscribe((res) => {
+      this.topTen = res;
+      console.log(this.topTen);
+    });
 
   }
 
@@ -50,15 +57,17 @@ export class HomeComponent implements OnInit {
     history.replaceState(null, null, url);
     this.reloadArray(p);
   }
-   reloadArray(p: number) {
-     if (p === 1) {
-       this.partFilms = this.films.slice(0, this.maxSize);
-     } else {
-       const first = Number(this.maxSize) * Number(p) - Number(this.maxSize);
-       const last = Number(this.maxSize) * Number(p);
-       this.partFilms = this.films.slice(first, last);
-     }
-   }
+
+  reloadArray(p: number) {
+    if (p === 1) {
+      this.partFilms = this.films.slice(0, this.maxSize);
+    } else {
+      const first = Number(this.maxSize) * Number(p) - Number(this.maxSize);
+      const last = Number(this.maxSize) * Number(p);
+      this.partFilms = this.films.slice(first, last);
+    }
+  }
+
   SearchBy(genre: string) {
     this.filmsS.findByGenre(genre).subscribe((res) => {
       this.films = res;
@@ -92,6 +101,7 @@ export class HomeComponent implements OnInit {
       );
     });
   }
+
   sendSearchForm(form: NgForm) {
     if (form.value.search !== '') {
       this.filmsS.findSearchingFilm(form.value.search).subscribe(value => {
@@ -122,5 +132,25 @@ export class HomeComponent implements OnInit {
       return -1;
     }
     return 0;
+  }
+
+  ShowTrailer(id: number) {
+    let thisFilm: Films;
+    this.filmsS.getFilmById(id).subscribe((res) => {
+      thisFilm = res;
+      this.currentTrailer = thisFilm.movie;
+    })
+    const dialog = document.querySelector('dialog');
+    dialog.showModal();
+  }
+
+  close() {
+    this.videoplayer.nativeElement.pause();
+    const dialog = document.querySelector('dialog');
+    dialog.close();
+  }
+
+  toggleVideo() {
+    this.videoplayer.nativeElement.play();
   }
 }

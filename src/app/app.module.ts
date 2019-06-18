@@ -25,6 +25,8 @@ import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
 import {FolowingComponent} from './folowing/folowing.component';
+import { PeopleComponent } from './people/people.component';
+
 
 
 const routes: Routes = [
@@ -35,7 +37,8 @@ const routes: Routes = [
         {path: 'folowing', component: FolowingComponent}]
   },
   {
-    path: 'film/:id', component: FilmComponent, children: [{path: 'sound', component: SoundTrackComponent},
+    path: 'film/:id', component: FilmComponent, children: [
+      {path: 'sound', component: SoundTrackComponent},
       {path: 'description', component: DescriptionOfFComponent},
       {path: 'screenshots', component: ScreenshotsComponent},
       {path: 'starring', component: StarringComponent}]
@@ -46,7 +49,8 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'reg', component: RegComponent}
+  {path: 'reg', component: RegComponent},
+  {path: 'people', component: PeopleComponent}
 ];
 
 @NgModule({
@@ -71,7 +75,8 @@ const routes: Routes = [
     UserAuthDirective,
     UsersfriendsComponent,
     AddButtonDirective,
-    FolowingComponent
+    FolowingComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,
