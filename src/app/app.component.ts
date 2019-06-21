@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient, private filmsS: FilmService, private userService: UserService) {
 
   }
+
   currentUser = new User();
   search = '';
   films: Films [] = [];
@@ -65,7 +66,7 @@ export class AppComponent implements OnInit {
       this.http.get('http://localhost:8080/close').subscribe();
       this.currentUser.status = 'offline';
     };
-    window.onunload =  () => {
+    window.onunload = () => {
       this.http.get('http://localhost:8080/close').subscribe();
     };
   }
@@ -102,6 +103,7 @@ export class AppComponent implements OnInit {
     this.search = form.value.search;
     console.log(this.search);
   }
+
 }
 
 

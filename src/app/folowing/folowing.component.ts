@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/UserService';
 import {UserpageComponent} from '../userpage/userpage.component';
-import {User} from "../../models/User";
+import {User} from '../../models/User';
 
 @Component({
   selector: 'app-folowing',
@@ -11,7 +11,9 @@ import {User} from "../../models/User";
 export class FolowingComponent implements OnInit {
   id: number;
   folowing: User[];
-  constructor(private userService: UserService, private userComponent: UserpageComponent) { }
+
+  constructor(private userService: UserService, private userComponent: UserpageComponent) {
+  }
 
   ngOnInit() {
     this.id = this.userComponent.currentID;
@@ -20,4 +22,11 @@ export class FolowingComponent implements OnInit {
     });
   }
 
+  Update() {
+    setTimeout(() => {
+      this.ngOnInit();
+      this.userComponent.ngOnInit();
+    }, 100);
+
+  }
 }

@@ -11,10 +11,14 @@ import {Films} from '../../models/Films';
 })
 export class FilmComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
- currentF = 0;
-rating = 0;
+  currentF = 0;
+  rating = 0;
+  video = 'film';
   public film: Films = new Films();
- constructor(private actevateRoute: ActivatedRoute, private filmService: FilmService ) {}
+
+  constructor(private actevateRoute: ActivatedRoute, private filmService: FilmService) {
+  }
+
   ngOnInit() {
     this.actevateRoute.params.subscribe((param) => {
       this.currentF = Number(param.id);
@@ -31,40 +35,64 @@ rating = 0;
       }
     });
   }
+
   toggleVideo() {
     this.videoplayer.nativeElement.play();
   }
+
   getThisPage(): number {
-   return this.currentF;
+    return this.currentF;
   }
 
   getThisFilm(): Films {
     return this.film;
   }
-filmRating(value, id) {
-  this.filmService.rating(value, id).subscribe((res) => {
-    this.rating = res;
-    console.log(this.rating);
-  });
-}
+
+  filmRating(value, id) {
+    this.filmService.rating(value, id).subscribe((res) => {
+      this.rating = res;
+      console.log(this.rating);
+    });
+  }
+
   star5(id) {
     const value = 5;
     this.filmRating(value, id);
   }
+
   star4(id) {
     const value = 4;
     this.filmRating(value, id);
- }
+  }
+
   star3(id) {
     const value = 3;
     this.filmRating(value, id);
   }
+
   star2(id) {
     const value = 2;
     this.filmRating(value, id);
   }
+
   star1(id) {
     const value = 1;
     this.filmRating(value, id);
+  }
+
+  filmB() {
+    this.video = 'film';
+    const filmButton = document.getElementById('filmButton');
+    const trailerButton = document.getElementById('trailerButton');
+    trailerButton.style.background = '#545454';
+    filmButton.style.background = '#1fce04';
+  }
+
+  trailerB() {
+    this.video = 'trailer';
+    const filmButton = document.getElementById('filmButton');
+    const trailerButton = document.getElementById('trailerButton');
+    trailerButton.style.background = '#1fce04';
+    filmButton.style.background = '#545454';
   }
 }

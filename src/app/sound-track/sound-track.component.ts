@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-sound-track',
@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sound-track.component.css']
 })
 export class SoundTrackComponent implements OnInit {
+  @ViewChild('audioOption') audioPlayerRef: ElementRef;
 
+  onAudioPlay() {
+    this.audioPlayerRef.nativeElement.play();
+  }
   constructor() { }
 
   ngOnInit() {

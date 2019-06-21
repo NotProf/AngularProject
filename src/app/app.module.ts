@@ -25,6 +25,8 @@ import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
 import {FolowingComponent} from './folowing/folowing.component';
+import { PeopleComponent } from './people/people.component';
+
 import { FinishRegComponent } from './finish-reg/finish-reg.component';
 import { FilmExistsOrAddedDirective } from './film-exists-or-added.directive';
 
@@ -38,7 +40,8 @@ const routes: Routes = [
         {path: 'folowing', component: FolowingComponent}]
   },
   {
-    path: 'film/:id', component: FilmComponent, children: [{path: 'sound', component: SoundTrackComponent},
+    path: 'film/:id', component: FilmComponent, children: [
+      {path: 'sound', component: SoundTrackComponent},
       {path: 'description', component: DescriptionOfFComponent},
       {path: 'screenshots', component: ScreenshotsComponent},
       {path: 'starring', component: StarringComponent}]
@@ -49,6 +52,8 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'reg', component: RegComponent},
+  {path: 'people', component: PeopleComponent},
   {path: 'reg', component: RegComponent},
   {path: 'finishReg/:key', component: FinishRegComponent}
 ];
@@ -77,7 +82,9 @@ const routes: Routes = [
     AddButtonDirective,
     FolowingComponent,
     FinishRegComponent,
-    FilmExistsOrAddedDirective
+    FilmExistsOrAddedDirective,
+    FolowingComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,

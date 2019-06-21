@@ -80,6 +80,21 @@ li a:hover {
   background-color: #111;
 }
 
+#filmButton {
+  display: inline-block;
+  color: white;
+  margin-left: 5%;
+  width: 100px;
+  margin-top: 10%;
+  background: #1fce04;
+}
+
+#trailerButton {
+  display: inline-block;
+  color: white;
+  width: 100px;
+  margin-top: 10%;
+}
 
 
 /*sprite with stars*/
