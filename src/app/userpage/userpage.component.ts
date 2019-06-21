@@ -3,8 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
-import {NgForm} from '@angular/forms';
-import {UsersfriendsComponent} from "../usersfriends/usersfriends.component";
 import {FilmService} from "../../services/film.service";
 import {Films} from "../../models/Films";
 
@@ -32,7 +30,6 @@ export class UserpageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe((value) => {
       this.currentID = Number(value.id);
-      console.log(this.currentID + 'id' );
     });
     this.userService.compareUser(this.currentID).subscribe((res) => {
       this.showUnshow = res;
@@ -51,9 +48,7 @@ export class UserpageComponent implements OnInit {
     this.userService.existIntFriends(this.currentID).subscribe((res) => {
       this.exist = res;
     });
-    this.userService.getSize(this.currentID).subscribe(value => {
-      this.filmsLength = value;
-    });
+
     this.filmService.getTopTen().subscribe((res) => {
       this.topTen = res;
     });

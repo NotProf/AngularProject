@@ -1,7 +1,10 @@
 import {Component, ElementRef, OnChanges, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
+import {NgForm} from '@angular/forms';
+import {User} from '../../models/User';
 import {AppComponent} from '../app.component';
 import set = Reflect.set;
 import {NgForm} from '@angular/forms';
@@ -15,6 +18,12 @@ import {NgForm} from '@angular/forms';
 export class HomeComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
   search = '';
+
+  constructor(private filmsS: FilmService, private userS: UserService, private app: AppComponent) {
+  }
+
+  currentUser = new User();
+  currentFilm = new Films();
   films: Films [] = [];
   partFilms: Films[] = [];
   topTen: Films[] = [];
@@ -26,8 +35,10 @@ export class HomeComponent implements OnInit {
   image = this.images[this.count];
   currentTrailer;
 
-  constructor(private filmsS: FilmService, private userS: UserService) {
-  }
+  filmExists = '';
+  userfilmItar = false;
+
+  usersFilms;
 
   next() {
     this.count++;
@@ -48,6 +59,11 @@ export class HomeComponent implements OnInit {
       this.topTen = res;
       console.log(this.topTen);
     });
+
+    setTimeout(() => {
+      this.usersFilms = this.app.currentUser.usersFilms;
+      console.log(this.usersFilms);
+    }, 200);
 
   }
 
@@ -94,14 +110,28 @@ export class HomeComponent implements OnInit {
 
 
   addUserFilm(idFilm: number) {
-    this.userS.addUserFilm(idFilm).subscribe(value => {
-      setTimeout(() => {
-          window.location.href = '/';
-        }, 100
-      );
-    });
+    this.userfilmItar = false;
+    for (let i = 0; i < this.usersFilms.length; i++) {
+      if (this.usersFilms[i].id === idFilm) {
+        this.userfilmItar = true;
+        console.log(this.usersFilms[i].id + ' ' + idFilm);
+      }
+    }
+    if (this.userfilmItar === false) {
+      this.userS.addUserFilm(idFilm).subscribe((res) => {
+        this.usersFilms = res;
+        console.log(this.usersFilms);
+        location.href = '#exists';
+        this.filmExists = 'Додано';
+        // this.userfilmItar = true;
+      });
+    } else {
+      this.userfilmItar = false;
+      console.log(this.userfilmItar);
+      location.href = '#exists';
+      this.filmExists = 'Вже є';
+    }
   }
-
   sendSearchForm(form: NgForm) {
     if (form.value.search !== '') {
       this.filmsS.findSearchingFilm(form.value.search).subscribe(value => {

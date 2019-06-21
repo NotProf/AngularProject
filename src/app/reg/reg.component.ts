@@ -26,9 +26,9 @@ export class RegComponent implements OnInit {
     this.http.post<boolean>(this.url, user).subscribe(value => {
       this.userexists = value;
       if (!this.userexists) {
-        this.mes = 'Такий є';
+        this.mes = 'Такий вже є';
       } else {
-        this.mes = 'Дякуємо за реєстрацію, Ви можете увійти у свій кабінет';
+        this.mes = 'Дякуємо за реєстрацію! Пройдіть активацію на пошті';
       }
     });
   }

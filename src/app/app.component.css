@@ -67,6 +67,10 @@
 
 }
 
+.userMenu>a>h3:hover{
+  color: #545454;
+}
+
 .imgUser:hover {
   background: rgba(142, 165, 168, 0.91);
   border-radius: 100%;

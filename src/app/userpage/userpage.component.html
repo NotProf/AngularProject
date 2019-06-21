@@ -25,7 +25,7 @@
       <!--<h5>Your name is: <span style="color: red;">{{user.username}}</span> </h5>-->
       <h5>Your email is: <span style="color: red;">{{user.email}}</span> </h5>
       <h5>Your id is: <span style="color: red;">{{user.id}}</span> </h5>
-      <h5>You have <a routerLink="userfilms" style="color: red;">{{filmsLength}}</a> films in your library</h5>
+      <h5>You have <a routerLink="userfilms" style="color: red;">{{user.usersFilms.length}}</a> films in your library</h5>
       <h5>Folowing <a routerLink="userfilms" style="color: red;">{{user.folowing.length}}</a></h5>
       <h5>Folowers <a routerLink="userfilms" style="color: red;">{{user.subscribes.length}}</a></h5>
     </div>

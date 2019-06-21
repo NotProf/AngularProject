@@ -8,10 +8,10 @@ export class User {
     public password: string = '',
     public email: string = '',
     public avatar: string = '',
-    public films: Films[] = [],
+    public usersFilms: Films[] = [],
     public status: string = '',
     public subscribes: string[] = [],
-    public folowing: string[] = [],
+    public folowing: string[] = []
   ) {
   }
 }
