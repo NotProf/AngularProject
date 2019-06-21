@@ -87,23 +87,6 @@ export class AppComponent implements OnInit {
     this.http.get('http://localhost:8080/close').subscribe();
 
   }
-
-// getInfo() {
-//   const headersOption = new HttpHeaders().set('Authorization', localStorage.getItem('_token'));
-//   // const headersOption = new HttpHeaders({'Authorization' : localStorage.getItem('_token')});
-//   this.http.get('http://localhost:8080/get', {
-//     headers: headersOption,
-//     responseType: 'text'
-//   }).subscribe(value => console.log(value));
-// }
-
-
-  sendSearchForm(form: NgForm
-  ) {
-    this.search = form.value.search;
-    console.log(this.search);
-  }
-
 }
 
 

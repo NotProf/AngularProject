@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {Films} from '../models/Films';
 import {catchError} from 'rxjs/operators';
@@ -16,16 +16,25 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) {
   }
-    getAllUser(): Observable<User[]> {
+
+  getAllUser(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:8080/getAllUsers');
-    }
+  }
 
   findSearchingUser(name: string): Observable<User[]> {
     return this.http.post<User[]>('http://localhost:8080/findSearchingUser', name);
   }
+
   Login(user: string) {
     return this.http.post('http://localhost:8080/login', user,
-      {observe: 'response'});
+      {observe: 'response'}).pipe(catchError(this.handleError));
+  }
+
+  handleError(err) {
+    if (err instanceof HttpErrorResponse) {
+      console.log('403');
+    }
+    return throwError(err);
   }
 
   addUserFilm(idFilm: number): Observable<Films[]> {

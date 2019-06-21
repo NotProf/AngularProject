@@ -7,6 +7,7 @@ import {throwError} from 'rxjs';
 import {UserService} from "../../services/UserService";
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -35,6 +36,8 @@ export class LoginComponent implements OnInit {
           window.location.href = '/';
         }, 100
       );
+    }, error1 => {
+      this.mes = 'Error';
     });
   }
 }

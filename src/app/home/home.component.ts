@@ -1,9 +1,8 @@
-import {Component, ElementRef, OnChanges, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {NgForm} from '@angular/forms';
-import {User} from '../../models/User';
 import {AppComponent} from '../app.component';
 
 
@@ -19,8 +18,6 @@ export class HomeComponent implements OnInit {
   constructor(private filmsS: FilmService, private userS: UserService, private app: AppComponent) {
   }
 
-  currentUser = new User();
-  currentFilm = new Films();
   films: Films [] = [];
   partFilms: Films[] = [];
   topTen: Films[] = [];
@@ -166,7 +163,7 @@ export class HomeComponent implements OnInit {
     this.filmsS.getFilmById(id).subscribe((res) => {
       thisFilm = res;
       this.currentTrailer = thisFilm.movie;
-    })
+    });
     const dialog = document.querySelector('dialog');
     dialog.showModal();
   }
