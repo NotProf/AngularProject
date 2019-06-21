@@ -12,22 +12,24 @@ import {UserpageComponent} from '../userpage/userpage.component';
 export class UserfilmsComponent implements OnInit {
   constructor(private filmsS: FilmService, private userS: UserService, private userComponent: UserpageComponent) {
   }
+
   uFilms: Films[];
   id: number;
 
   ngOnInit(): void {
     this.id = this.userComponent.currentID;
     this.userS.getUserFilms(this.id).subscribe((res) => {
-    this.uFilms = res;
-    console.log(this.uFilms);
-  });
-  }
-
-  deleteUserFilm(id: number) {
-    this.filmsS. delUserfilms(id).subscribe((res) => {
       this.uFilms = res;
     });
   }
 
-
+  deleteUserFilm(id: number) {
+    this.filmsS.delUserfilms(id).subscribe((res) => {
+      this.uFilms = res;
+      setTimeout(() => {
+          window.location.reload();
+        }, 500
+      );
+    });
+  }
 }

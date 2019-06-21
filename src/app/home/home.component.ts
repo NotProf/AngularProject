@@ -4,6 +4,8 @@ import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {NgForm} from '@angular/forms';
 import {User} from '../../models/User';
+import {AppComponent} from '../app.component';
+import set = Reflect.set;
 
 
 @Component({
@@ -12,6 +14,10 @@ import {User} from '../../models/User';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  constructor(private filmsS: FilmService, private userS: UserService, private app: AppComponent) {
+  }
+
   currentUser = new User();
   currentFilm = new Films();
   films: Films [] = [];
@@ -23,9 +29,9 @@ export class HomeComponent implements OnInit {
   images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
   filmExists = '';
+  userfilmItar = false;
 
-  constructor(private filmsS: FilmService, private userS: UserService) {
-  }
+  usersFilms;
 
   next() {
     this.count++;
@@ -42,6 +48,11 @@ export class HomeComponent implements OnInit {
       this.collectionSize = this.films.length;
       this.partFilms = this.films.slice(0, this.maxSize).reverse();
     });
+
+    setTimeout(() => {
+      this.usersFilms = this.app.currentUser.usersFilms;
+      console.log(this.usersFilms);
+    }, 200);
 
   }
 
@@ -86,29 +97,28 @@ export class HomeComponent implements OnInit {
     return 0;
   }
 
-
   addUserFilm(idFilm: number) {
-    this.userS.getCurrentUser().subscribe(value => {
-      this.currentUser = value;
-    });
-    this.filmsS.getFilmById(idFilm).subscribe(value => {
-      this.currentFilm = value;
-    });
-    this.userS.addUserFilm(idFilm).subscribe(value => {
-      const usersFilms = this.currentUser.usersFilms;
-      location.href = '#exists';
-      setTimeout(() => {
-        this.filmExists = 'Додано';
-      }, 100);
-      for (let i = 0; i < usersFilms.length; i++) {
-        if (usersFilms[i].id === idFilm) {
-          // console.log(usersFilms[i].id + '  ' + idFilm);
-          location.href = '#exists';
-          setTimeout(() => {this.filmExists = 'Вже є';
-          }, 100);
-        }
+    this.userfilmItar = false;
+    for (let i = 0; i < this.usersFilms.length; i++) {
+      if (this.usersFilms[i].id === idFilm) {
+        this.userfilmItar = true;
+        console.log(this.usersFilms[i].id + ' ' + idFilm);
       }
-    });
+    }
+    if (this.userfilmItar === false) {
+      this.userS.addUserFilm(idFilm).subscribe((res) => {
+        this.usersFilms = res;
+        console.log(this.usersFilms);
+        location.href = '#exists';
+        this.filmExists = 'Додано';
+        // this.userfilmItar = true;
+      });
+    } else {
+      this.userfilmItar = false;
+      console.log(this.userfilmItar);
+      location.href = '#exists';
+      this.filmExists = 'Вже є';
+    }
   }
 
   sendSearchForm(form: NgForm) {
