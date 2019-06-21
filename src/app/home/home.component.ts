@@ -1,13 +1,10 @@
 import {Component, ElementRef, OnChanges, OnInit, ViewChild} from '@angular/core';
-import {Component, OnInit} from '@angular/core';
 import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {NgForm} from '@angular/forms';
 import {User} from '../../models/User';
 import {AppComponent} from '../app.component';
-import set = Reflect.set;
-import {NgForm} from '@angular/forms';
 
 
 @Component({

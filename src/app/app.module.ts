@@ -53,7 +53,7 @@ const routes: Routes = [
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
   {path: 'reg', component: RegComponent},
-  {path: 'people', component: PeopleComponent}
+  {path: 'people', component: PeopleComponent},
   {path: 'reg', component: RegComponent},
   {path: 'finishReg/:key', component: FinishRegComponent}
 ];
@@ -82,7 +82,7 @@ const routes: Routes = [
     AddButtonDirective,
     FolowingComponent,
     FinishRegComponent,
-    FilmExistsOrAddedDirective
+    FilmExistsOrAddedDirective,
     FolowingComponent,
     PeopleComponent
   ],

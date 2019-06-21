@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/UserService';
-import {User} from "../../models/User";
-import {NgForm} from "@angular/forms";
+import {User} from '../../models/User';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-people',
@@ -23,6 +23,7 @@ export class PeopleComponent implements OnInit {
         console.log('No Users');
       } else {
         this.users = res;
+        console.log(res);
         this.partUser = this.users.slice(0, this.size);
       }
     });
