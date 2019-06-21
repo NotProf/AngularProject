@@ -1,8 +1,9 @@
 <div class="main container-fluid" style="background: #333333; border: 1px solid rgba(143,146,143,0.91)"><h3 style="color: white; text-align: center">FOLOWING <i style="color: red">{{folowing.length}}</i></h3>
   <div class="row">
-    <div *ngFor="let folower of folowing"  style="margin-bottom: 4%;">
+    <div *ngFor="let folower of folowing"  style="margin-bottom: 4%; cursor: pointer;"
+         (click)="Update()" [routerLink]="'/userpage/' + folower.id">
       <div style="text-align: center; border-radius: 50%;" class="col-lg-9" >
-        <label><img style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid black"
+        <label><img style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid black; cursor: pointer"
                     [src]="folower.avatar"></label>
         <p style="color: aqua">{{folower.username}}</p>
       </div>

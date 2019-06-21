@@ -15,7 +15,13 @@ export class UserService {
 
   constructor(private http: HttpClient) {
   }
+    getAllUser(): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:8080/getAllUsers');
+    }
 
+  findSearchingUser(name: string): Observable<User[]> {
+    return this.http.post<User[]>('http://localhost:8080/findSearchingUser', name);
+  }
   Login(user: string) {
     return this.http.post('http://localhost:8080/login', user,
       {observe: 'response'});

@@ -18,7 +18,9 @@ export class FilmService {
   getFilms(): Observable<Films[]> {
     return this.http.get<Films[]>(this.url);
   }
-
+  getTopTen(): Observable<Films[]> {
+    return this.http.get<Films[]>('http://localhost:8080/topTen');
+  }
   addFilm(film: FormData): Observable<Films> {
     return this.http.post<Films>('http://localhost:8080/addfilm', film);
   }

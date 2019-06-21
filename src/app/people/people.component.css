@@ -1,0 +1,61 @@
+.search {
+  /*float: right;*/
+  width: 20%;
+  margin: 1%;
+  position: relative;
+  top: 0;
+}
+
+.search input {
+
+  border: none;
+}
+
+.search .input {
+  width: 100%;
+
+  padding: 8px 37px 9px 15px;
+
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: #EEE;
+  font: 13px Tahoma, Arial, sans-serif;
+  color: #555;
+  outline: none;
+}
+
+.search .submit {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 37px;
+  height: 100%;
+  cursor: pointer;
+  background: url(https://lh4.googleusercontent.com/-b-5aBxcxarY/UAfFW9lVyjI/AAAAAAAABUg/gQtEXuPuIds/s13/go.png) 50% no-repeat;
+  opacity: 0.5;
+}
+
+.search .submit:hover {
+  opacity: 0.8;
+}
+#back{
+  color: white;
+  position: absolute;
+  font-size: 300%;
+  cursor: pointer;
+  left: -0.1%;
+ top: 35%;
+  /*font-style: oblique;*/
+  font-family: "Maiandra GD";
+}
+
+#next{
+  color: white;
+  position: absolute;
+  font-size: 300%;
+  cursor: pointer;
+ left: 97%;
+  top: 35%;
+  font-family: "Maiandra GD";
+}
