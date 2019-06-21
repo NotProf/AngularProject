@@ -14,7 +14,7 @@ import {UserService} from '../../services/UserService';
 export class LoginComponent implements OnInit {
 mes = '';
 
-  constructor(private http: HttpClient, private userServ: UserService) {
+  constructor(private http: HttpClient, private userS: UserService) {
   }
 
 
@@ -23,8 +23,7 @@ mes = '';
 
 
   login(form: NgForm) {
-    console.log(form.value);
-    this.userServ.Login(form.value).subscribe(value => {
+    this.userS.Login(form.value).subscribe(value => {
          const token = value.headers.get('Authorization');
          const currentUser = value.headers.get('CurrentUser');
          localStorage.setItem('_currentUser', currentUser);

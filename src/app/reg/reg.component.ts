@@ -28,7 +28,7 @@ export class RegComponent implements OnInit {
       if (!this.userexists) {
         this.mes = 'Такий вже є';
       } else {
-        this.mes = 'Дякуємо за реєстрацію, Ви можете увійти у свій кабінет';
+        this.mes = 'Дякуємо за реєстрацію! Пройдіть активацію на пошті';
       }
     });
   }

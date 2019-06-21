@@ -68,7 +68,6 @@ export class AppComponent implements OnInit {
     window.onunload =  () => {
       this.http.get('http://localhost:8080/close').subscribe();
     };
-    //zx
   }
 
 // getUsername() {

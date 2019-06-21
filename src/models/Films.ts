@@ -10,7 +10,8 @@ export class Films {
     public  picture: string = ' ',
     public  movie: string = ' ',
     public  genre: string [] = [],
-    public  score: number = null
+    public  score: number = null,
+    public filmExists: string = ' '
   ) {
   }
 

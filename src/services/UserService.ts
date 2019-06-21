@@ -4,6 +4,7 @@ import {Observable, throwError} from 'rxjs';
 import {Films} from '../models/Films';
 import {catchError} from 'rxjs/operators';
 import {User} from '../models/User';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class UserService {
     .set('Authorization', localStorage.getItem('_token'))
     .set('CurrentUser', localStorage.getItem('_currentUser'));
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   Login(user: string) {
@@ -48,12 +49,15 @@ export class UserService {
   addSubscribes(id: number) {
     return this.http.post('http://localhost:8080/subscribe', id);
   }
+
   unSubscribes(id: number) {
     return this.http.post('http://localhost:8080/unSubscribe', id);
   }
+
   existIntFriends(id: number): Observable<boolean> {
     return this.http.post<boolean>('http://localhost:8080/exist', id);
   }
+
   getSubscribes(id: number): Observable<User[]> {
     return this.http.post<User[]>('http://localhost:8080/getSubscribers', id);
   }
@@ -62,11 +66,12 @@ export class UserService {
     return this.http.post<User>('http://localhost:8080/setAvatar', ava);
   }
 
-  getSize(id: number): Observable<number> {
-    return this.http.post<number>('http://localhost:8080/getUserfilmsLength', id);
-  }
-
   getFolowing(id: number): Observable<User[]> {
     return this.http.post<User[]>('http://localhost:8080/getFolowing', id);
   }
+
+  finishReg() {
+    return this.http.get('http://localhost:8080/finishReg/' + this.router.url.substr(11));
+  }
+
 }

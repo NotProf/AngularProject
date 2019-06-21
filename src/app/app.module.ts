@@ -25,6 +25,9 @@ import {UserAuthDirective} from './user-auth.directive';
 import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
 import {FolowingComponent} from './folowing/folowing.component';
+import { FinishRegComponent } from './finish-reg/finish-reg.component';
+import { FilmExistsOrAddedDirective } from './film-exists-or-added.directive';
+
 
 
 const routes: Routes = [
@@ -46,7 +49,8 @@ const routes: Routes = [
   {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'reg', component: RegComponent}
+  {path: 'reg', component: RegComponent},
+  {path: 'finishReg/:key', component: FinishRegComponent}
 ];
 
 @NgModule({
@@ -71,7 +75,9 @@ const routes: Routes = [
     UserAuthDirective,
     UsersfriendsComponent,
     AddButtonDirective,
-    FolowingComponent
+    FolowingComponent,
+    FinishRegComponent,
+    FilmExistsOrAddedDirective
   ],
   imports: [
     BrowserModule,

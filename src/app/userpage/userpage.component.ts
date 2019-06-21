@@ -15,7 +15,6 @@ import {UsersfriendsComponent} from "../usersfriends/usersfriends.component";
 export class UserpageComponent implements OnInit {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private userService: UserService) {
   }
-  filmsLength = null;
   currentID = 0;
   showUnshow = false;
   subButton = true;
@@ -45,9 +44,9 @@ export class UserpageComponent implements OnInit {
     this.userService.existIntFriends(this.currentID).subscribe((res) => {
       this.exist = res;
     });
-    this.userService.getSize(this.currentID).subscribe(value => {
-      this.filmsLength = value;
-    });
+    // this.userService.getSize(this.currentID).subscribe(value => {
+    //   this.filmsLength = value;
+    // });
   }
 
   subscribes() {

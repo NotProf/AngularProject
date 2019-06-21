@@ -18,6 +18,7 @@ rating = 0;
   ngOnInit() {
     this.actevateRoute.params.subscribe((param) => {
       this.currentF = Number(param.id);
+      console.log(this.currentF);
     });
     this.filmService.getFilmById(this.currentF).subscribe(res => {
       this.film = res;
