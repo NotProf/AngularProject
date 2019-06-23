@@ -3,8 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
-import {FilmService} from "../../services/film.service";
-import {Films} from "../../models/Films";
+import {FilmService} from '../../services/film.service';
+import {Films} from '../../models/Films';
 
 
 @Component({

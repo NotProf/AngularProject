@@ -1,30 +1,24 @@
-<div  class="slider">
+<div class="slider">
   <div class="slid"><img [src]="image" alt="" width="100%" height="100%"></div>
   <div class="next">
   </div>
 </div>
 
 <section id="exists">
-  <div class="container" style="margin-top: 20px; height: 100px">
-    <div class="row " style=" text-align: center; height: 30px;">
-      <div class="menu2 d-flex col-lg-12" style="padding: 0; margin-top: 10px">
-        <a (click)="SearchBy('Fantasy')">Фентезі</a>
-        <a (click)="SearchBy('Horror')">Жахи</a>
-        <a (click)="SearchBy('Drama')">Драми</a>
-        <a (click)="SearchBy('Historical')">Історичні</a>
-        <a (click)="SearchBy('Comedy')">Комедії</a>
-      </div>
-    </div>
+  <div class="container " style="margin-top: 20px;">
+      <div class="menu2 row justify-content-center" style="padding: 0;">
+        <a class="col-lg-2" (click)="SearchBy('Fantasy')">Фентезі</a>
+        <a class="col-lg-2" (click)="SearchBy('Horror')">Жахи</a>
+        <a class="col-lg-2" (click)="SearchBy('Drama')">Драми</a>
+        <a class="col-lg-2" (click)="SearchBy('Historical')">Історичні</a>
+        <a class="col-lg-2" (click)="SearchBy('Comedy')">Комедії</a>
 
-    <div class="row" style=" text-align: center;">
-      <div class="menu2 d-flex col-lg-12" style="padding: 0; margin-top: 20px">
-        <a (click)="SearchBy('Adventure')">Пригоди</a>
-        <a (click)="SearchBy('Biography')">Біографія</a>
-        <a (click)="SearchBy('Sport')">Спорт</a>
-        <a (click)="SearchBy('Cartoons')">Мультфільми</a>
-        <a (click)="SearchBy('Serials')">Серіали</a>
+        <a class="col-lg-2" (click)="SearchBy('Adventure')">Пригоди</a>
+        <a class="col-lg-2" (click)="SearchBy('Biography')">Біографія</a>
+        <a class="col-lg-2" (click)="SearchBy('Sport')">Спорт</a>
+        <a class="col-lg-2" (click)="SearchBy('Cartoons')">Мультфільми</a>
+        <a class="col-lg-2" (click)="SearchBy('Serials')">Серіали</a>
       </div>
-    </div>
   </div>
 </section>
 <section>
@@ -38,23 +32,25 @@
           class="text-center">
           Reccomend</p></div>
         <div class="row justify-content-center" style="margin-top: 50px; text-align: center; align-items: center;">
-          <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
+          <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id"
+             class="col-lg-5 films__rec1"><img
             style="width: 90%; height: 80%; margin-top: 7px;" [src]="top.picture" alt=""><span>{{top.name}}</span></a>
         </div>
       </div>
       <div class="content2">
-        <form #form ="ngForm" method="get" class="search" id="search">
-          <input (keydown)="sendSearchForm(form)" type="search" ngModel name="search" placeholder="Search" class="input"/>
-          <input (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
-        </form>
+
         <div style="width: 100%; border-bottom: 1px solid #404040; margin: 0"
              class="text-center container">
-          <p style="color: white; margin: 0; font-size: 30px" id="up">Sort By:</p>
           <div class="row justify-content-center" style="margin: 0">
-            <a style=" color:white; margin: 15px 5px 4px 5px; width: 150px; height: 30px" class="col-lg-3 sorted__a"  (click)="sortByRating()">Rating</a>
+            <a style=" color:white; margin: 15px 5px 4px 5px; width: 150px; height: 30px" class="col-lg-3 sorted__a"
+               (click)="sortByRating()">Rating</a>
             <a style="margin: 15px 5px 4px 5px; width: 100px; color: white;height: 30px" class="col-lg-3 sorted__a"
                (click)="sortByYear()">Year</a>
-
+            <form #form="ngForm" method="get" class="search col-lg-5" id="search" >
+              <input (keydown)="sendSearchForm(form)" type="search" ngModel name="search" placeholder="Search"
+                     class="input"/>
+              <input (click)="sendSearchForm(form)" type="submit" value="" class="submit"/>
+            </form>
           </div>
         </div>
         <div *ngFor="let f of partFilms" class="container" style="border-bottom: 1px solid #404040; ">
@@ -62,12 +58,14 @@
             <div class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
               <a class="film__label" [routerLink]="'/film/' + f.id"><h4 style="margin-top: 15px">{{f.name}}</h4></a>
               <a class="films__rec2" [routerLink]="'/film/' + f.id"><img style="width: 100%; height: 400px;"
-                                                   alt="" [src]="f.picture"></a>
-              <div style="text-align: left"><a style="margin: 30px auto 30px 0; width: 100px" class="btn btn-secondary"
-                                               href="">Дивитись</a>
-                <a style=" color: white; margin: 30px auto 30px 5px; width: 100px" class="btn btn-secondary" (click)="ShowTrailer(f.id)">Трейлер</a>
-                <a style="margin: 30px auto 30px 5px; width: 100px"
-                   class="btn btn-secondary"  (click)="addUserFilm(f.id)">ADD</a>
+                                                                         alt="" [src]="f.picture"></a>
+              <div style="text-align: left; margin: 20px 0 30px;" class="row">
+                <a style="border: 1px solid black; color: white" class="btn btn-secondary col-lg-4"
+                                               >Дивитись</a>
+                <a style="color: white; border: 1px solid black" class="btn btn-secondary col-lg-4"
+                   (click)="ShowTrailer(f.id)">Трейлер</a>
+                <a style="color: white; border: 1px solid black"
+                   class="btn btn-secondary col-lg-4" (click)="addUserFilm(f.id)">ADD</a>
               </div>
             </div>
             <div class="col-lg-6" style=" color: rgba(147,151,147,0.91); margin-top: 55px;"><p>
@@ -90,7 +88,7 @@
 </ngb-pagination>
 <dialog id="dialog">
   <a id="closeT"  (click)="close()"></a>
-  <video id="player1"controls (click)="toggleVideo()" src="{{currentTrailer}}" #videoPlayer width="100%" height="100%" >
+  <video id="player1" controls (click)="toggleVideo()" src="{{currentTrailer}}" #videoPlayer width="100%" height="100%" >
     Browser not supported
   </video>
 </dialog>

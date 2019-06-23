@@ -135,7 +135,7 @@ export class HomeComponent implements OnInit {
       this.filmsS.getFilms().subscribe((res) => {
         this.films = res;
         this.page = 1;
-        this.reloadArray(1);
+        this.reloadArray(0);
       });
     }
   }
