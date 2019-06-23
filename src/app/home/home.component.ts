@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
     history.replaceState(null, null, url);
     this.reloadArray(p);
   }
-//
+
   reloadArray(p: number) {
     if (p === 1) {
       this.partFilms = this.films.slice(0, this.maxSize);

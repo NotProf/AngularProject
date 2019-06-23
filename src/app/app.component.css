@@ -56,7 +56,7 @@
 .userMenu {
   float: right;
   position: relative;
-
+  left: -5%;
 
 }
 
@@ -69,8 +69,9 @@
 
 .userMenu>a>h3:hover{
   color: #545454;
-}
 
+
+}
 .imgUser:hover {
   background: rgba(142, 165, 168, 0.91);
   border-radius: 100%;
@@ -80,7 +81,7 @@
 .dropDownMenu {
 
   border: 1px solid black;
-  background: rgba(248, 248, 248, 0.92);
+  background: rgba(248, 248, 248, 1);
   color: rgba(167, 170, 173, 0.91);
   margin-top: 60px;
   top: -8px;
@@ -90,7 +91,9 @@
   position: absolute;
   left: -200px;
   padding: 0;
+
 }
+
 
 .liMenu {
   height: 40px;
@@ -215,7 +218,9 @@
 @media (max-width: 600px) {
   .menu-main li {
     display: block;
+    clear: both;
   }
+
 }
 
 
