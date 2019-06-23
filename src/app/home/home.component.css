@@ -1,9 +1,5 @@
 .search {
-  width: 35%;
-  margin: 0 auto;
-  margin-left: 65%;
-  position: relative;
-  top: 0;
+  margin: 15px 5px 4px 5px;
 }
 
 .search input {
@@ -33,8 +29,7 @@
 .search .submit {
 
   position: absolute;
-  top: 0;
-  right: 0;
+  right: 2%;
   width: 37px;
   height: 100%;
   cursor: pointer;
@@ -206,9 +201,6 @@
 }
 
 
-.menu2 a:hover {
-  color: rgba(158, 161, 164, 0.91);
-}
 
 .slider {
   height: 400px;
