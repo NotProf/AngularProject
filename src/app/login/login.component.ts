@@ -36,8 +36,8 @@ export class LoginComponent implements OnInit {
           window.location.href = '/';
         }, 100
       );
-    }, error1 => {
-      this.mes = 'Error';
+    }, () => {
+      this.mes = 'Неправильно вказані дані або не активований акаунт';
     });
   }
 }

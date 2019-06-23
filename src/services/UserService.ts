@@ -10,11 +10,18 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class UserService {
+
+  constructor(private http: HttpClient, private router: Router) {
+  }
   headersOption = new HttpHeaders()
     .set('Authorization', localStorage.getItem('_token'))
     .set('CurrentUser', localStorage.getItem('_currentUser'));
 
-  constructor(private http: HttpClient, private router: Router) {
+  static handleError(err) {
+    if (err instanceof HttpErrorResponse) {
+      console.log('403');
+    }
+    return throwError(err);
   }
 
   getAllUser(): Observable<User[]> {
@@ -27,14 +34,7 @@ export class UserService {
 
   Login(user: string) {
     return this.http.post('http://localhost:8080/login', user,
-      {observe: 'response'}).pipe(catchError(this.handleError));
-  }
-
-  handleError(err) {
-    if (err instanceof HttpErrorResponse) {
-      console.log('403');
-    }
-    return throwError(err);
+      {observe: 'response'}).pipe(catchError(UserService.handleError));
   }
 
   addUserFilm(idFilm: number): Observable<Films[]> {
