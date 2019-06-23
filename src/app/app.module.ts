@@ -26,9 +26,7 @@ import {UsersfriendsComponent} from './usersfriends/usersfriends.component';
 import {AddButtonDirective} from './add-button.directive';
 import {FolowingComponent} from './folowing/folowing.component';
 import { PeopleComponent } from './people/people.component';
-
 import { FinishRegComponent } from './finish-reg/finish-reg.component';
-import { FilmExistsOrAddedDirective } from './film-exists-or-added.directive';
 
 
 
@@ -82,7 +80,6 @@ const routes: Routes = [
     AddButtonDirective,
     FolowingComponent,
     FinishRegComponent,
-    FilmExistsOrAddedDirective,
     FolowingComponent,
     PeopleComponent
   ],

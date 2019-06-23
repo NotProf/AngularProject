@@ -313,6 +313,7 @@
 /*!!!!!!!!!!!pagination!!!!!!!!!!!*/
 ngb-pagination ::ng-deep ul{
   margin-left: 50%;
+
 }
 
 ngb-pagination ::ng-deep ul > li:not(.active) > a {

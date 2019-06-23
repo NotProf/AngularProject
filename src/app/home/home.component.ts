@@ -47,16 +47,14 @@ export class HomeComponent implements OnInit {
     this.filmsS.getFilms().subscribe((res) => {
       this.films = res;
       this.collectionSize = this.films.length;
-      this.partFilms = this.films.slice(0, this.maxSize).reverse();
+      this.partFilms = this.films.slice(0, this.maxSize);
     });
     this.filmsS.getTopTen().subscribe((res) => {
       this.topTen = res;
-      console.log(this.topTen);
     });
 
     setTimeout(() => {
       this.usersFilms = this.app.currentUser.usersFilms;
-      console.log(this.usersFilms);
     }, 200);
 
   }
