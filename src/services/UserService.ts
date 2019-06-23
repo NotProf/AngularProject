@@ -27,7 +27,7 @@ export class UserService {
   getAllUser(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:8080/getAllUsers');
   }
-
+//asd
   findSearchingUser(name: string): Observable<User[]> {
     return this.http.post<User[]>('http://localhost:8080/findSearchingUser', name);
   }
