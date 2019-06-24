@@ -49,7 +49,6 @@
 }
 
 .userMenu {
-  float: right;
   position: relative;
 
 
@@ -355,6 +354,9 @@ dialog::backdrop {
   }
   .content2 {
     width: 100%;
+  }
+  .slider{
+    height: 250px;
   }
 }
 

@@ -14,7 +14,6 @@
 .header {
   width: 100%;
   margin-top: 0;
-
 }
 
 .search .input {
@@ -54,66 +53,20 @@
 }
 
 .userMenu {
-  float: right;
-  position: relative;
-  left: -5%;
-
+ position: absolute;
+  margin-left: 90%;
+  margin-top: 1%;
 }
-
-.userMenu:hover > .dropDownMenu {
-  transition: 2s;
-  display: block;
-  border-radius: 10%;
-
+@media (max-width: 100px) {
+  .userMenu{
+    margin-left: 85%;
+  }
 }
-
-.userMenu>a>h3:hover{
-  color: #545454;
-
-
+@media (max-width: 660px) {
+  .userMenu{
+    margin-left: 80%;
+  }
 }
-.imgUser:hover {
-  background: rgba(142, 165, 168, 0.91);
-  border-radius: 100%;
-  transition: 1s;
-}
-
-.dropDownMenu {
-
-  border: 1px solid black;
-  background: rgba(248, 248, 248, 1);
-  color: rgba(167, 170, 173, 0.91);
-  margin-top: 60px;
-  top: -8px;
-  text-align: center;
-  list-style-type: none;
-  display: none;
-  position: absolute;
-  left: -200px;
-  padding: 0;
-
-}
-
-
-.liMenu {
-  height: 40px;
-  width: 250px;
-  padding: 0;
-  font-style: italic;
-}
-
-.liMenu a {
-  text-decoration: none;
-  color: black;
-}
-
-.liMenu:hover {
-  color: black;
-  font-size: 20px;
-  transition: 0.3s;
-}
-
-/*@import url('https://fonts.googleapis.com/css?family=Arimo');*/
 .top-menu {
   background: rgb(0, 0, 0);
   box-shadow: 3px 0 7px rgba(0, 0, 0, .3);
@@ -172,9 +125,8 @@
 .login {
   color: white;
   text-decoration: none;
-  float: left;
-
 }
+
 .login:hover {
   color: #4e555b;
 }

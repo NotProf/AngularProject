@@ -15,8 +15,8 @@
 <!--</ul>-->
   <!--</div>-->
 
-      <div class="menu" appUserAuth>
-        <a href="#" class="menu-btn" (click)="menuClick($event)"><img src="assets/user .png" class="imgUser"></a>
+      <div class="menu"  appUserAuth>
+        <a href="#"  class="menu-btn" (click)="menuClick($event)"><img src="assets/user .png" class="imgUser"></a>
         <nav class="menu-list">
           <a  [routerLink]="'/userpage/' + currentUser.id">My Page</a>
           <a routerLink="/">Main page</a>
@@ -27,7 +27,7 @@
         </nav>
       </div>
 
-      <div appNoAuthUser  class="userMenu"><a class="login" routerLink="login"><h5 style="margin: 0">Login</h5></a></div>
+      <div appNoAuthUser class="userMenu" ><a class="login"  routerLink="login"><h5 style="margin: 0">Login</h5></a></div>
 
       <ul class="menu-main f-left">
         <li><a routerLink="news">News</a></li>
