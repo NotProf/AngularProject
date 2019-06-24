@@ -204,13 +204,18 @@
   align-items: center;
   height: 50%;
   flex-direction: column;
+  font-family: "Maiandra GD";
 }
 .menu-list a {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 900;
   color: white;
-  font-family: "Maiandra GD";
+
+}
+.menu-list a:hover{
+  font-size: 150%;
+  transition: 0.5s;
 }
 .menu-btn {
   width: 30px;
