@@ -357,7 +357,8 @@ dialog::backdrop {
     width: 100%;
   }
   dialog {
-    height: 30%;
+    height: 35%;
+    width: 90%;
   }
   .slider{
     height: 250px;

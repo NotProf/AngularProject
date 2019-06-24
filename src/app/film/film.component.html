@@ -36,15 +36,13 @@
   </div>
 
 
-  <div class="Sound">
-
-    <ul>
-      <li><a routerLink="description">About Film</a></li>
-      <li><a routerLink="sound" class="active">Soundtrack</a></li>
-      <li><a routerLink="screenshots">ScreenShots</a></li>
-      <li><a routerLink="starring">Starring</a></li>
-    </ul>
-
+  <div class="Sound" style="height: 50%">
+    <div class="row justify-content-center" style="margin: 2% 0">
+      <a class="col-lg-2 abuttonn" routerLink="description">About Film</a>
+      <a class="col-lg-2 abuttonn" routerLink="sound">Soundtrack</a>
+      <a class="col-lg-2 abuttonn" routerLink="screenshots">ScreenShots</a>
+      <a class="col-lg-2 abuttonn" routerLink="starring">Starring</a>
+    </div>
     <router-outlet></router-outlet>
   </div>
 </div>
