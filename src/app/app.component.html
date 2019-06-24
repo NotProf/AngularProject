@@ -4,17 +4,30 @@
       <a routerLink="">
         <div class="logo"><img src="assets/logo.png" alt="" width="100%" height="100%" style="border-radius: 50%"></div>
       </a>
-      <div appUserAuth class="userMenu" style="width: 4.5%">
-        <img src="assets/user .png" class="imgUser">
+      <!--<div appUserAuth class="userMenu" style="width: 4.5%">-->
+        <!--<img src="assets/user .png" class="imgUser">-->
 
-        <ul class="dropDownMenu">
-          <li class="liMenu"><a  [routerLink]="'/userpage/' + currentUser.id">My Page</a></li>
-          <li class="liMenu"><a routerLink="/">Main page</a></li>
-          <li class="liMenu"><a [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">Playlist</a></li>
-          <li class="liMenu"><a href="/" (click)="logout()">Log Out</a></li>
-        </ul>
+        <!--<ul class="dropDownMenu">-->
+  <!--<li class="liMenu"><a  [routerLink]="'/userpage/' + currentUser.id">My Page</a></li>-->
+  <!--<li class="liMenu"><a routerLink="/">Main page</a></li>-->
+  <!--<li class="liMenu"><a [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">Playlist</a></li>-->
+  <!--<li class="liMenu"><a href="/" (click)="logout()">Log Out</a></li>-->
+<!--</ul>-->
+  <!--</div>-->
+
+      <div class="menu"  appUserAuth>
+        <a href="#"  class="menu-btn" (click)="menuClick($event)"><img src="assets/user .png" class="imgUser"></a>
+        <nav class="menu-list">
+          <a  [routerLink]="'/userpage/' + currentUser.id">My Page</a>
+          <a routerLink="/">Main page</a>
+          <a [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">Playlist</a>
+          <a [routerLink]="'/userpage/' + currentUser.id + '/usersfriends'">Folowers</a>
+          <a [routerLink]="'/userpage/' + currentUser.id + '/folowing'">Folowing</a>
+          <a href="/" (click)="logout()">Log Out</a>
+        </nav>
       </div>
-      <div appNoAuthUser  class="userMenu"><a class="login" routerLink="login"><h5 style="margin: 0">Login</h5></a></div>
+
+      <div appNoAuthUser class="userMenu" ><a class="login"  routerLink="login"><h5 style="margin: 0">Login</h5></a></div>
 
       <ul class="menu-main f-left">
         <li><a routerLink="news">News</a></li>
@@ -26,7 +39,7 @@
         <li><a routerLink="reg">Registration</a></li>
         <li appUserAuth><a routerLink="addfilm">Add Film</a></li>
       </ul>
-      <h3 style="color: coral; text-align: center; margin: 0.5% 0; width: 100%">{{mes}}</h3>
+      <!--<h3 style="color: coral; text-align: center; margin: 0.5% 0; width: 100%">{{mes}}</h3>-->
     </nav>
   </div>
 

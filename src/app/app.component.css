@@ -14,7 +14,6 @@
 .header {
   width: 100%;
   margin-top: 0;
-
 }
 
 .search .input {
@@ -54,66 +53,20 @@
 }
 
 .userMenu {
-  float: right;
-  position: relative;
-  left: -5%;
-
+ position: absolute;
+  margin-left: 90%;
+  margin-top: 1%;
 }
-
-.userMenu:hover > .dropDownMenu {
-  transition: 2s;
-  display: block;
-  border-radius: 10%;
-
+@media (max-width: 100px) {
+  .userMenu{
+    margin-left: 85%;
+  }
 }
-
-.userMenu>a>h3:hover{
-  color: #545454;
-
-
+@media (max-width: 660px) {
+  .userMenu{
+    margin-left: 80%;
+  }
 }
-.imgUser:hover {
-  background: rgba(142, 165, 168, 0.91);
-  border-radius: 100%;
-  transition: 1s;
-}
-
-.dropDownMenu {
-
-  border: 1px solid black;
-  background: rgba(248, 248, 248, 1);
-  color: rgba(167, 170, 173, 0.91);
-  margin-top: 60px;
-  top: -8px;
-  text-align: center;
-  list-style-type: none;
-  display: none;
-  position: absolute;
-  left: -200px;
-  padding: 0;
-
-}
-
-
-.liMenu {
-  height: 40px;
-  width: 250px;
-  padding: 0;
-  font-style: italic;
-}
-
-.liMenu a {
-  text-decoration: none;
-  color: black;
-}
-
-.liMenu:hover {
-  color: black;
-  font-size: 20px;
-  transition: 0.3s;
-}
-
-/*@import url('https://fonts.googleapis.com/css?family=Arimo');*/
 .top-menu {
   background: rgb(0, 0, 0);
   box-shadow: 3px 0 7px rgba(0, 0, 0, .3);
@@ -172,8 +125,8 @@
 .login {
   color: white;
   text-decoration: none;
-  float: left;
 }
+
 .login:hover {
   color: #4e555b;
 }
@@ -228,105 +181,41 @@
   color: rgba(158, 161, 164, 0.91);
 }
 
-.slider {
-  height: 400px;
-  width: 100%;
+.menu {
+  position: fixed;
+  left: 70%;top: 0;
+  z-index: 99;
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(27, 27, 27, 0.58);
+  transition: 0.5s;
+  transform: translateX(100%);
 }
 
-.slid {
-  height: 100%;
-  width: 100%;
-  background: red;
+.menu_active {
+  transform: translateX(0%);
 }
-
-
-.content1 {
-  width: 35%;
-  background: #555555;
-  border: 1px solid rgba(143,146,143,0.91);
-  border-top-left-radius: 20px;
+.menu-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
+  flex-direction: column;
 }
-
-.content2 {
-  border-top-right-radius: 20px;
-  width: 65%;
-  background: rgba(37,40,37,0.91);
-  border: 1px solid rgba(143,146,143,0.91);
+.menu-list a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: white;
+  font-family: "Maiandra GD";
 }
-
-.content__a {
-  width: 40%;
-  background: #EEEEEE;
-  margin: 50px 5px;
-}
-
-.menu2  a {
-  font-style: italic;
-  margin: 5px;
-  border: 1px solid #333;
-  color: black;
+.menu-btn {
+  width: 30px;
   height: 30px;
-  width: 33.3%;
-  background: rgba(148,148,148,0.91);
-  list-style-type: none;
-  text-align: center;
-  text-decoration: none;
-  opacity: 0.9;
+  position: absolute;
+  left: -35px;
+  top: 20px;
 }
-.menu2 > a:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  background: rgba(210,210,210,0.91);
-  color: whitesmoke;
-}
-
-.films__rec1{
-  background: rgba(148,148,148,0.91);
-  width: 50%;
-  height: 250px;
-  padding: 0;
-  margin: 15px 5px;
-  -webkit-transition: 0.5s;
-}
-
-.films__rec1:hover{
-  background: rgba(195,198,195,0.91);
-  transition: 0.5s;
-}
-.films__rec2{
-  -webkit-transition: 0.5s;
-}
-.films__rec2:hover{
-  transition: 0.5s;
-  opacity: 0.7;
-}
-
-.films__rec:hover{
-  background: rgba(210,210,210,0.91);
-}
-
-.content1 span{
-  text-decoration: none;
-  color: black;
-}
-
-.sorted__a{
-  background: rgba(62,66,62,0.91);
-  color: white;
-  border-radius: 20px;
-  position: relative;
-}
-
-.sorted__a:hover{
-  background: rgba(173,177,173,0.92);
-  text-decoration: none;
-}
-
-.film__label{
-  color: white;
-}
-
-.film__label:hover{
-  text-decoration: none;
-  color: brown;
-}
-

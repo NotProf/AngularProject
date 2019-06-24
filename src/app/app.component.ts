@@ -5,6 +5,7 @@ import {FilmService} from '../services/film.service';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../services/UserService';
 import {User} from '../models/User';
+import {$} from 'protractor';
 
 @Component({
   selector: 'app-root',
@@ -86,6 +87,12 @@ export class AppComponent implements OnInit {
 
     this.http.get('http://localhost:8080/close').subscribe();
 
+  }
+
+  menuClick($event: MouseEvent) {
+    event.preventDefault();
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('menu_active');
   }
 }
 
