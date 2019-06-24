@@ -356,6 +356,18 @@ dialog::backdrop {
   .content2 {
     width: 100%;
   }
+  dialog {
+    height: 30%;
+  }
+  .slider{
+    height: 250px;
+  }
+}
+@media (max-width: 1000px) {
+  .films__rec1{
+    width: 80%;
+  }
+
 }
 
 

@@ -6,7 +6,7 @@
   margin-left: 10%;
   margin-top: 3%;
   border: 1px solid white;
-  border-radius: 5%;
+  border-radius: 2%;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
@@ -14,7 +14,7 @@
 
 
 .nameFilm{
-  margin-left:37%;
+  text-align: center;
   text-shadow: -1px -1px #000,
   0 1px 0 #444;
   color: #e4e4e4;
@@ -85,7 +85,7 @@ li a:hover {
   color: white;
   margin-left: 5%;
   width: 100px;
-  margin-top: 10%;
+  /*margin-top: 10%;*/
   background: #1fce04;
 }
 
@@ -93,9 +93,11 @@ li a:hover {
   display: inline-block;
   color: white;
   width: 100px;
-  margin-top: 10%;
+  /*margin-top: 10%;*/
 }
-
+#buttons{
+  clear: both;
+}
 
 /*sprite with stars*/
 #reviewStars-input input:checked ~ label, #reviewStars-input label, #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
@@ -173,4 +175,18 @@ li a:hover {
 .minStar{
   display: block;
   position: center;
+}
+@media (max-width: 750px) {
+  .play{
+    height: 350px;
+  }
+}
+@media (max-width: 600px) {
+  .play{
+    height: 250px;
+  }
+  .Filmpage{
+    width: 100%;
+    margin-left: 0;
+  }
 }
