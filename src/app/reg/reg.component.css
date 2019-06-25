@@ -15,3 +15,34 @@ textarea {
 .ng-invalid:not(form)  {
   border-left: 5px solid #a94442; /* red */
 }
+h4{
+  color: white;
+}
+
+.register{
+  color: rgba(2,0,1,0.57);
+  border: 2px solid whitesmoke;
+  border-radius: 20px;
+  width: 35%;
+  margin: 0 auto;
+}
+.input{
+  width: 90%;
+  margin: 4% 0 4% 0;
+  border-radius: 20px;
+}
+.submit{
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+}
+@media (max-width: 900px) {
+  .register{
+    width: 45%;
+  }
+}
+@media (max-width: 770px) {
+  .register{
+    width: 65%;
+  }
+}

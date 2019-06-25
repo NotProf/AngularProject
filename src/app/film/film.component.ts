@@ -32,10 +32,15 @@ export class FilmComponent implements OnInit {
         console.log('rating mising');
       }
     });
+    setInterval(() => {
+      console.log(document.getElementsByTagName('video')[0].paused);
+    }, 5000);
+
   }
 
   toggleVideo() {
     this.videoplayer.nativeElement.play();
+
   }
 
   getThisPage(): number {
@@ -93,5 +98,7 @@ export class FilmComponent implements OnInit {
     trailerButton.style.background = '#1fce04';
     filmButton.style.background = '#545454';
   }
+
+
 }
 
