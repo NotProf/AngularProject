@@ -22,14 +22,23 @@ export class RegComponent implements OnInit {
   }
 
   reg(form: NgForm): void {
-    const user: User = form.value;
-    this.http.post<boolean>(this.url, user).subscribe(value => {
-      this.userexists = value;
-      if (!this.userexists) {
-        this.mes = 'Такий вже є';
-      } else {
-        this.mes = 'Дякуємо за реєстрацію! Пройдіть активацію на пошті';
-      }
-    });
+    if (form.value.Confirmpassword === form.value.password) {
+      const user: User = form.value;
+      this.http.post<boolean>(this.url, user).subscribe(value => {
+        this.userexists = value;
+        if (!this.userexists) {
+          this.mes = 'Username already exist';
+        } else {
+          this.mes = 'Thanks for registering! Check your email';
+        }
+      });
+    } else {
+      this.mes = 'Passwords do not match';
+    }
+  }
+
+
+  confirm(form: NgForm) {
+    console.log(form.value.Confirmpassword);
   }
 }

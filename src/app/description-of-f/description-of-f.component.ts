@@ -10,14 +10,10 @@ import {FilmService} from '../../services/film.service';
 })
 export class DescriptionOfFComponent implements OnInit {
 currentFilm: Films = new Films();
-page = 0;
   constructor(private filmService: FilmService, private filmComponent: FilmComponent) { }
 
   ngOnInit() {
-    this.page = this.filmComponent.getThisPage();
-    console.log(this.page);
     this.filmService.getFilmById(this.filmComponent.getThisPage()).subscribe(res => {
-      console.log(res);
       this.currentFilm = res;
     });
   }

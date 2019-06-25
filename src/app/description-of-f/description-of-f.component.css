@@ -2,25 +2,42 @@
 .FilmPart{
   display: block;
   margin-bottom: 2%;
-  height: 370px;
+  padding-bottom: 10px;
 }
 .imgFilm{
   width: 25%;
   height: 350px;
-
   display: inline-block;
   margin-right: 5px;
   float: left;
   margin-left: 2%;
+  margin-bottom: 10px;
 
 }
 .descFilm {
-
   width: 65%;
   display: inline-block;
-
 }
 .shortinf{
-
-  width: 50%;
+  /*width: 40%;*/
+}
+@media (max-width: 1100px) {
+  .imgFilm{
+    height: 270px;
+    width: 30%;
+  }
+}
+@media (max-width: 600px) {
+  .imgFilm{
+    height: 200px;
+    width: 35%;
+  }}
+.off{
+  text-align: center;
+  color: #fffdea;
+  cursor: pointer;
+  font-family: "Maiandra GD";
+}
+.off:hover{
+  color: #1fce04;
 }

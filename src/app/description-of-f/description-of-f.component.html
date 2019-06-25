@@ -1,4 +1,5 @@
 <div class="FilmPart">
+  <h5 [routerLink]="'/film/' + currentFilm.id" class="off">Turn off</h5>
   <div class="imgFilm"><img  [src]="currentFilm.picture" height="100%" width="100%" alt=""></div>
 
     <div class="shortinf"><b>Year of release :</b> <i>{{currentFilm.year}}</i></div><br>

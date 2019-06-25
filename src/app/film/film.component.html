@@ -16,15 +16,16 @@
 
       <input  (click)="star1(film.id)"id="star-0" type="radio" name="reviewStars"/>
       <label title="bad" for="star-0"></label>
-      <h2>Rating: {{film.score}}</h2>
+      <h2 style="clear: both">Rating: {{film.score}}</h2>
     </div>
   </div>
-    <!--<button (click)="filmB()">Film</button>-->
-    <!--<button (click)="trailerB()">trailer</button>-->
-    <a (click)="filmB()"  id="filmButton" class="btn btn-secondary">Film</a>
-     <a (click)="trailerB()" id="trailerButton" class="btn btn-secondary filmButton">Trailer</a>
+
+    <div id="buttons">
+      <a (click)="filmB()"  id="filmButton" class="btn btn-secondary">Film</a>
+      <a (click)="trailerB()" id="trailerButton" class="btn btn-secondary filmButton">Trailer</a>
+    </div>
   <div class="play">
-    <video *ngIf="video === 'film'; else trailer" id="player"controls (click)="toggleVideo()" [src]="film.movie" #videoPlayer width="100%" height="100%" >
+    <video *ngIf="video === 'film'; else trailer"  id="player"controls (click)="toggleVideo()" [src]="film.movie" #videoPlayer width="100%" height="100%" >
       Browser not supported
     </video>
 <ng-template #trailer>
@@ -35,15 +36,13 @@
   </div>
 
 
-  <div class="Sound">
-
-    <ul>
-      <li><a routerLink="description">About Film</a></li>
-      <li><a routerLink="sound" class="active">Soundtrack</a></li>
-      <li><a routerLink="screenshots">ScreenShots</a></li>
-      <li><a routerLink="starring">Starring</a></li>
-    </ul>
-
+  <div class="Sound" style="height: 50%">
+    <div class="row justify-content-center" style="margin: 2% 0">
+      <a class="col-lg-2 abuttonn" routerLink="description">About Film</a>
+      <a class="col-lg-2 abuttonn" routerLink="sound">Soundtrack</a>
+      <a class="col-lg-2 abuttonn" routerLink="screenshots">ScreenShots</a>
+      <a class="col-lg-2 abuttonn" routerLink="starring">Starring</a>
+    </div>
     <router-outlet></router-outlet>
   </div>
 </div>

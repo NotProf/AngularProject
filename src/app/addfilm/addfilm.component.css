@@ -323,3 +323,19 @@ input{
   color: brown;
 }
 
+
+@media (max-width: 600px) {
+  .content1 {
+    display: none;
+  }
+  .content2 {
+    width: 100%;
+  }
+
+}
+@media (max-width: 1000px) {
+  .films__rec1{
+    width: 80%;
+  }
+
+}

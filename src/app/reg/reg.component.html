@@ -1,32 +1,20 @@
 
 <div class="container" style="text-align: center">
-  <p>Заполните форму. Все поля обязательны</p>
-  <p style="color: coral">{{mes}}</p>
-  <form #form ="ngForm"
-        style="color: rgba(2,0,1,0.57); border: 2px solid whitesmoke; border-radius: 20px;height: 400px; width: 28%; margin: 100px auto 20px">
+  <p style="color: #e4e4e4">All fields are required!</p>
+  <form #form ="ngForm" class="register">
     <div style="margin-top: 30px">
-      <h4 style="color: white">Логин:</h4><input minlength="6" maxlength="10" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 20px 0; border-radius: 20px" type="text"
+      <h4 >Username:</h4><input maxlength="10" required minlength="4" class="input" type="text"
                    ngModel name="username"/>
-      <h4 style="color: white">Пароль:</h4><input minlength="6" maxlength="12" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 10px 0; border-radius: 20px" type="password"
+      <h4 >Password:</h4><input maxlength="12"  minlength="4" required class="input" type="password"
                     ngModel name="password"/>
-      <h4 style="color: white">E-mail:</h4><input class="inp" required style="height: 30px; width: 300px; margin: 20px 0 20px 0; border-radius: 20px" type="email"
+      <h4>Confirm Password:</h4><input  maxlength="12"  minlength="4" required class="input" type="password"
+                                                    ngModel name="Confirmpassword"/>
+      <h4> E-mail:</h4><input  minlength="7" required class="input" type="email"
                                                  ngModel name="email"/>
-      <input (click)="reg(form)" class="btn-secondary" style="width: 100px; height: 30px; border-radius: 20px" type="submit" value="Sign In"/>
+      <p style="color: coral">{{mes}}</p>
+      <input (click)="reg(form)" class="btn-secondary submit"  type="submit" value="Sign In"/>
     </div>
   </form>
 </div>
 
-<!--<div *ngIf="username.invalid && (name.dirty || name.touched)"-->
-     <!--class="alert alert-danger">-->
-  <!--<div *ngIf="name.errors.required">-->
-    <!--Name is required.-->
-  <!--</div>-->
-  <!--<div *ngIf="name.errors.minlength">-->
-    <!--Name must be at least 4 characters long.-->
-  <!--</div>-->
-  <!--<div *ngIf="name.errors.forbiddenName">-->
-    <!--Name cannot be Bob.-->
-  <!--</div>-->
-
-<!--</div>-->
 

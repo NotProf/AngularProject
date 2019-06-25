@@ -4,8 +4,25 @@
   margin-bottom: 2%;
 }
 .frimg{
-  width: 25%;
-  height: 100px;
+  width: 23.7%;
+  height: 120px;
   display: inline-block;
-
+ margin-left: 1%;
+}
+@media (max-width: 500px) {
+  .frimg{
+    height: 80px;
+  }
+  .frames{
+    height: 100px;
+  }
+}
+.off{
+  text-align: center;
+  color: #fffdea;
+  cursor: pointer;
+  font-family: "Maiandra GD";
+}
+.off:hover{
+  color: #1fce04;
 }
