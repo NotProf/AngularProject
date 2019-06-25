@@ -5,9 +5,9 @@
   <form #form ="ngForm"
         style="color: rgba(2,0,1,0.57); border: 2px solid whitesmoke; border-radius: 20px;height: 400px; width: 28%; margin: 100px auto 20px">
     <div style="margin-top: 30px">
-      <h4 style="color: white">Логин:</h4><input maxlength="10" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 20px 0; border-radius: 20px" type="text"
+      <h4 style="color: white">Логин:</h4><input minlength="6" maxlength="10" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 20px 0; border-radius: 20px" type="text"
                    ngModel name="username"/>
-      <h4 style="color: white">Пароль:</h4><input maxlength="12" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 10px 0; border-radius: 20px" type="password"
+      <h4 style="color: white">Пароль:</h4><input minlength="6" maxlength="12" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 10px 0; border-radius: 20px" type="password"
                     ngModel name="password"/>
       <h4 style="color: white">E-mail:</h4><input class="inp" required style="height: 30px; width: 300px; margin: 20px 0 20px 0; border-radius: 20px" type="email"
                                                  ngModel name="email"/>

@@ -1,0 +1,14 @@
+.main {
+  width: 100%;
+  background: #333333;
+  border: 1px solid rgba(143, 146, 143, 0.91);
+  border-bottom-right-radius: 20px;
+}
+
+.people__img{
+  opacity: 0.8;
+}
+
+.people__img:hover{
+  opacity: 1;
+}
