@@ -1,9 +1,9 @@
-<div class="main container-fluid" style="background: #333333; border: 1px solid rgba(143,146,143,0.91)"><h3 style="color: white; text-align: center">My FILMS</h3>
+<div class="main" ><h3 style="color: white; text-align: center">My FILMS</h3>
   <div class="row">
-    <div *ngFor="let film of uFilms" class="col-lg-3" style="margin-bottom: 6%; text-align: center">
-      <button class="btn-outline-danger" (click)="deleteUserFilm(film.id)">Delete</button>
-      <a class="film" style="text-decoration: none; text-align: center; color: black;" [routerLink]="'/film/' + film.id"><img
-        style="width: 100%; height: 100%; border: 1px solid rgba(143,146,143,0.91)" [src]="film.picture" alt=""><h6>{{film.name}}</h6></a>
+    <div *ngFor="let film of uFilms" class="col-lg-3 film__div" style="margin-bottom: 6%; text-align: center; margin-left: 1%">
+      <button class="btn-outline-danger" (click)="deleteUserFilm(film.id)"><i class="fa fa-times" aria-hidden="true"></i></button>
+      <a class="film"  [routerLink]="'/film/' + film.id"><img class="film__image"
+         [src]="film.picture" alt=""><h6>{{film.name}}</h6></a>
     </div>
   </div>
 </div>

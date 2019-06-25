@@ -1,39 +1,37 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row s">
 
-    <div class="container col-lg-8"
-         style="background: #333333; margin-left: 0; border: 1px solid rgba(143,146,143,0.91); border-top-left-radius: 20px;">
+    <div class="container col-lg-6 c1">
 
-      <div class="row">
-        <div style=" border-radius: 50%;" class="col-lg-4 row">
-          <label class="col-lg-12" for="fileInput"><img style="width: 200px; height: 200px; border-radius: 50%; border: 2px solid black"
+      <div class="row justify-content-center">
+        <div style=" border-radius: 50%; padding: 0;" class="col-lg-6 row">
+          <label class="col-lg-12" for="fileInput"><img style="width: 200px; height: 200px; border-radius: 50%; border: 2px solid black; padding: 0"
                                       [src]="user.avatar"></label>
-          <h5 class="col-lg-12" *ngIf="user.status.toLowerCase() == 'online'; else off" style="color: green; margin-right: 0">{{user.status}}</h5>
-        </div>
-        <div style="height: 200px; " class="col-lg-8">
-          <h4 style="color: white; margin-top: 10%">{{user.username}}</h4>
+          <h5 class="col-lg-12" *ngIf="user.status.toLowerCase() == 'online'; else off" style="color: green; margin-right: 0;">{{user.status}}</h5>
           <ng-template #off>
-            <h6 style="color: red">{{user.status}}</h6>
+            <h5 class="col-lg-12" style="color: red">{{user.status}}</h5>
           </ng-template>
+        </div>
+        <div class="col-lg-6 un" >
+          <h1 style="">{{user.username}}</h1>
+
         </div>
       </div>
     </div>
 
-    <div class="container col-lg-4"
-         style="background: #333333; color: white; position: static; border: 1px solid rgba(143,146,143,0.91); border-top-right-radius: 20px;">
+    <div class="container col-lg-6 c2">
       <h3 style="text-align: center; margin-bottom: 20px">Statistic</h3>
-      <h5>email is: <span style="color: red;">{{user.email}}</span> </h5>
-      <h5>id is: <span style="color: red;">{{user.id}}</span> </h5>
-      <h5>have <a routerLink="userfilms" style="color: red;">{{user.usersFilms.length}}</a> films in your library</h5>
-      <h5>Folowing <a routerLink="userfilms" style="color: red;">{{user.folowing.length}}</a></h5>
-      <h5>Folowers <a routerLink="userfilms" style="color: red;">{{user.subscribes.length}}</a></h5>
+      <h5>email is: <span style="color: goldenrod;">{{user.email}}</span> </h5>
+      <h5><a routerLink="userfilms" style="color: goldenrod;">{{user.usersFilms.length}}</a> films in your library</h5>
+      <h5>Folowing <a routerLink="folowing" style="color: goldenrod;">{{user.folowing.length}}</a></h5>
+      <h5>Folowers <a routerLink="usersfriends" style="color: goldenrod;">{{user.subscribes.length}}</a></h5>
     </div>
   </div>
 </div>
-<button (click)="subscribes()" *ngIf="subButton && !exist">Subscribe</button>
-<button (click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</button>
+<button class="btn-success" (click)="subscribes()" *ngIf="subButton && !exist">Subscribe</button>
+<button class="btn-danger"(click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</button>
 <form #form="ngForm" (ngSubmit)="sendFormWithAvatar(form)">
-  <div class="underAvatar" style="width: 3%">
+  <div class="underAvatar ua" style="width: 3%">
     <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
     <ul class="dropUnderAvatar">
       <li><a style="text-decoration: none" routerLink="usersfriends">Followers</a></li>
@@ -47,17 +45,13 @@
     </ul>
   </div>
 </form>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-4 justify-content-center row"
-         style="margin-top: 150px; color: white; text-align: center; border: 2px solid rgba(143,146,143,0.91)"><h3
-      class="col-lg-12">New Films</h3>
-      <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-4 films__rec1"><img
+<div class="container-fluid " style="padding: 0 0 0 15px">
+  <div class="row" style="margin: 0">
+    <div class="col-lg-3 justify-content-center row c3"><h3 class="col-lg-12">New Films</h3>
+      <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
         style="width: 90%; height: 80%; margin-top: 7px;" [src]="top.picture" alt=""><span>{{top.name}}</span></a>
-
-
     </div>
-    <div class="col-lg-8">
+    <div class="col-lg-6 ro">
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -5,17 +5,16 @@
   <!--<button (click)="getInfo()">Get</button>-->
 <!--</form>-->
 
-<div class="container" style="text-align: center">
+<div class="container">
 
-  <form #form ="ngForm"
-        style="color: rgba(2,0,1,0.57); height: 400px; width: 28%; margin: 100px auto 20px">
-    <div style="color:RED;">{{mes}}</div>
-    <div style="margin-top: 30px">
-      <h4 style="color: white">Логин:</h4><input maxlength="10" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 20px 0; border-radius: 20px" type="text"
+  <form class="row justify-content-center form" #form ="ngForm">
+    <div class="col-lg-12" style="color:RED;">{{mes}}</div>
+    <div class="col-lg-12 row justify-content-center" style="margin-top: 30px">
+      <span style="color: white; text-align: center; padding: 0">Логин:</span><input  class="inp" required minlength="6" type="text"
                                                  ngModel name="username"/>
-      <h4 style="color: white">Пароль:</h4><input maxlength="12" required class="inp" style="height: 30px; width: 300px; margin: 20px 0 30px 0; border-radius: 20px" type="password"
+      <span style="color: white; text-align: center; padding: 0">Пароль:</span><input class="inp" required minlength="6" type="password"
                                                   ngModel name="password"/>
-      <button (click)="login(form)" class="btn-secondary" style="padding: 5px 50px;  border-radius: 20px; text-align: center">Loggin</button>
+      <button  (click)="login(form)" class="btn-secondary"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
     </div>
   </form>
 </div>

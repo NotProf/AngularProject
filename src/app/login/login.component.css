@@ -1,0 +1,45 @@
+.btn-secondary {
+  width: 100px;
+  min-width: 50px;
+  border-radius: 20px;
+  padding: 0;
+}
+
+.btn-secondary > span {
+  text-align: center;
+}
+
+.inp {
+  height: 30px;
+  width: 250px;
+  margin: 20px 0 20px 0;
+  border-radius: 20px
+}
+
+.form {
+  color: rgba(2, 0, 1, 0.57);
+  height: 400px;
+  width: 28%;
+  margin: 100px auto 20px
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border: 2px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border: 2px solid #a94442; /* red */
+}
+
+@media (min-width: 450px) {
+  .btn-secondary > i {
+    display: none;
+  }
+
+  .btn-secondary:after {
+    content: 'Login';
+  }
+
+}
+
+

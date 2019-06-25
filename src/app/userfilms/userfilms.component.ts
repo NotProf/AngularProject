@@ -28,7 +28,7 @@ export class UserfilmsComponent implements OnInit {
       this.uFilms = res;
       setTimeout(() => {
           window.location.reload();
-        }, 500
+        }, 300
       );
     });
   }

@@ -4,7 +4,7 @@ import {Form, NgForm} from '@angular/forms';
 import {User} from '../../models/User';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-import {UserService} from "../../services/UserService";
+import {UserService} from '../../services/UserService';
 
 
 
