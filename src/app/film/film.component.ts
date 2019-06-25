@@ -22,12 +22,10 @@ export class FilmComponent implements OnInit {
   ngOnInit() {
     this.actevateRoute.params.subscribe((param) => {
       this.currentF = Number(param.id);
-      console.log(this.currentF);
     });
     this.filmService.getFilmById(this.currentF).subscribe(res => {
       this.film = res;
       const score = Math.trunc(this.film.score);
-      console.log(score + 'score');
       try {
         document.getElementById(`star-${score - 1}`).setAttribute('checked', 'checked');
       } catch (e) {
@@ -96,3 +94,4 @@ export class FilmComponent implements OnInit {
     filmButton.style.background = '#545454';
   }
 }
+

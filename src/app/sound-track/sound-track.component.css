@@ -1,8 +1,26 @@
-/*ul{*/
-  /*background: white;*/
-/*}*/
+
 .musicList {
   align-content: center;
+  align-items: center;
   text-align: center;
   list-style-type: none;
+}
+.audio{
+  width: 40%;
+}
+.off{
+  text-align: center;
+  color: #fffdea;
+  cursor: pointer;
+  font-family: "Maiandra GD";
+}
+.off:hover{
+  color: #1fce04;
+}
+@media (max-width: 360px) {
+  .musicList{
+    align-content: start;
+    align-items:start;
+    text-align: right;
+  }
 }
