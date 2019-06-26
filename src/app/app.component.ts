@@ -6,6 +6,7 @@ import {NgForm} from '@angular/forms';
 import {UserService} from '../services/UserService';
 import {User} from '../models/User';
 import {$} from 'protractor';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,10 @@ import {$} from 'protractor';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private http: HttpClient, private filmsS: FilmService, private userService: UserService) {
+  constructor(private http: HttpClient,
+              private filmsS: FilmService,
+              private userService: UserService,
+              private titleS: Title) {
 
   }
 
@@ -50,6 +54,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleS.setTitle('MyCinema');
     setInterval(() => this.next(), 5000);
     const headersOption = new HttpHeaders()
       .set('Authorization', localStorage.getItem('_token'))

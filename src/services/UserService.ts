@@ -89,4 +89,8 @@ export class UserService {
     return this.http.get('http://localhost:8080/finishReg/' + this.router.url.substr(11));
   }
 
+  setStatus(status: string) {
+    return this.http.post('http://localhost:8080/setStatus', status);
+  }
+
 }

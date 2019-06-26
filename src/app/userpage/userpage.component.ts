@@ -5,6 +5,7 @@ import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
 import {FilmService} from '../../services/film.service';
 import {Films} from '../../models/Films';
+import {Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -15,7 +16,8 @@ import {Films} from '../../models/Films';
 export class UserpageComponent implements OnInit {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute,
               private userService: UserService,
-              private filmService: FilmService) {
+              private filmService: FilmService,
+              private title: Title) {
   }
   filmsLength = null;
   currentID = 0;
@@ -41,6 +43,7 @@ export class UserpageComponent implements OnInit {
     });
     this.userService.getUserById(this.currentID).subscribe((curUser) => {
       this.user = curUser;
+      this.title.setTitle(this.user.username);
       if (this.user.avatar == null) {
         this.user.avatar = this.image;
       }

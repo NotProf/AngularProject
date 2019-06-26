@@ -4,6 +4,7 @@ import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {NgForm} from '@angular/forms';
 import {AppComponent} from '../app.component';
+import {Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -15,7 +16,10 @@ export class HomeComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
   search = '';
 
-  constructor(private filmsS: FilmService, private userS: UserService, private app: AppComponent) {
+  constructor(private filmsS: FilmService,
+              private userS: UserService,
+              private app: AppComponent,
+              private title: Title) {
   }
 
   films: Films [] = [];
@@ -43,6 +47,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle('MyCinema');
     setInterval(() => this.next(), 5000);
     this.filmsS.getFilms().subscribe((res) => {
       this.films = res;
@@ -175,4 +180,5 @@ export class HomeComponent implements OnInit {
   toggleVideo() {
     this.videoplayer.nativeElement.play();
   }
+
 }
