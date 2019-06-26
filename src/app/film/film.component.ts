@@ -36,9 +36,6 @@ export class FilmComponent implements OnInit {
       this.film = res;
       this.title.setTitle(this.film.name);
       const score = Math.trunc(this.film.score);
-      const url = location.href;
-      location.href = '/film/' + this.film.id + '#filmName';
-      history.replaceState(null, null, url);
       try {
         document.getElementById(`star-${score - 1}`).setAttribute('checked', 'checked');
       } catch (e) {
@@ -118,7 +115,7 @@ export class FilmComponent implements OnInit {
         this.userService.setStatus('Online').subscribe();
         clearInterval(this.idInterval);
       }
-    }, 1);
+    }, 5000);
   }
 
 

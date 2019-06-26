@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Films} from '../models/Films';
-import {NgForm} from '@angular/forms';
+import {Comments} from '../models/Comments';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +49,12 @@ export class FilmService {
     fd.append('idFilm', id);
     fd.append('rating', rating);
     return this.http.post<any>('http://localhost:8080/rating', fd);
+  }
+
+  addComment(form: FormData) {
+    return this.http.post(this.url + 'addComment', form);
+  }
+  getComments(id: number): Observable<Comments[]> {
+    return this.http.post<Comments[]>(this.url + 'getComments', id);
   }
 }

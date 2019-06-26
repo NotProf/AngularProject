@@ -1,0 +1,25 @@
+
+.avatar{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+  display: inline;
+}
+.username{
+  display: inline-block;
+  color: #fffdea;
+}
+.comment {
+  color: #c7cbc0;
+}
+.main-comment{
+  margin: 0 auto;
+  width: 80%;
+}
+
+.textArea{
+  width: 30%;
+  display: block;
+}
