@@ -16,39 +16,39 @@ export class FilmService {
   }
 
   getFilms(): Observable<Films[]> {
-    return this.http.get<Films[]>(this.url);
+    return this.http.get<Films[]>(this.url + 'home');
   }
   getTopTen(): Observable<Films[]> {
-    return this.http.get<Films[]>('http://localhost:8080/topTen');
+    return this.http.get<Films[]>(this.url + 'topTen');
   }
   addFilm(film: FormData): Observable<Films> {
-    return this.http.post<Films>('http://localhost:8080/addfilm', film);
+    return this.http.post<Films>(this.url + 'addfilm', film);
   }
 
   delFilm(film: number): Observable<Films[]> {
-    return this.http.post<Films[]>('http://localhost:8080/delfilm', film);
+    return this.http.post<Films[]>(this.url + 'delfilm', film);
   }
 
   getFilmById(id: number): Observable<Films> {
-    return this.http.post<Films>('http://localhost:8080/getbyid', id);
+    return this.http.post<Films>(this.url + 'getbyid', id);
   }
 
   findByGenre(genre: string): Observable<Films[]> {
-    return this.http.post<Films[]>('http://localhost:8080/findByGenre', genre);
+    return this.http.post<Films[]>(this.url + 'findByGenre', genre);
   }
 
   findSearchingFilm(filmName: string): Observable<Films[]> {
-    return this.http.post<Films[]>('http://localhost:8080/search', filmName);
+    return this.http.post<Films[]>(this.url + 'search', filmName);
   }
 
   delUserfilms(film: number): Observable<Films[]> {
-    return this.http.post<Films[]>('http://localhost:8080/deluserfilms', film);
+    return this.http.post<Films[]>(this.url + 'deluserfilms', film);
   }
   rating(rating, id): Observable<any> {
     const fd: FormData = new FormData();
     fd.append('idFilm', id);
     fd.append('rating', rating);
-    return this.http.post<any>('http://localhost:8080/rating', fd);
+    return this.http.post<any>(this.url + 'rating', fd);
   }
 
   addComment(form: FormData) {

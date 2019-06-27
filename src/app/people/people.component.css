@@ -1,21 +1,42 @@
+.main-div{
+  background: #333333;
+  border: 1px solid rgba(143,146,143,0.91);
+}
+.myrow {
+  display: flex;
+  justify-content: space-around;
+}
+.h{
+  color: white;
+  text-align: center
+}
+.partUser {
+  /*margin-left: 2.5%;*/
+  cursor: pointer;
+}
+.user-img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer
+}
+.mycol-lg {
+  text-align: center;
+  border-radius: 50%;
+}
 .search {
-  /*float: right;*/
   width: 20%;
   margin: 1%;
   position: relative;
   top: 0;
 }
-
 .search input {
-
   border: none;
 }
-
 .search .input {
   width: 100%;
-
   padding: 8px 37px 9px 15px;
-
   box-sizing: border-box;
   border-radius: 20px;
   background: #EEE;
@@ -35,27 +56,43 @@
   background: url(https://lh4.googleusercontent.com/-b-5aBxcxarY/UAfFW9lVyjI/AAAAAAAABUg/gQtEXuPuIds/s13/go.png) 50% no-repeat;
   opacity: 0.5;
 }
-
 .search .submit:hover {
   opacity: 0.8;
 }
 #back{
+  background: rgba(255, 255, 255, 0.85);
+ cursor: pointer;
+  border-radius: 50%;
   color: white;
-  position: absolute;
-  font-size: 300%;
-  cursor: pointer;
-  left: -0.1%;
- top: 35%;
-  /*font-style: oblique;*/
-  font-family: "Maiandra GD";
+  width: 70px;
+  height: 70px;
 }
 
 #next{
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
   color: white;
-  position: absolute;
-  font-size: 300%;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
- left: 97%;
-  top: 35%;
   font-family: "Maiandra GD";
+  margin-left: 5px;
+
+}
+.divbtn{
+  margin: 0 auto;
+  width: 150px
+}
+#next:hover{
+  background: rgba(35, 255, 4, 0.68);
+}
+
+#back:hover{
+  background: rgba(35, 255, 4, 0.68);
+}
+@media (max-width: 600px) {
+  .search{
+    width: 60%;
+    margin: 0 auto;
+  }
 }
