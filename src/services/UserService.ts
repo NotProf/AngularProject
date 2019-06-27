@@ -13,6 +13,7 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) {
   }
+
   headersOption = new HttpHeaders()
     .set('Authorization', localStorage.getItem('_token'))
     .set('CurrentUser', localStorage.getItem('_currentUser'));
@@ -24,9 +25,18 @@ export class UserService {
     return throwError(err);
   }
 
+  static handleNullUserError(err) {
+    if (err instanceof TypeError) {
+      console.log('typeError');
+    }
+    return throwError(err);
+  }
+
+
   getAllUser(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:8080/getAllUsers');
   }
+
 //asd
   findSearchingUser(name: string): Observable<User[]> {
     return this.http.post<User[]>('http://localhost:8080/findSearchingUser', name);
@@ -50,7 +60,8 @@ export class UserService {
   }
 
   getCurrentUser(): Observable<User> {
-    return this.http.get<User>('http://localhost:8080/get', {headers: this.headersOption});
+    return this.http.get<User>('http://localhost:8080/get', {headers: this.headersOption})
+      .pipe(catchError(UserService.handleNullUserError));
   }
 
   getUserById(id: number): Observable<User> {

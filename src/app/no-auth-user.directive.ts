@@ -1,5 +1,6 @@
 import {Directive, ElementRef, OnInit} from '@angular/core';
 import {UserAuthDirective} from './user-auth.directive';
+import {AppComponent} from './app.component';
 
 
 @Directive({

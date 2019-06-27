@@ -11,7 +11,8 @@ export class User {
     public usersFilms: Films[] = [],
     public status: string = '',
     public subscribes: string[] = [],
-    public folowing: string[] = []
+    public folowing: string[] = [],
+    public role: string = ''
   ) {
   }
 }

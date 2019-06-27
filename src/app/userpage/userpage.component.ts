@@ -17,7 +17,6 @@ export class UserpageComponent implements OnInit {
               private userService: UserService,
               private filmService: FilmService) {
   }
-  filmsLength = null;
   currentID = 0;
   showUnshow = false;
   subButton = true;

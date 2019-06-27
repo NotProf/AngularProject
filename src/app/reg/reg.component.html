@@ -12,7 +12,7 @@
       <h4> E-mail:</h4><input  minlength="7" required class="input" type="email"
                                                  ngModel name="email"/>
       <p style="color: coral">{{mes}}</p>
-      <input (click)="reg(form)" class="btn-secondary submit"  type="submit" value="Sign In"/>
+      <input (click)="reg(form)" [disabled]="!form.valid" class="btn-secondary submit"  type="submit" value="Sign In"/>
     </div>
   </form>
 </div>

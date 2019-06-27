@@ -58,11 +58,11 @@
               <a class="films__rec2" [routerLink]="'/film/' + f.id"><img class="f__img"
                                                                          alt="" [src]="f.picture"></a>
               <div style="text-align: left; margin: 20px 0 30px;" class="row">
-                <a style="border: 1px solid black; color: white" class="btn btn-secondary col-lg-4"
+                <a [routerLink]="'/film/' + f.id" style="border: 1px solid black; color: white" class="btn btn-secondary col-lg-4"
                                                >Дивитись</a>
                 <a style="color: white; border: 1px solid black" class="btn btn-secondary col-lg-4"
                    (click)="ShowTrailer(f.id)">Трейлер</a>
-                <a style="color: white; border: 1px solid black"
+                <a appUserAuth style="color: white; border: 1px solid black"
                    class="btn btn-secondary col-lg-4" (click)="addUserFilm(f.id)">ADD</a>
               </div>
             </div>

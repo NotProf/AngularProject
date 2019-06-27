@@ -1,6 +1,5 @@
-import {Directive, ElementRef, HostBinding, HostListener, OnInit, Renderer2} from '@angular/core';
-import {DomSanitizer, SafeStyle} from '@angular/platform-browser';
-import {User} from '../models/User';
+import {Directive, ElementRef, OnInit} from '@angular/core';
+import {AppComponent} from './app.component';
 
 @Directive({
   selector: '[appUserAuth]'

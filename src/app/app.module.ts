@@ -9,8 +9,6 @@ import {UserpageComponent} from './userpage/userpage.component';
 import {FilmComponent} from './film/film.component';
 import {NewsComponent} from './news/news.component';
 import {AboutComponent} from './about/about.component';
-import {SupportComponent} from './support/support.component';
-import {ContactsComponent} from './contacts/contacts.component';
 import {AddfilmComponent} from './addfilm/addfilm.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {SoundTrackComponent} from './sound-track/sound-track.component';
@@ -27,6 +25,7 @@ import {AddButtonDirective} from './add-button.directive';
 import {FolowingComponent} from './folowing/folowing.component';
 import { PeopleComponent } from './people/people.component';
 import { FinishRegComponent } from './finish-reg/finish-reg.component';
+import { AdminDirective } from './admin.directive';
 
 
 
@@ -46,8 +45,6 @@ const routes: Routes = [
   },
   {path: 'news', component: NewsComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'support', component: SupportComponent},
-  {path: 'contacts', component: ContactsComponent},
   {path: 'addfilm', component: AddfilmComponent},
   {path: 'login', component: LoginComponent},
   {path: 'reg', component: RegComponent},
@@ -64,8 +61,6 @@ const routes: Routes = [
     FilmComponent,
     NewsComponent,
     AboutComponent,
-    SupportComponent,
-    ContactsComponent,
     AddfilmComponent,
     SoundTrackComponent,
     LoginComponent,
@@ -81,7 +76,8 @@ const routes: Routes = [
     FolowingComponent,
     FinishRegComponent,
     FolowingComponent,
-    PeopleComponent
+    PeopleComponent,
+    AdminDirective
   ],
   imports: [
     BrowserModule,

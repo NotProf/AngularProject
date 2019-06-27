@@ -54,11 +54,13 @@ export class AppComponent implements OnInit {
     const headersOption = new HttpHeaders()
       .set('Authorization', localStorage.getItem('_token'))
       .set('CurrentUser', localStorage.getItem('_currentUser'));
-    if (localStorage.getItem('_token') == null && localStorage.getItem('_currentUser') == null) {
-      console.log('Please log in');
+    if (localStorage.getItem('_token') == null
+      && localStorage.getItem('_currentUser') == null) {
+      console.log('You are Anonymous!');
     } else {
       this.userService.getCurrentUser().subscribe((res) => {
         this.currentUser = res;
+
         this.mes = 'Hello, ' + this.currentUser.username;
       });
     }
@@ -79,6 +81,7 @@ export class AppComponent implements OnInit {
   logout() {
     localStorage.removeItem('_token');
     localStorage.removeItem('_currentUser');
+    localStorage.removeItem('_currentRole');
     window.onoffline = () => {
       console.log('offlineee');
       this.http.get('http://localhost:8080/close').subscribe();

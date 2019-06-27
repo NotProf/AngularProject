@@ -29,7 +29,7 @@ export class FilmComponent implements OnInit {
       try {
         document.getElementById(`star-${score - 1}`).setAttribute('checked', 'checked');
       } catch (e) {
-        console.log('rating mising');
+        console.log('rating missing');
       }
     });
     setInterval(() => {
