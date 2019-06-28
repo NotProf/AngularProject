@@ -11,6 +11,7 @@
   color: #fffdea;
   font-size: 120%;
   margin-left: 10px;
+  cursor: pointer;
 }
 .comment {
   color: #b3b7ac;

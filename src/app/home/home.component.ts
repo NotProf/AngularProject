@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
     this.title.setTitle('MyCinema');
     setInterval(() => this.next(), 5000);
     this.filmsS.getFilms().subscribe((res) => {
-      this.films = res;
+      this.films = res.reverse();
       this.collectionSize = this.films.length;
       this.partFilms = this.films.slice(0, this.maxSize);
     });
@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
 
   SearchBy(genre: string) {
     this.filmsS.findByGenre(genre).subscribe((res) => {
-      this.films = res;
+      this.films = res.reverse();
       this.page = 1;
       this.onPageChange(1);
     });

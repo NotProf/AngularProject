@@ -12,16 +12,18 @@ export class AddfilmComponent implements OnInit {
   films: Films [] = [];
   selectedFile: File = null;
   selectedVideo: File = null;
-  userHome = 'E:\\OKTENPROJ\\src\\assets\\';
+  topTen: Films[] = null;
   counter = 1;
   constructor(private filmsS: FilmService) {
     }
 
   ngOnInit(): void {
     this.filmsS.getFilms().subscribe((res) => {
-      this.films = res;
+      this.films = res.reverse();
       this.counter = this.films[this.films.length - 1].id + 1 ;
-      console.log(this.counter);
+    });
+    this.filmsS.getTopTen().subscribe((res) => {
+      this.topTen = res;
     });
   }
   handleFileInput(file: FileList) {
@@ -48,6 +50,7 @@ export class AddfilmComponent implements OnInit {
       this.films.push(newFilm);
       });
     form.onReset();
+    this.ngOnInit();
   }
 
   deleteOne(id: number) {

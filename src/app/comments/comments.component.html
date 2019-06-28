@@ -12,7 +12,7 @@
 
     <div style="display: inline-block" [routerLink]="'/userpage/' + comment.userID"><img class="avatar" src="{{comment.avatar}}"></div>
     <div class="comment-content">
-      <span class="username">{{comment.username}} </span>
+      <span  [routerLink]="'/userpage/' + comment.userID" class="username">{{comment.username}} </span>
       <span class="dateOfComment" >{{comment.date}}</span>
       <div class="comment">{{comment.text}}</div>
     </div>
