@@ -4,7 +4,7 @@ import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {NgForm} from '@angular/forms';
 import {AppComponent} from '../app.component';
-import {Title} from "@angular/platform-browser";
+import {Title} from '@angular/platform-browser';
 
 
 @Component({
@@ -72,6 +72,7 @@ export class HomeComponent implements OnInit {
   }
 
   reloadArray(p: number) {
+    this.collectionSize = this.films.length;
     if (p === 1) {
       this.partFilms = this.films.slice(0, this.maxSize);
     } else {

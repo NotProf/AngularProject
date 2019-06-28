@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Films} from '../models/Films';
 import {Comments} from '../models/Comments';
@@ -10,6 +10,9 @@ import {Comments} from '../models/Comments';
 export class FilmService {
 
   url = 'http://localhost:8080/';
+  headersOption = new HttpHeaders()
+    .set('Authorization', localStorage.getItem('_token'))
+    .set('CurrentUser', localStorage.getItem('_currentUser'));
 
   constructor(private http: HttpClient) {
 
@@ -52,7 +55,7 @@ export class FilmService {
   }
 
   addComment(form: FormData) {
-    return this.http.post(this.url + 'addComment', form);
+    return this.http.post(this.url + 'addComment', form, {headers: this.headersOption});
   }
   getComments(id: number): Observable<Comments[]> {
     return this.http.post<Comments[]>(this.url + 'getComments', id);

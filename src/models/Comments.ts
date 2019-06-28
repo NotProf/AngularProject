@@ -6,7 +6,8 @@ export class Comments {
     public text = '',
     public userID = 0,
     public username = '',
-    public avatar = ''
+    public avatar = '',
+    public date = ''
   ) {
   }
 }

@@ -28,6 +28,7 @@ import {FolowingComponent} from './folowing/folowing.component';
 import { PeopleComponent } from './people/people.component';
 import { FinishRegComponent } from './finish-reg/finish-reg.component';
 import { CommentsComponent } from './comments/comments.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -93,7 +94,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {
