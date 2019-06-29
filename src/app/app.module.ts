@@ -80,7 +80,7 @@ const routes: Routes = [
     FinishRegComponent,
     FolowingComponent,
     PeopleComponent,
-    AdminDirective
+    AdminDirective,
     PeopleComponent,
     CommentsComponent
   ],
@@ -91,7 +91,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

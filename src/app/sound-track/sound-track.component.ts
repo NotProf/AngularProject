@@ -23,6 +23,7 @@ export class SoundTrackComponent implements OnInit {
     this.filmService.getFilmById(this.filmComponent.getThisPage()).subscribe(res => {
       this.currentFilm = res;
     });
+
   }
 
 }

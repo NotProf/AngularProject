@@ -68,7 +68,7 @@ export class UserService {
   }
 
   compareUser(id: number): Observable<boolean> {
-    return this.http.post<boolean>(this.url + 'currentPage', id);
+    return this.http.post<boolean>(this.url + 'currentPage', id, {headers: this.headersOption});
   }
 
   addSubscribes(id: number) {

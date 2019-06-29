@@ -166,7 +166,7 @@ export class HomeComponent implements OnInit {
     let thisFilm: Films;
     this.filmsS.getFilmById(id).subscribe((res) => {
       thisFilm = res;
-      this.currentTrailer = thisFilm.movie;
+      this.currentTrailer = thisFilm.trailer;
     });
     const dialog = document.querySelector('dialog');
     dialog.showModal();

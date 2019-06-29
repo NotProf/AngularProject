@@ -53,7 +53,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.setStatus('Online').subscribe();
+    if (localStorage.getItem('_token') != null) {
+      this.userService.setStatus('Online').subscribe();
+    }
     this.titleS.setTitle('MyCinema');
     setInterval(() => this.next(), 5000);
     const headersOption = new HttpHeaders()
@@ -75,7 +77,7 @@ export class AppComponent implements OnInit {
       this.currentUser.status = 'offline';
     };
     window.onbeforeunload = () => {
-       this.userService.close(this.currentUser.id).subscribe();
+      this.userService.close(this.currentUser.id).subscribe();
     };
   }
 

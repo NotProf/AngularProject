@@ -1,3 +1,5 @@
+import {Actors} from "./Actors";
+
 export class Films {
 
   constructor(
@@ -11,7 +13,10 @@ export class Films {
     public  movie: string = ' ',
     public  genre: string [] = [],
     public  score: number = null,
-    public filmExists: string = ' '
+    public trailer: string = '',
+    public screenShots: string [] = [],
+    public actors: Actors [] = [],
+    public audio: string [] = []
   ) {
   }
 

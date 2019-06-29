@@ -1,7 +1,4 @@
 <h5 [routerLink]="'/film/' + currentFilm.id" class="off">Turn off</h5>
 <div class="frames">
-  <div class="frimg"><img src="assets\b1.jpg" alt="" width="100%" height="100%"></div>
-  <div class="frimg"><img src="assets\b2.jpg" alt="" width="100%" height="100%"></div>
-  <div class="frimg"><img src="assets\b3.jpg" alt="" width="100%" height="100%"></div>
-  <div class="frimg"><img src="assets\b4.jpg" alt="" width="100%" height="100%"></div>
+  <div  *ngFor="let screen of currentFilm.screenShots" class="frimg"><img [src]="screen" alt="" width="100%" height="100%"></div>
 </div>
