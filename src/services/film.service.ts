@@ -45,7 +45,7 @@ export class FilmService {
   }
 
   delUserfilms(film: number): Observable<Films[]> {
-    return this.http.post<Films[]>(this.url + 'deluserfilms', film);
+    return this.http.post<Films[]>(this.url + 'deluserfilms', film, {headers: this.headersOption});
   }
   rating(rating, id): Observable<any> {
     const fd: FormData = new FormData();

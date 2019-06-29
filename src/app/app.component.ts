@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Films} from '../models/Films';
 import {FilmService} from '../services/film.service';
@@ -13,13 +13,13 @@ import {Title} from '@angular/platform-browser';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private filmsS: FilmService,
               private userService: UserService,
               private titleS: Title) {
-
   }
 
   currentUser = new User();
@@ -35,7 +35,6 @@ export class AppComponent implements OnInit {
   count = 0;
   images = ['assets\\slide1.jpg', 'assets\\slide2.jpg', 'assets\\slide3.jpg', 'assets\\slide4.jpg', 'assets\\slide5.jpg'];
   image = this.images[this.count];
-
 
   next() {
     this.count++;
@@ -54,6 +53,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userService.setStatus('Online').subscribe();
     this.titleS.setTitle('MyCinema');
     setInterval(() => this.next(), 5000);
     const headersOption = new HttpHeaders()
@@ -69,11 +69,11 @@ export class AppComponent implements OnInit {
     }
     window.onoffline = () => {
       console.log('offlineee');
-      this.http.get('http://localhost:8080/close').subscribe();
+      this.userService.close(this.currentUser.id).subscribe();
       this.currentUser.status = 'offline';
     };
-    window.onunload = () => {
-      this.http.get('http://localhost:8080/close').subscribe();
+    window.onbeforeunload = () => {
+       this.userService.close(this.currentUser.id).subscribe();
     };
   }
 
@@ -86,11 +86,10 @@ export class AppComponent implements OnInit {
     localStorage.removeItem('_currentUser');
     window.onoffline = () => {
       console.log('offlineee');
-      this.http.get('http://localhost:8080/close').subscribe();
+      this.userService.close(this.currentUser.id).subscribe();
       this.currentUser.status = 'offline';
     };
-
-    this.http.get('http://localhost:8080/close').subscribe();
+    this.userService.close(this.currentUser.id).subscribe();
 
   }
 
@@ -99,6 +98,7 @@ export class AppComponent implements OnInit {
     const menu = document.querySelector('.menu');
     menu.classList.toggle('menu_active');
   }
+
 }
 
 

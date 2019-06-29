@@ -62,15 +62,15 @@ export class UserService {
   }
 
   addSubscribes(id: number) {
-    return this.http.post(this.url + 'subscribe', id);
+    return this.http.post(this.url + 'subscribe', id, {headers: this.headersOption});
   }
 
   unSubscribes(id: number) {
-    return this.http.post(this.url + 'unSubscribe', id);
+    return this.http.post(this.url + 'unSubscribe', id, {headers: this.headersOption});
   }
 
   existIntFriends(id: number): Observable<boolean> {
-    return this.http.post<boolean>(this.url + 'exist', id);
+    return this.http.post<boolean>(this.url + 'exist', id, {headers: this.headersOption});
   }
 
   getSubscribes(id: number): Observable<User[]> {
@@ -78,7 +78,7 @@ export class UserService {
   }
 
   setAvatar(ava: FormData): Observable<User> {
-    return this.http.post<User>(this.url + 'setAvatar', ava);
+    return this.http.post<User>(this.url + 'setAvatar', ava, {headers: this.headersOption});
   }
 
   getFolowing(id: number): Observable<User[]> {
@@ -90,7 +90,10 @@ export class UserService {
   }
 
   setStatus(status: string) {
-    return this.http.post(this.url + 'setStatus', status);
+    return this.http.post(this.url + 'setStatus', status, {headers: this.headersOption});
+  }
+  close(id: number) {
+    return this.http.post('http://localhost:8080/close', id);
   }
 
 }
