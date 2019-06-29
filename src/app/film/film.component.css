@@ -5,9 +5,10 @@
   display: inline-block;
   margin-left: 10%;
   margin-top: 3%;
-  border: 1px solid white;
-  border-radius: 2%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border: 1px solid rgba(223, 226, 223, 0.91);
+  box-shadow: 0 0 10px rgba(73, 73, 73, 0.5);
   height: 100%;
 }
 
@@ -58,8 +59,10 @@ a {
   padding: 14px 16px;
   text-decoration: none;
   border-radius: 5%;
+  transition: 0.5s;
 }
 .abuttonn:hover {
+  border: 1px solid #1fce04;
   background-color: #111;
 }
 

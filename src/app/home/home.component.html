@@ -29,7 +29,7 @@
       <div class="content1">
         <div style="height: 75px; border-bottom: 1px solid #404040; margin: 0"><p
           style="color: white; margin-top: 20px; font-size: 30px"
-          class="text-center">Reccomend</p></div>
+          class="text-center" id="up">Reccomend</p></div>
         <div class="row" style="margin-top: 50px; text-align: center; align-items: center ; margin-left: 7%">
           <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
             style="width: 90%; height: 80%; margin-top: 7px;" [src]="top.picture" alt=""><span>{{top.name}}</span></a>

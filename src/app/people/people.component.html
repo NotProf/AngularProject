@@ -1,20 +1,19 @@
-
-
-<div class="main container-fluid" style="background: #333333;  border: 1px solid rgba(143,146,143,0.91)"><h3 style="color: white; text-align: center">People </h3>
+<div class="main container-fluid main-div"><h3 class="h">People </h3>
   <form #form ="ngForm" method="get" class="search" id="search">
     <input (keydown)="sendSearchForm(form)" type="search" ngModel name="search" placeholder="Search" class="input"/>
     <input (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
   </form>
-  <div class="row" >
+  <div class="row myrow" >
 
-    <div *ngFor="let user of partUser"  style="margin-bottom: 4%; margin-left: 2.5%; cursor: pointer;" [routerLink]="'/userpage/' + user.id">
-      <div style="text-align: center; border-radius: 50%;" class="col-lg-9" >
-        <label><img style="width: 100px;  height: 100px; border-radius: 50%; border: 2px solid black; cursor: pointer"
-                    [src]="user.avatar"></label>
+    <div *ngFor="let user of partUser"  class="partUser" [routerLink]="'/userpage/' + user.id">
+      <div class="col-lg-9 mycol-lg" >
+        <label><img class="user-img" [src]="user.avatar"></label>
         <p style="color: aqua">{{user.username}}</p>
       </div>
     </div>
   </div>
-  <a id="back" (click)="back()"><</a>
-  <a id="next" style="float: right" (click)="next()">></a>
+   <div class="divbtn">
+     <img  src="/assets/l.png" id="back" (click)="back()"/>
+     <img src="/assets/r.png" id="next" (click)="next()">/>
+   </div>
 </div>

@@ -26,6 +26,8 @@ import {FolowingComponent} from './folowing/folowing.component';
 import { PeopleComponent } from './people/people.component';
 import { FinishRegComponent } from './finish-reg/finish-reg.component';
 import { AdminDirective } from './admin.directive';
+import { CommentsComponent } from './comments/comments.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -41,7 +43,8 @@ const routes: Routes = [
       {path: 'sound', component: SoundTrackComponent},
       {path: 'description', component: DescriptionOfFComponent},
       {path: 'screenshots', component: ScreenshotsComponent},
-      {path: 'starring', component: StarringComponent}]
+      {path: 'starring', component: StarringComponent},
+      {path: 'comments', component: CommentsComponent}]
   },
   {path: 'news', component: NewsComponent},
   {path: 'about', component: AboutComponent},
@@ -78,6 +81,8 @@ const routes: Routes = [
     FolowingComponent,
     PeopleComponent,
     AdminDirective
+    PeopleComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

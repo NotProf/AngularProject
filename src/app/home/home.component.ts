@@ -4,6 +4,7 @@ import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {NgForm} from '@angular/forms';
 import {AppComponent} from '../app.component';
+import {Title} from '@angular/platform-browser';
 
 
 @Component({
@@ -15,7 +16,10 @@ export class HomeComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
   search = '';
 
-  constructor(private filmsS: FilmService, private userS: UserService, private app: AppComponent) {
+  constructor(private filmsS: FilmService,
+              private userS: UserService,
+              private app: AppComponent,
+              private title: Title) {
   }
 
   films: Films [] = [];
@@ -43,9 +47,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle('MyCinema');
     setInterval(() => this.next(), 5000);
     this.filmsS.getFilms().subscribe((res) => {
-      this.films = res;
+      this.films = res.reverse();
       this.collectionSize = this.films.length;
       this.partFilms = this.films.slice(0, this.maxSize);
     });
@@ -67,6 +72,7 @@ export class HomeComponent implements OnInit {
   }
 
   reloadArray(p: number) {
+    this.collectionSize = this.films.length;
     if (p === 1) {
       this.partFilms = this.films.slice(0, this.maxSize);
     } else {
@@ -78,7 +84,7 @@ export class HomeComponent implements OnInit {
 
   SearchBy(genre: string) {
     this.filmsS.findByGenre(genre).subscribe((res) => {
-      this.films = res;
+      this.films = res.reverse();
       this.page = 1;
       this.onPageChange(1);
     });
@@ -175,4 +181,5 @@ export class HomeComponent implements OnInit {
   toggleVideo() {
     this.videoplayer.nativeElement.play();
   }
+
 }

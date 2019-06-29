@@ -1,0 +1,21 @@
+<h5 [routerLink]="'/film/' + currentFilm.id" class="off">Turn off</h5>
+<form *ngIf="authUser; else noAuth" class="formComment" #form ='ngForm'>
+  <textarea class="textArea" placeholder="Write your comment" ngModel name="text"></textarea>
+  <input  class="btn btn-secondary cl-grey" type="submit" (click)="add(form)">
+</form>
+<ng-template #noAuth>
+<div class="formComment"><h4>Comments can be left only by <a routerLink="/reg">register</a> users</h4></div>
+</ng-template>
+<div class="allcomment">
+
+  <div class="main-comment" *ngFor="let comment of comments">
+
+    <div style="display: inline-block" [routerLink]="'/userpage/' + comment.userID"><img class="avatar" src="{{comment.avatar}}"></div>
+    <div class="comment-content">
+      <span  [routerLink]="'/userpage/' + comment.userID" class="username">{{comment.username}} </span>
+      <span class="dateOfComment" >{{comment.date}}</span>
+      <div class="comment">{{comment.text}}</div>
+    </div>
+
+  </div>
+</div>

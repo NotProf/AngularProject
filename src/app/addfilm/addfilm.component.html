@@ -33,37 +33,14 @@
       <div class="content1">
         <div style="height: 75px; border-bottom: 1px solid #404040; margin: 0"><p
           style="color: white; margin-top: 20px; font-size: 30px"
-          class="text-center">
-          Reccomend</p></div>
-        <div class="row justify-content-center" style="margin-top: 50px; text-align: center; align-items: center;">
-          <a style="text-decoration: none" href="#" class="col-lg-5 films__rec1"><img
-            style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
-          <a style="text-decoration: none" href="#" class="col-lg-5 films__rec1"><img
-            style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
-          <a style="text-decoration: none" href="#" class="col-lg-5 films__rec1"><img
-            style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
-          <a style="text-decoration: none" href="#" class="col-lg-5 films__rec1"><img
-            style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
-          <a style="text-decoration: none" href="#" class="col-lg-5 films__rec1"><img
-            style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
-          <a style="text-decoration: none" href="#" class="col-lg-5 films__rec1"><img
-            style="width: 90%; height: 80%; margin-top: 7px;" src="assets/films1_rec.jpg" alt=""><span>Batman</span></a>
-
+          class="text-center" id="up">Reccomend</p></div>
+        <div class="row" style="margin-top: 50px; text-align: center; align-items: center ; margin-left: 7%">
+          <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
+            style="width: 90%; height: 80%; margin-top: 7px;" [src]="top.picture" alt=""><span>{{top.name}}</span></a>
         </div>
       </div>
       <div class="content2">
-        <div style="width: 100%; border-bottom: 1px solid #404040; margin: 0"
-             class="text-center container"><p style="color: white; margin: 0; font-size: 30px">Сортувати по:</p>
-          <div class="row justify-content-center" style="margin: 0">
-            <a style="margin: 15px 5px 4px 5px; width: 150px; height: 30px" class="col-lg-3 sorted__a" href="">Дата
-              додавання</a>
-            <a style="margin: 15px 5px 4px 5px; width: 100px; height: 30px" class="col-lg-3 sorted__a" href="">Рік
-              випуску</a>
-            <a style="margin: 15px 5px 4px 5px; width: 100px; height: 30px" class="col-lg-3 sorted__a" href="">Топ
-              переглядів</a>
-          </div>
-        </div>
-        <div *ngFor="let f of films.reverse()" class="container" style="border-bottom: 1px solid #404040; ">
+        <div *ngFor="let f of films" class="container" style="border-bottom: 1px solid #404040; ">
           <div class="row">
             <div  class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
               <a class="film__label" routerLink="film"><h4 style="margin-top: 15px">{{f.name}}</h4></a>

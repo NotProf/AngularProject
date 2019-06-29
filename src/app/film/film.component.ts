@@ -2,6 +2,9 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FilmService} from '../../services/film.service';
 import {Films} from '../../models/Films';
+import {UserService} from '../../services/UserService';
+import Timer = NodeJS.Timer;
+import {Title} from '@angular/platform-browser';
 
 
 @Component({
@@ -13,18 +16,25 @@ export class FilmComponent implements OnInit {
   @ViewChild('videoPlayer') videoplayer: ElementRef;
   currentF = 0;
   rating = 0;
+  idInterval;
   video = 'film';
+
   public film: Films = new Films();
 
-  constructor(private actevateRoute: ActivatedRoute, private filmService: FilmService) {
+  constructor(private actevateRoute: ActivatedRoute,
+              private filmService: FilmService,
+              private userService: UserService,
+              private title: Title) {
   }
 
   ngOnInit() {
+
     this.actevateRoute.params.subscribe((param) => {
       this.currentF = Number(param.id);
     });
     this.filmService.getFilmById(this.currentF).subscribe(res => {
       this.film = res;
+      this.title.setTitle(this.film.name);
       const score = Math.trunc(this.film.score);
       try {
         document.getElementById(`star-${score - 1}`).setAttribute('checked', 'checked');
@@ -32,15 +42,11 @@ export class FilmComponent implements OnInit {
         console.log('rating missing');
       }
     });
-    setInterval(() => {
-      console.log(document.getElementsByTagName('video')[0].paused);
-    }, 5000);
 
   }
 
   toggleVideo() {
     this.videoplayer.nativeElement.play();
-
   }
 
   getThisPage(): number {
@@ -99,6 +105,20 @@ export class FilmComponent implements OnInit {
     filmButton.style.background = '#545454';
   }
 
+  play() {
+    this.idInterval = setInterval(() => {
+      if (!document.getElementsByTagName('video')[0].paused) {
+        console.log(this.film.name);
+        this.userService.setStatus('Watching : ' + this.film.name).subscribe();
+      } else {
+        console.log('online');
+        this.userService.setStatus('Online').subscribe();
+        clearInterval(this.idInterval);
+      }
+    }, 5000);
+  }
+
 
 }
+
 
