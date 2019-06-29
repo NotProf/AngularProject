@@ -151,7 +151,6 @@ export class HomeComponent implements OnInit {
     this.films.sort(this.compareByR);
     this.onPageChange(this.page);
   }
-//d
   compareByR(first, second) {
     if (first.score < second.score) {
       return 1;
