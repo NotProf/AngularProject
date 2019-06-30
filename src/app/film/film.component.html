@@ -16,7 +16,7 @@
 
       <input  (click)="star1(film.id)"id="star-0" type="radio" name="reviewStars"/>
       <label title="bad" for="star-0"></label>
-      <h2 style="clear: both">Rating: {{film.score}}</h2>
+      <h2 style="clear: both">Rating: {{film.score | number:'1.1-2'}}</h2>
     </div>
   </div>
 

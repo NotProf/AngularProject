@@ -140,7 +140,7 @@ export class HomeComponent implements OnInit {
       });
     } else {
       this.filmsS.getFilms().subscribe((res) => {
-        this.films = res;
+        this.films = res.reverse();
         this.page = 1;
         this.reloadArray(1);
       });
