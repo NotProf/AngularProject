@@ -1,7 +1,7 @@
 <h5 [routerLink]="'/film/' + currentFilm.id" class="off">Turn off</h5>
 <div class="roles">
   <div *ngFor="let actor of currentFilm.actors" class="rol">
-    <div class="rolImg"><img [src]="actor.image" alt="" width="100%" height="90%"></div>
+    <div class="rolImg"><img class="imgborder" [src]="actor.image"></div>
     <div>{{actor.name}}</div>
   </div>
 </div>

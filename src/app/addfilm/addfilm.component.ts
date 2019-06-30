@@ -38,7 +38,7 @@ export class AddfilmComponent implements OnInit {
   ngOnInit(): void {
     this.filmsS.getFilms().subscribe((res) => {
       this.films = res.reverse();
-      this.counter = this.films[this.films.length - 1].id + 1;
+      // this.counter = this.films[this.films.length - 1].id + 1;
       this.reloadArray(1);
     });
     this.filmsS.getTopTen().subscribe((res) => {

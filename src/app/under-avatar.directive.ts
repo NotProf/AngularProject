@@ -13,10 +13,11 @@ export class UnderAvatarDirective implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       if (this.app.currentUser.id !== this.userP.currentID || localStorage.getItem('_token') == null) {
+        console.log(this.app.currentUser.id + ' ' + this.userP.currentID);
         this.elementRef.nativeElement.style.opacity = 0;
-        this.elementRef.nativeElement.style.bottom = '10000000em';
+        this.elementRef.nativeElement.style.display = 'none';
       }
-    });
+    }, 300);
   }
 
 }

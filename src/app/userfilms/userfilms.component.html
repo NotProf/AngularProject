@@ -1,5 +1,5 @@
-<div class="main" ><h3 style="color: white; text-align: center">My FILMS</h3>
-  <h4 appNoAuthUser style="color: red">{{notAuthUser}}</h4>
+<div class="main" ><h3 style="color: white; text-align: center; margin: 0">My FILMS</h3>
+  <span appNoAuthUser style="color: red">{{notAuthUser}}</span>
   <div class="row">
     <div appUserAuth *ngFor="let film of uFilms" class="col-lg-3 film__div" style="margin-bottom: 6%; text-align: center; margin-left: 1%">
       <button class="btn-outline-danger" (click)="deleteUserFilm(film.id)"><i class="fa fa-times" aria-hidden="true"></i></button>

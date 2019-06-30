@@ -134,10 +134,12 @@
   }
 
   .ro {
-    bottom: 350px;
+    border-radius: 20px;
     margin: 0 auto;
     width: 90%;
+    bottom: 900px;
   }
+
 
 
   .un {
