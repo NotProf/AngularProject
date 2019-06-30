@@ -25,10 +25,7 @@ export class AppComponent implements OnInit {
   currentUser = new User();
   search = '';
   films: Films [] = [];
-  partFilms: Films[] = [];
   public page = 1;
-  userAuth = false;
-  userAu = ' ';
   mes = '';
   title = 'slider';
   el = document.getElementsByClassName('slid');

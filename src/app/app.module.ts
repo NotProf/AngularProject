@@ -28,6 +28,7 @@ import { FinishRegComponent } from './finish-reg/finish-reg.component';
 import { AdminDirective } from './admin.directive';
 import { CommentsComponent } from './comments/comments.component';
 import { DatePipe } from '@angular/common';
+import { UnderAvatarDirective } from './under-avatar.directive';
 
 
 
@@ -82,7 +83,8 @@ const routes: Routes = [
     PeopleComponent,
     AdminDirective,
     PeopleComponent,
-    CommentsComponent
+    CommentsComponent,
+    UnderAvatarDirective
   ],
   imports: [
     BrowserModule,

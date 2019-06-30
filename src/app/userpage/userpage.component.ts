@@ -5,7 +5,8 @@ import {User} from '../../models/User';
 import {UserService} from '../../services/UserService';
 import {FilmService} from '../../services/film.service';
 import {Films} from '../../models/Films';
-import {Title} from "@angular/platform-browser";
+import {Title} from '@angular/platform-browser';
+import {AppComponent} from '../app.component';
 
 
 @Component({
@@ -15,10 +16,12 @@ import {Title} from "@angular/platform-browser";
 })
 export class UserpageComponent implements OnInit {
   constructor(private http: HttpClient, private activatedRoute: ActivatedRoute,
+              private app: AppComponent,
               private userService: UserService,
               private filmService: FilmService,
               private title: Title) {
   }
+
   currentID = 0;
   showUnshow = false;
   subButton = true;
@@ -26,9 +29,10 @@ export class UserpageComponent implements OnInit {
   image = 'assets/ava.jpg';
   fileToUpload: File = null;
   exist: boolean;
-  topTen: Films[] = [];
+  newFilms: Films[] = [];
 
   ngOnInit() {
+
     this.activatedRoute.params.subscribe((value) => {
       this.currentID = Number(value.id);
     });
@@ -39,7 +43,7 @@ export class UserpageComponent implements OnInit {
       } else {
         this.subButton = false;
       }
-    });
+    }, () => console.log('u have to login for more rules'));
     this.userService.getUserById(this.currentID).subscribe((curUser) => {
       this.user = curUser;
       this.title.setTitle(this.user.username);
@@ -51,14 +55,15 @@ export class UserpageComponent implements OnInit {
       this.exist = res;
     });
 
-    this.filmService.getTopTen().subscribe((res) => {
-      this.topTen = res;
+    this.filmService.getNewFilms().subscribe((res) => {
+      this.newFilms = res;
     });
   }
 
   subscribes() {
     this.userService.addSubscribes(this.currentID).subscribe(() => this.ngOnInit());
   }
+
   unSubscribes() {
     this.userService.unSubscribes(this.currentID).subscribe(() => this.ngOnInit());
     this.ngOnInit();
@@ -85,10 +90,14 @@ export class UserpageComponent implements OnInit {
       this.userService.setAvatar(fd).subscribe();
     });
     setTimeout(() => {
-      window.location.href = '/userpage/' + this.user.id;
-    }, 0);
+      this.ngOnInit();
+      alert('Image saved');
+    }, 100);
   }
 
+  // show(id: number) {
+  //   if ()
+  //     }
 
 
 }

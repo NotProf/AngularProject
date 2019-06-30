@@ -21,9 +21,15 @@ export class FilmService {
   getFilms(): Observable<Films[]> {
     return this.http.get<Films[]>(this.url + 'home');
   }
+
   getTopTen(): Observable<Films[]> {
     return this.http.get<Films[]>(this.url + 'topTen');
   }
+
+  getNewFilms(): Observable<Films[]> {
+    return this.http.get<Films[]>(this.url + 'newFilms');
+  }
+
   addFilm(film: FormData): Observable<Films> {
     return this.http.post<Films>(this.url + 'addfilm', film);
   }
@@ -47,6 +53,7 @@ export class FilmService {
   delUserfilms(film: number): Observable<Films[]> {
     return this.http.post<Films[]>(this.url + 'deluserfilms', film, {headers: this.headersOption});
   }
+
   rating(rating, id): Observable<any> {
     const fd: FormData = new FormData();
     fd.append('idFilm', id);
@@ -57,6 +64,7 @@ export class FilmService {
   addComment(form: FormData) {
     return this.http.post(this.url + 'addComment', form, {headers: this.headersOption});
   }
+
   getComments(id: number): Observable<Comments[]> {
     return this.http.post<Comments[]>(this.url + 'getComments', id);
   }

@@ -10,7 +10,7 @@
         <a href="#"  class="menu-btn" (click)="menuClick($event)"><img src="assets/user .png" class="imgUser"></a>
         <nav class="menu-list">
           <h3 style="color: coral; text-align: center; width: 100%">{{mes}}</h3>
-          <a  [routerLink]="'/userpage/' + currentUser.id">My Page</a>
+          <a  [href]="'/userpage/' + currentUser.id">My Page</a>
           <a routerLink="/">Main page</a>
           <a [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">Playlist</a>
           <a [routerLink]="'/userpage/' + currentUser.id + '/usersfriends'">Folowers</a>

@@ -5,7 +5,7 @@
 
       <div class="row justify-content-center">
         <div style=" border-radius: 50%; padding: 0;" class="col-lg-6 row">
-          <label class="col-lg-12" for="fileInput"><img style="width: 200px; height: 200px; border-radius: 50%; border: 2px solid black; padding: 0"
+          <label class="col-lg-12" ><img style="width: 200px; height: 200px; border-radius: 50%; border: 2px solid black; padding: 0"
                                       [src]="user.avatar"></label>
           <h5 class="col-lg-12" *ngIf="user.status.toLowerCase() == 'offline'; else off" style="color: red; margin-right: 0;">{{user.status}}</h5>
           <ng-template #off>
@@ -22,16 +22,16 @@
     <div class="container col-lg-6 c2">
       <h3 style="text-align: center; margin-bottom: 20px">Statistic</h3>
       <h5>email is: <span style="color: goldenrod;">{{user.email}}</span> </h5>
-      <h5><a routerLink="userfilms" style="color: goldenrod;">{{user.usersFilms.length}}</a> films in your library</h5>
+      <h5><a routerLink="userfilms" style="color: goldenrod;">{{user.usersFilms.length}}</a> films in library</h5>
       <h5>Folowing <a routerLink="folowing" style="color: goldenrod;">{{user.folowing.length}}</a></h5>
       <h5>Folowers <a routerLink="usersfriends" style="color: goldenrod;">{{user.subscribes.length}}</a></h5>
     </div>
   </div>
 </div>
-<button class="btn-success" (click)="subscribes()" *ngIf="subButton && !exist">Subscribe</button>
-<button class="btn-danger"(click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</button>
+<button appUserAuth class="btn-success" (click)="subscribes()" *ngIf="subButton && !exist">Subscribe</button>
+<button appUserAuth class="btn-danger"(click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</button>
 <form #form="ngForm" (ngSubmit)="sendFormWithAvatar(form)">
-  <div class="underAvatar ua" style="width: 3%">
+  <div appUnderAvatar class="underAvatar ua" style="width: 3%">
     <i class="fas fa-angle-down" style="font-size: 30px; color: white"></i>
     <ul class="dropUnderAvatar">
       <li><a style="text-decoration: none" routerLink="usersfriends">Followers</a></li>
@@ -46,8 +46,8 @@
 </form>
 <div class="container-fluid " style="padding: 0 0 0 15px">
   <div class="row" style="margin: 0">
-    <div class="col-lg-3 justify-content-center row c3"><h3 class="col-lg-12">New Films</h3>
-      <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
+    <div class="col-lg-4 justify-content-center row c3"><h3 class="col-lg-12">New Films</h3>
+      <a *ngFor="let top of newFilms" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
         style="width: 90%; height: 80%; margin-top: 7px;" [src]="top.picture" alt=""><span>{{top.name}}</span></a>
     </div>
     <div class="col-lg-6 ro">

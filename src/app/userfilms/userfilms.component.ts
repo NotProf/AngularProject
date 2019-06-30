@@ -24,12 +24,15 @@ export class UserfilmsComponent implements OnInit {
   }
 
   deleteUserFilm(id: number) {
-    this.filmsS.delUserfilms(id).subscribe((res) => {
-      this.uFilms = res;
-      setTimeout(() => {
-          window.location.reload();
-        }, 300
-      );
-    });
+    let b = confirm('Delete this film?');
+    if (b === true) {
+      this.filmsS.delUserfilms(id).subscribe((res) => {
+        this.uFilms = res;
+        setTimeout(() => {
+            window.location.reload();
+          }, 200
+        );
+      });
+    }
   }
 }

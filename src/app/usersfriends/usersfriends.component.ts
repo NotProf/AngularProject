@@ -18,8 +18,7 @@ export class UsersfriendsComponent implements OnInit {
   ngOnInit() {
     this.id = this.userComponent.currentID;
     this.userService.getSubscribes(this.id).subscribe((res) => {
-      this.subscribes = res
-      console.log(this.subscribes);
+      this.subscribes = res;
     });
   }
 

@@ -253,7 +253,8 @@
 }
 
 .films__rec1 {
-  background: rgba(148, 148, 148, 0.91);
+  background: #49494b;
+  border: 1px solid #2e2e30;
   width: 50%;
   height: 250px;
   padding: 0;

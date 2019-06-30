@@ -3,18 +3,16 @@ import {Directive, ElementRef, OnInit} from '@angular/core';
 @Directive({
   selector: '[appAddButton]'
 })
-export class AddButtonDirective  implements OnInit {
+export class AddButtonDirective implements OnInit {
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef) {
+  }
 
   ngOnInit(): void {
-    if (localStorage.getItem('_token') != null) {
-      this.elementRef.nativeElement.style.cursor = 'allowed';
-      //this.elementRef.nativeElement.style.pointerEvents = 'none';
-    } else {
+    if (localStorage.getItem('_token') == null) {
       this.elementRef.nativeElement.style.cursor = 'not-allowed';
       this.elementRef.nativeElement.style.pointerEvents = 'none';
-      console.log('false');
+      this.elementRef.nativeElement.style.opacity = 0.5;
     }
   }
 

@@ -19,7 +19,7 @@ export class UserService {
 
   static handleError(err) {
     if (err instanceof HttpErrorResponse) {
-      console.log('403');
+      console.log('err');
     }
     return throwError(err);
   }
