@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FilmService} from '../../services/film.service';
+import {Title} from '@angular/platform-browser';
+import {Films} from '../../models/Films';
 
 @Component({
   selector: 'app-news',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private filmsS: FilmService,  private title: Title) { }
+  topTen: Films[] = [];
   ngOnInit() {
+    this.filmsS.getTopTen().subscribe((res) => {
+      this.topTen = res;
+    });
   }
 
 }
