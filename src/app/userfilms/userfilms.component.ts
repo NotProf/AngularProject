@@ -3,6 +3,7 @@ import {Films} from '../../models/Films';
 import {FilmService} from '../../services/film.service';
 import {UserService} from '../../services/UserService';
 import {UserpageComponent} from '../userpage/userpage.component';
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-userfilms',
@@ -10,7 +11,10 @@ import {UserpageComponent} from '../userpage/userpage.component';
   styleUrls: ['./userfilms.component.css']
 })
 export class UserfilmsComponent implements OnInit {
-  constructor(private filmsS: FilmService, private userS: UserService, private userComponent: UserpageComponent) {
+  constructor(private filmsS: FilmService,
+              private userS: UserService,
+              private userComponent: UserpageComponent,
+              private app: AppComponent) {
   }
 
   uFilms: Films[];
@@ -27,7 +31,7 @@ export class UserfilmsComponent implements OnInit {
     this.filmsS.delUserfilms(id).subscribe((res) => {
       this.uFilms = res;
       setTimeout(() => {
-          window.location.reload();
+          this.app.ngOnInit();
         }, 300
       );
     });
