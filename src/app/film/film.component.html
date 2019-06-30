@@ -2,19 +2,19 @@
   <h2  class="nameFilm">{{film.name}}</h2>
   <div class="minStar">
     <div id="reviewStars-input">
-      <input  (click)="star5(film.id)" id="star-4" type="radio" name="reviewStars"/>
+      <input  (click)="star(film.id, 5)" id="star-4" type="radio" name="reviewStars"/>
       <label title="gorgeous" for="star-4"></label>
 
-      <input (click)="star4(film.id)" id="star-3" type="radio" name="reviewStars"/>
+      <input (click)="star(film.id, 4)" id="star-3" type="radio" name="reviewStars"/>
       <label title="good" for="star-3"></label>
 
-      <input  (click)="star3(film.id)"id="star-2" type="radio" name="reviewStars"/>
+      <input  (click)="star(film.id,3)"id="star-2" type="radio" name="reviewStars"/>
       <label title="regular" for="star-2"></label>
 
-      <input (click)="star2(film.id)" id="star-1" type="radio" name="reviewStars"/>
+      <input (click)="star(film.id, 2)" id="star-1" type="radio" name="reviewStars"/>
       <label title="poor" for="star-1"></label>
 
-      <input  (click)="star1(film.id)"id="star-0" type="radio" name="reviewStars"/>
+      <input  (click)="star(film.id, 1)"id="star-0" type="radio" name="reviewStars"/>
       <label title="bad" for="star-0"></label>
       <h2 style="clear: both">Rating: {{film.score | number:'1.1-2'}}</h2>
     </div>

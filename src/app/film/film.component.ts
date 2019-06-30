@@ -64,31 +64,10 @@ export class FilmComponent implements OnInit {
     });
   }
 
-  star5(id) {
-    const value = 5;
-    this.filmRating(value, id);
+  star(id, vel: number) {
+    this.filmRating(vel, id);
+    this.ngOnInit();
   }
-
-  star4(id) {
-    const value = 4;
-    this.filmRating(value, id);
-  }
-
-  star3(id) {
-    const value = 3;
-    this.filmRating(value, id);
-  }
-
-  star2(id) {
-    const value = 2;
-    this.filmRating(value, id);
-  }
-
-  star1(id) {
-    const value = 1;
-    this.filmRating(value, id);
-  }
-
   filmB() {
     this.video = 'film';
     const filmButton = document.getElementById('filmButton');
