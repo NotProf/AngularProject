@@ -39,7 +39,7 @@ export class FilmService {
   }
 
   getFilmById(id: number): Observable<Films> {
-    return this.http.post<Films>(this.url + 'getbyid', id);
+    return this.http.post<Films>(this.url + 'getbyid', id, {headers: this.headersOption});
   }
 
   findByGenre(genre: string): Observable<Films[]> {
@@ -66,6 +66,6 @@ export class FilmService {
   }
 
   getComments(id: number): Observable<Comments[]> {
-    return this.http.post<Comments[]>(this.url + 'getComments', id);
+    return this.http.post<Comments[]>(this.url + 'getComments', id, {headers: this.headersOption});
   }
 }
