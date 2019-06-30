@@ -51,8 +51,7 @@ export class HomeComponent implements OnInit {
     setInterval(() => this.next(), 5000);
     this.filmsS.getFilms().subscribe((res) => {
       this.films = res.reverse();
-      this.collectionSize = this.films.length;
-      this.partFilms = this.films.slice(0, this.maxSize);
+      this.reloadArray(1);
     });
     this.filmsS.getTopTen().subscribe((res) => {
       this.topTen = res;

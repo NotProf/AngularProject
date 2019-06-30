@@ -1,38 +1,63 @@
 
-<form #form="ngForm" (ngSubmit)="sendForm(form)" style="text-align: center" >
-
+<form #form="ngForm" (ngSubmit)="sendForm(form)"  >
+  <div style="display: inline-block; float: left">
     <input type="text" ngModel name="name" placeholder="name">
     <textarea ngModel name="aboutFilm" placeholder="aboutFilm"></textarea>
      <input type="text" ngModel name="year" placeholder="year">
       <input type="text" ngModel name="country" placeholder="Country">
     <input type="text" ngModel name="quality" placeholder="quality">
+    <select style="display: block" ngModel name="genre" multiple >
+      <option value="Comedy">Comedy</option>
+      <option value="Fantasy">Fantasy</option>
+      <option value="Horror">Horror</option>
+      <option value="Drama">Drama</option>
+      <option value="Historical">Historical</option>
+      <option value="Adventure">Adventure</option>
+      <option value="Biography">Biography</option>
+      <option value="Sport">Sport</option>
+      <option value="Cartoons">Cartoons</option>
+      <option value="Serials">Serials</option>
+    </select>
+  </div>
 
-  <select ngModel name="genre" multiple >
-    <option value="Comedy">Comedy</option>
-    <option value="Fantasy">Fantasy</option>
-    <option value="Horror">Horror</option>
-    <option value="Drama">Drama</option>
-    <option value="Historical">Historical</option>
-    <option value="Adventure">Adventure</option>
-    <option value="Biography">Biography</option>
-    <option value="Sport">Sport</option>
-    <option value="Cartoons">Cartoons</option>
-    <option value="Serials">Serials</option>
-  </select>
-
+  <div style="float: right">
+  <h5>Picture</h5>
   <input  type="file"  name="picture" (change)="handleFileInput($event.target.files)" placeholder="Image">
+  <h5>Movie</h5>
   <input  type="file"  name="picture" (change)="handleVideoInput($event.target.files)" placeholder="Video">
-  <input  type="file"  name="picture" (change)="handleScreenShots1Input($event.target.files)" placeholder="screenShots1">
-  <input  type="file"  name="picture" (change)="handleScreenShots2Input($event.target.files)" placeholder="screenShots2">
-  <input  type="file"  name="picture" (change)="handleScreenShots3Input($event.target.files)" placeholder="screenShots3">
-  <input  type="file"  name="picture" (change)="handleScreenShots4Input($event.target.files)" placeholder="screenShots4">
+  <h5>Trailer</h5>
   <input  type="file"  name="picture" (change)="handleTrailerInput($event.target.files)" placeholder="trailer">
-  <h1 style="color: white">Soundtracks</h1>
-  <input  type="file"  name="picture" (change)="handleAudioInput1($event.target.files)" placeholder="trailer">
-  <input  type="file"  name="picture" (change)="handleAudioInput2($event.target.files)" placeholder="trailer">
-  <input  type="file"  name="picture" (change)="handleAudioInput3($event.target.files)" placeholder="trailer">
-  <input  type="file"  name="picture" (change)="handleAudioInput4($event.target.files)" placeholder="trailer">
+  </div>
+<div style="clear: both">
+  <div class="inline-block">
+    <h4>ScreenShots</h4>
+    <input  type="file"  name="picture" (change)="handleScreenShots1Input($event.target.files)" placeholder="screenShots1">
+    <input  type="file"  name="picture" (change)="handleScreenShots2Input($event.target.files)" placeholder="screenShots2">
+    <input  type="file"  name="picture" (change)="handleScreenShots3Input($event.target.files)" placeholder="screenShots3">
+    <input  type="file"  name="picture" (change)="handleScreenShots4Input($event.target.files)" placeholder="screenShots4">
+  </div>
+  <div class="inline-block">
+    <h4>Soundtracks</h4>
+    <input  type="file"  name="picture" (change)="handleAudioInput1($event.target.files)" placeholder="trailer">
+    <input  type="file"  name="picture" (change)="handleAudioInput2($event.target.files)" placeholder="trailer">
+    <input  type="file"  name="picture" (change)="handleAudioInput3($event.target.files)" placeholder="trailer">
+    <input  type="file"  name="picture" (change)="handleAudioInput4($event.target.files)" placeholder="trailer">
+  </div>
+</div>
 
+  <div style="margin-top: 40px">
+    <div class="inline-block"><input type="text" ngModel name="actor1" placeholder="Actor 1">
+      <input type="file" (change)="handleActor1($event.target.files)"></div>
+
+    <div class="inline-block"><input type="text" ngModel name="actor2" placeholder="Actor 2">
+      <input type="file" (change)="handleActor2($event.target.files)"></div>
+
+    <div class="inline-block"><input type="text" ngModel name="actor3" placeholder="Actor 3">
+      <input type="file" (change)="handleActor3($event.target.files)"></div>
+
+    <div class="inline-block"><input type="text" ngModel name="actor4" placeholder="Actor 4">
+      <input type="file" (change)="handleActor4($event.target.files)"></div>
+  </div>
   <input type="submit">
 </form>
 
@@ -44,14 +69,14 @@
       <div class="content1">
         <div style="height: 75px; border-bottom: 1px solid #404040; margin: 0"><p
           style="color: white; margin-top: 20px; font-size: 30px"
-          class="text-center" id="up">Reccomend</p></div>
+          class="text-center" id="up">Recommend</p></div>
         <div class="row" style="margin-top: 50px; text-align: center; align-items: center ; margin-left: 7%">
           <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
             style="width: 90%; height: 80%; margin-top: 7px;" [src]="top.picture" alt=""><span>{{top.name}}</span></a>
         </div>
       </div>
       <div class="content2">
-        <div *ngFor="let f of films" class="container" style="border-bottom: 1px solid #404040; ">
+        <div *ngFor="let f of partFilms" class="container" style="border-bottom: 1px solid #404040; ">
           <div class="row">
             <div  class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
               <a class="film__label" routerLink="film"><h4 style="margin-top: 15px">{{f.name}}</h4></a>
@@ -73,3 +98,7 @@
     </div>
   </div>
 </section>
+<ngb-pagination style="margin: 0;" [collectionSize]="collectionSize"
+                [(page)]="page" [maxSize]="5" [pageSize]="maxSize" [rotate]="true" [directionLinks]="true"
+                (pageChange)="onPageChange($event)">
+</ngb-pagination>
