@@ -15,7 +15,7 @@ export class AdminDirective implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem('_token') == null && localStorage.getItem('_currentUser') == null) {
       this.elementRef.nativeElement.style.opacity = 0;
-      this.elementRef.nativeElement.style.bottom = '10000000em';
+      this.elementRef.nativeElement.style.display = 'none';
     } else {
       this.userS.getCurrentUser().subscribe((current) => {
         this.curUser = current;
@@ -23,7 +23,7 @@ export class AdminDirective implements OnInit {
           this.elementRef.nativeElement.style.opacity = 1;
         } else if (current.role === 'ROLE_USER') {
           this.elementRef.nativeElement.style.opacity = 0;
-          this.elementRef.nativeElement.style.bottom = '10000000em';
+          this.elementRef.nativeElement.style.display = 'none';
         }
       });
     }

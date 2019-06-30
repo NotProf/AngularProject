@@ -40,14 +40,14 @@
         <div style="width: 100%; border-bottom: 1px solid #404040; margin: 0"
              class="text-center container">
           <div class="row justify-content-center" style="margin: 0">
-            <a style=" color:white; margin: 15px 5px 4px 5px; width: 150px; height: 30px" class="col-lg-3 sorted__a"
+            <a style="color: white" class="col-lg-3 sorted__a"
                (click)="sortByRating()">Rating</a>
-            <a style="margin: 15px 5px 4px 5px; width: 100px; color: white;height: 30px" class="col-lg-3 sorted__a"
+            <a style="color: white" class="col-lg-3 sorted__a"
                (click)="sortByYear()">Year</a>
             <form #form="ngForm" method="get" class="search col-lg-5" id="search" >
               <input (keydown)="sendSearchForm(form)" type="search" ngModel name="search" placeholder="Search"
                      class="input"/>
-              <input (click)="sendSearchForm(form)" type="submit" value="" class="submit"/>
+              <input style="outline: none;" (click)="sendSearchForm(form)" type="submit" value="" class="submit"/>
             </form>
           </div>
         </div>

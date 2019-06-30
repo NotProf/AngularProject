@@ -5,10 +5,16 @@
   border-bottom-right-radius: 20px;
 }
 
-.people__img{
+.people__img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+  outline: none;
   opacity: 0.8;
 }
 
-.people__img:hover{
+.people__img:hover {
   opacity: 1;
 }

@@ -1,7 +1,7 @@
 <div class="main container-fluid main-div"><h3 class="h">People </h3>
   <form #form ="ngForm" method="get" class="search" id="search">
     <input (keydown)="sendSearchForm(form)" type="search" ngModel name="search" placeholder="Search" class="input"/>
-    <input (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
+    <input style="outline: none;" (click)="sendSearchForm(form)" type="submit" value=""  class="submit"/>
   </form>
   <div class="row myrow" >
 

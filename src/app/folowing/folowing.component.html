@@ -1,9 +1,9 @@
 <div class="main container-fluid" ><h3 style="color: white; text-align: center">FOLLOWING</h3>
   <div class="row">
-    <div *ngFor="let folower of folowing"  style="margin-bottom: 4%; cursor: pointer;"
+    <div *ngFor="let folower of folowing"  style="margin-bottom: 4%; cursor: pointer; outline: none;"
          (click)="Update()" [routerLink]="'/userpage/' + folower.id">
-      <div style="text-align: center; border-radius: 50%;" class="col-lg-9" >
-        <label><img class="people__img" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid black; cursor: pointer"
+      <div style="text-align: center; border-radius: 50%; outline: none" class="col-lg-9" >
+        <label><img class="people__img"
                     [src]="folower.avatar"></label>
       </div>
       <p style="color: aqua; text-align: center">{{folower.username}}</p>

@@ -1,10 +1,10 @@
 
 <div class="main container-fluid" style="background: #333333; border: 1px solid rgba(143,146,143,0.91)"><h3 style="color: white; text-align: center">FOLLOWERS</h3>
   <div class="row">
-      <div *ngFor="let sub of subscribes"  style="margin-bottom: 4%;  cursor: pointer;"
+      <div *ngFor="let sub of subscribes"  style="margin-bottom: 4%;  cursor: pointer; outline: none"
            (click)="Update()" [routerLink]="'/userpage/' + sub.id">
-        <div style="text-align: center; border-radius: 50%;" class="col-lg-9" >
-          <label><img style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid black;  cursor: pointer;"
+        <div style="text-align: center; border-radius: 50%; outline: none" class="col-lg-9" >
+          <label><img style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid black;  cursor: pointer; outline: none"
                                       [src]="sub.avatar"></label>
         </div>
         <p style="color: aqua; text-align: center">{{sub.username}}</p>

@@ -64,9 +64,7 @@ export class HomeComponent implements OnInit {
   }
 
   onPageChange(p: number) {
-    const url = location.href;
     location.href = '#up';
-    history.replaceState(null, null, url);
     this.reloadArray(p);
   }
 
