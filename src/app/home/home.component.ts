@@ -120,6 +120,7 @@ export class HomeComponent implements OnInit {
         console.log(this.usersFilms);
         location.href = '#exists';
         this.filmExists = 'Додано';
+        setTimeout(() => this.filmExists = '', 5000);
         // this.userfilmItar = true;
       });
     } else {
@@ -127,6 +128,7 @@ export class HomeComponent implements OnInit {
       console.log(this.userfilmItar);
       location.href = '#exists';
       this.filmExists = 'Вже є';
+      setTimeout(() => this.filmExists = '', 5000);
     }
   }
   sendSearchForm(form: NgForm) {
