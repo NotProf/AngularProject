@@ -1,6 +1,7 @@
 <div class="main" ><h3 style="color: white; text-align: center">My FILMS</h3>
+  <h4 appNoAuthUser style="color: red">{{notAuthUser}}</h4>
   <div class="row">
-    <div *ngFor="let film of uFilms" class="col-lg-3 film__div" style="margin-bottom: 6%; text-align: center; margin-left: 1%">
+    <div appUserAuth *ngFor="let film of uFilms" class="col-lg-3 film__div" style="margin-bottom: 6%; text-align: center; margin-left: 1%">
       <button class="btn-outline-danger" (click)="deleteUserFilm(film.id)"><i class="fa fa-times" aria-hidden="true"></i></button>
       <a class="film"  [routerLink]="'/film/' + film.id"><img class="film__image"
          [src]="film.picture" alt=""><h6>{{film.name}}</h6></a>

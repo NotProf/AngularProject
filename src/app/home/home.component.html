@@ -31,7 +31,7 @@
           style="color: white; margin-top: 20px; font-size: 30px"
           class="text-center" id="up">Reccomend</p></div>
         <div class="row" style="margin-top: 50px; text-align: center; align-items: center ; margin-left: 7%">
-          <a *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
+          <a appAddButton *ngFor="let top of topTen" style="text-decoration: none" [routerLink]="'/film/' + top.id" class="col-lg-5 films__rec1"><img
             style="width: 90%; height: 80%; margin-top: 7px;" [src]="top.picture" alt=""><span>{{top.name}}</span></a>
         </div>
       </div>
@@ -51,16 +51,16 @@
             </form>
           </div>
         </div>
-        <div *ngFor="let f of partFilms" class="container" style="border-bottom: 1px solid #404040; ">
+        <div appAddButton *ngFor="let f of partFilms" class="container" style="border-bottom: 1px solid #404040; ">
           <div class="row">
             <div class="col-lg-5" style="padding: 0; margin: 10px 10px 0 20px; text-align: center">
               <a class="film__label" [routerLink]="'/film/' + f.id"><h4 style="margin-top: 15px">{{f.name}}</h4></a>
               <a class="films__rec2" [routerLink]="'/film/' + f.id"><img class="f__img"
                                                                          alt="" [src]="f.picture"></a>
               <div style="text-align: left; margin: 20px 0 30px;" class="row">
-                <a [routerLink]="'/film/' + f.id" style="border: 1px solid black; color: white" class="btn btn-secondary col-lg-4"
+                <a  appAddButton [routerLink]="'/film/' + f.id" style="border: 1px solid black; color: white" class="btn btn-secondary col-lg-4"
                                                >Дивитись</a>
-                <a style="color: white; border: 1px solid black" class="btn btn-secondary col-lg-4"
+                <a appAddButton style="color: white; border: 1px solid black" class="btn btn-secondary col-lg-4"
                    (click)="ShowTrailer(f.id)">Трейлер</a>
                 <a appAddButton style="color: white; border: 1px solid black"
                    class="btn btn-secondary col-lg-4" (click)="addUserFilm(f.id)">ADD</a>

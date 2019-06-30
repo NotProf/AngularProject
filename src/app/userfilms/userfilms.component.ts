@@ -15,6 +15,7 @@ export class UserfilmsComponent implements OnInit {
 
   uFilms: Films[];
   id: number;
+  notAuthUser = 'Please LOGIN!';
 
   ngOnInit(): void {
     this.id = this.userComponent.currentID;

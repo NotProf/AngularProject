@@ -54,7 +54,7 @@ export class UserService {
   getUserFilms(id: number): Observable<Films[]> {
     return this.http.post<Films[]>
     (this.url + 'userpage-userfilms', id,
-      {headers: this.headersOption});
+      {headers: this.headersOption}).pipe(catchError(UserService.handleError));
   }
 
   getCurrentUser(): Observable<User> {
