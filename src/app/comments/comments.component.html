@@ -1,7 +1,7 @@
 <h5 [routerLink]="'/film/' + currentFilm.id" class="off">Turn off</h5>
 <form *ngIf="authUser; else noAuth" class="formComment" #form ='ngForm'>
-  <textarea class="textArea" placeholder="Write your comment" ngModel name="text"></textarea>
-  <input  class="btn btn-secondary cl-grey" type="submit" (click)="add(form)">
+  <textarea  required minlength="4" class="textArea" placeholder="Write your comment" ngModel name="text"></textarea>
+  <input  [disabled]="!form.valid" class="btn btn-secondary cl-grey" type="submit" (click)="add(form)">
 </form>
 <ng-template #noAuth>
 <div class="formComment"><h4>Comments can be left only by <a routerLink="/reg">register</a> users</h4></div>
