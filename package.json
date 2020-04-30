@@ -23,7 +23,7 @@
     "@ngx-pwa/offline": "^6.2.0",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "network-status-angular": "^1.0.4",
     "ng-connection-service": "^1.0.4",
     "rxjs": "~6.3.3",
